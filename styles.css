@@ -1,0 +1,414 @@
+/* Imports custom fonts from Google */
+
+/*  Comic Neue || Bangers */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap');
+
+/* Changes the whole website's CSS, but can still overridden by other more specifically targeted CSS */
+* {
+	border-color: currentColor;
+	scroll-behavior: smooth;
+}
+
+html {
+	text-align: center;
+}
+
+.dark-mode {
+	background-color: #222;
+	color: white;
+	overflow-wrap: break-word;
+	z-index: 1;
+	text-align: center;
+	margin: 0;
+}
+
+body {
+	background-color: rgb(200, 200, 200);
+	color: black;
+	overflow-wrap: break-word;
+	z-index: 1;
+	text-align: center;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+#bgImg {
+	z-index: -1;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	top: 50px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Animation Keyframes */
+/* prettier-ignore */
+@keyframes slideDown {
+	from {bottom: 100px; opacity: 0%}
+	to	 {bottom: 0px; opacity: 100%}
+}
+
+/* prettier-ignore */
+@keyframes slideLeft {
+	from {right: 100px; opacity: 0%}
+	to 	 {right: 0px; opacity: 100%}
+}
+
+/* prettier-ignore */
+@keyframes scroll {
+	0% {transform: translate(0);}
+	50% {transform: translate(0,40px);}
+	100% {transform: translate(0);}
+	
+}
+
+.scrollDown {
+	display: block;
+	margin: auto;
+	text-align: center;
+	-webkit-animation: scroll 3s ease infinite;
+	-moz-animation: scroll 3s ease infinite;
+	-o-animation: scroll 3s ease infinite;
+	animation: scroll 3s ease infinite;
+}
+
+/* Navbar CSS */
+nav a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 20px;
+}
+
+nav {
+	padding-top: 0;
+	position: sticky;
+	float: left;
+	top: 0px;
+	width: 100%;
+	background-color: rgba(220, 220, 220, 0.4);
+	-webkit-backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);
+	z-index: 2;
+}
+
+nav li {
+	padding: 15px 4em 15px 4em;
+	display: inline;
+}
+
+nav li:hover {
+	background-color: rgba(135, 135, 135, 0.9);
+}
+
+nav h1 {
+	font-size: 35px;
+}
+
+#navBorder {
+	border: 1px solid rgba(135, 135, 135, 1);
+}
+
+/* Dark Mode Switch */
+
+.darkSwitch {
+	width: 100%;
+	float: left;
+	text-align: center;
+	top: 0px;
+	padding-bottom: 10px;
+}
+#innerSwitch {
+	display: inline-block;
+	color: inherit;
+	cursor: pointer;
+	border: 1px solid #555;
+	border-radius: 1.25rem;
+	width: 3.125rem;
+	text-align: center;
+	font-size: 1rem;
+	padding: 0px;
+	margin-left: 0.3125rem;
+	background-color: inherit;
+}
+
+/* Styles for the greeting on Home Page */
+.titleOfPage {
+	font-size: 50px;
+	padding-top: 150px;
+	font-family: 'Bangers', cursive;
+}
+
+#testing {
+	font-family: cursive;
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+
+.frontPage {
+	background-color: inherit;
+}
+
+p {
+	font-size: 1.5em;
+}
+
+#alertBtn {
+	display: inline-block;
+	vertical-align: text-bottom;
+}
+
+#alertInput {
+	position: relative;
+	width: 200px;
+	height: 100px;
+	border: 3px solid rgba(63, 63, 63, 0.5);
+	border-radius: 3px;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-repeat: no-repeat;
+	background-color: #222;
+	color: inherit;
+	resize: none;
+}
+
+/* CSS for the Interactive Part of the Website */
+
+/* Makes the interactive Div buttons, display like a navigation bar */
+#inputDiv {
+	display: inline;
+}
+
+/* Makes the font size changer hidden until the button is pressed */
+#fontChangeDiv {
+	display: none;
+}
+
+#textColorToggle {
+	text-align: center;
+	position: relative;
+}
+/* Makes color settings hidden until the button is pressed */
+#colorInput {
+	display: none;
+}
+
+#colorInput input {
+	height: 25px;
+	width: 250px;
+}
+
+select {
+	border: 1px solid rgba(10, 10, 10, 0.2);
+	background-color: rgba(10, 10, 10, 0.2);
+	color: inherit;
+}
+
+option {
+	border: 1px solid rgba(10, 10, 10, 0.2);
+	background-color: rgba(10, 10, 10, 0.2);
+	color: inherit;
+}
+
+/* Styles the Text area to make it looks nicer */
+textarea {
+	position: relative;
+	width: 600px;
+	height: 120px;
+	border: 3px solid #504e4e;
+	border-radius: 3px;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-repeat: no-repeat;
+	background-color: inherit;
+	color: inherit;
+	width: 50%;
+	resize: none;
+}
+
+#interactiveDiv input {
+	background-color: inherit;
+	color: inherit;
+	border: 1px solid grey;
+	border-radius: 4px;
+}
+
+#interactiveDiv button {
+	height: 25px;
+}
+/*
+#interactiveDiv button:hover {
+	background-color: rgba(135, 135, 135, 0.9);
+	cursor: pointer;
+}*/
+
+/* Button to confirm the text inside the text area above */
+#textButton {
+	display: inline-block;
+	vertical-align: text-bottom;
+	background-color: inherit;
+}
+
+.container {
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-align: left;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 100px;
+}
+
+/* CSS for Introduction in Index.html */
+iframe {
+	width: 50%;
+}
+
+.introductions {
+	backdrop-filter: blur(2px);
+	margin-top: 150px !important;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	text-align: left;
+	padding-left: 50px;
+	padding-right: 50px;
+	background-color: rgba(225, 225, 225, 0.5);
+	background-blend-mode: darken;
+	backdrop-filter: blur(4px);
+	line-height: 50px;
+}
+
+button {
+	color: inherit;
+	background-color: rgba(10, 10, 10, 0.2);
+	border-radius: 4px;
+	border: 1px solid rgba(130, 130, 130, 0.5);
+	height: 35px;
+	width: inherit;
+}
+
+button:hover {
+	background-color: rgba(200, 200, 200, 0.9);
+	cursor: pointer;
+}
+
+.mistakes strong {
+	font-size: 30px;
+	color: red;
+}
+
+.spotifyDiv {
+	display: inline;
+}
+
+.explanationSpot {
+	text-align: right;
+	position: relative;
+}
+
+#spotifySnippet {
+	width: 50%;
+	height: 10px;
+}
+
+/* About Me Page */
+.aboutPage {
+	margin-top: 100px;
+	margin-left: 50px;
+	margin-right: 50px;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	background-color: rgba(225, 225, 225, 0.4);
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+}
+
+.aboutPage a {
+	color: rgb(47, 34, 226);
+}
+
+.aboutPage a:hover {
+	text-decoration: underline;
+}
+
+.aboutPage p {
+	text-align: left;
+	padding-left: 80px;
+	padding-right: 80px;
+	font-size: 2em;
+	font-family: 'Comic Neue', cursive;
+}
+
+.aboutPage p {
+	font-size: 2em;
+	font-family: cursive;
+	padding-bottom: 15px;
+	line-height: 2em;
+}
+
+#instagram {
+	margin-right: 60px;
+	width: 45px;
+}
+
+#twitter {
+	margin-bottom: 5px;
+	margin-left: 60px;
+	width: 50px;
+}
+
+/* Dark Mode Stuff ALWAYS PUT IN THE BOTTOM */
+.darkModeIntro {
+	backdrop-filter: blur(2px);
+	margin-top: 150px;
+	text-align: left;
+	padding-bottom: 40px;
+	padding-top: 40px;
+	padding-left: 50px;
+	padding-right: 50px;
+	background-color: rgba(49, 49, 49, 0.7);
+	backdrop-filter: blur(4px);
+	line-height: 50px;
+}
+
+.darkModeNav {
+	margin: 0px;
+	padding-top: 0;
+	position: sticky;
+	float: left;
+	top: 0px;
+	width: 100%;
+	background-color: rgba(50, 50, 50, 0.4);
+	-webkit-backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);
+	z-index: 2;
+}
+
+.aboutPageDark {
+	margin-top: 100px;
+	margin-left: 50px;
+	margin-right: 50px;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	background-color: rgba(49, 49, 49, 0.4);
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+}
+
+@media screen {
+	pre .token.comment {
+		color: grey;
+	}
+}
+
+code {
+	font-size: 20px;
+	margin-right: 100px;
+	margin-right: 100px;
+	padding-top: 0;
+	padding-left: 20px;
+	white-space: pre-wrap;
+}

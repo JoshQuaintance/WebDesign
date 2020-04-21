@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- Interactive Website for Web Design Class
+        by: Joshua Pelealu-->
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Codes Codes Codes!</title>
+
+		<!--CSS Link-->
+		<link async class="WebsiteCSS" rel="stylesheet" href="styles.css" />
+
+		<!--Prism Css-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-okaidia.css">
+
+		<!--AOS CDN CSS-->
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+		<!--JavaScript Link-->
+		<script async type="text/javascript" src="features.js"></script>
+		
+		<!--JavaScript 2 Link-->
+		<script type="text/javascript" src="script.js"></script>
+
+		<!--JQuery Link-->
+		<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+		
+		
+	</head>
+
+	<body id="bodyTag">
+
+	<!--Navigation Bar-->
+	<nav>
+		<!--Dark Mode Switch-->
+		<div style="display: inline;" class="darkSwitch darkSwitch-PC">
+			Dark Mode:
+			<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
+		</div>
+
+		<ul style="list-style-type: inside; padding-left: 0px;" id="navBar">
+			<a href="index.html" target="_parent" ><li>Home</li></a>
+			<a href="interactive.html" target="_parent"><li>Interactive</li></a>
+			<a href="about.html" target="_parent"><li>About</li></a>
+		</ul>
+		
+		<!--Dark Mode Switch-->
+		<div class="darkSwitch darkSwitch-Mobile">
+			Dark Mode:
+			<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
+		</div>
+
+	</nav>
+
+
+		<br>
+		<div id="interactiveDiv">
+			<p>Now let's make your own webpage with a this template!</p>
+			<!--Asks for texts input that will be displayed, as soon as the user confirms the input, the div will be removed.-->
+			<div id="inputDiv">
+				<label>First, Pick A Header Type: </label>
+				<select name="" id="headerSelect">
+					<option style="font-size: 2em;" value="h1">Heading 1</option>
+					<option style="font-size: 1.5em;" value="h2">Heading 2</option>
+					<option style="font-size: 1.17em;" value="h3">Heading 3</option>
+					<option style="font-size: 1em;" value="h4">Heading 4</option>
+					<option style="font-size: .83em;" value="h5">Heading 5</option>
+					<option style="font-size: .67em;" value="h6">Heading 6</option>
+				</select>
+				
+				<p>
+					Input text to display, 00choose wisely, you can only put it in
+					once! Be careful, there is a 500 character limit!
+				</p>
+
+				<textarea
+					name="text"
+					wrap="soft"
+					maxlength="500"
+					id="textInput"
+					placeholder="Input Text"
+				></textarea>
+
+				<button id="textButton" onclick="textButton()">Confirm</button>
+				<br />
+			</div>
+
+			<!--Button make text color settings appear-->
+			<button id="textColorToggle" onclick="textColorToggle()">
+				Change Text Color
+			</button>
+
+			<!-- Color Settings -->
+			<div id="colorInput">
+				<p>Type a valid color name or in a different type (Hex Value, RGB(), or RGBA())</p>
+				<input id="colorPlace" placeholder="Enter A Color" />
+				<button id="stylesButton" onclick="styleButton()">Confirm</button>
+			</div>
+
+			<!--Button make font-size settings appear-->
+			<button id="fontSizeTgl" onclick="fontChangeTgl()">
+				Font Size Changer
+			</button>
+
+			<!--Font-size settings -->
+			<div id="fontChangeDiv">
+				<p>Font Size (px):</p>
+				<input
+					type="number"
+					id="fontSizeInput"
+					placeholder="Font Size"
+				/>
+				<button id="fontSizeConfirmBtn" onclick="fontSizeConfirm()">
+					Confirm
+				</button>
+			</div>
+
+			<p id="prototype"></p>
+		</div>
+		
+		<h1 style="font-size: 4em;">Still In Progress!</h1>
+
+		
+		
+		<!--AOS JS CDN-->
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+		<!--Prism Syntax Highlighter-->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
+
+
+		<!--JavaScript Link-->
+		<script type="text/javascript" src="features.js"></script>
+
+		<!--JavaScript 2 Link-->
+		<script type="text/javascript" src="script.js"></script>
+
+		<!--JQuery Link-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+		
+	</body>
+</html>

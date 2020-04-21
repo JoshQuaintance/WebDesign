@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- Interactive Website for Web Design Class
+        by: Joshua Pelealu-->
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Codes Codes Codes!</title>
+
+		<!--CSS Link-->
+		<link async class="WebsiteCSS" rel="stylesheet" href="styles.css" />
+
+		<!--Prism Css-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-okaidia.css">
+
+		<!--AOS CDN-->
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+		<!--JavaScript Link-->
+		<script async type="text/javascript" src="features.js"></script>
+		
+		<!--JQuery Link-->
+		<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+
+		
+
+	</head>
+
+	<body>
+		
+
+		
+
+		<img id="bgImg" src="https://i.ytimg.com/vi/d-zKJCKsoWw/maxresdefault.jpg" style="visibility: hidden;">
+
+		<div class="frontPage">
+			<h1 style="font-size: 2.5em; padding-top: 250px; margin-top: 0;">Codes, Codes, Codes!</h1>
+
+			<br>
+
+			<p>Scroll Down to Continue</p>
+			<br>
+			<a href="#container" target="_parent"><img class="scrollDown" src="untitled.svg"></img></a>
+			<svg xmlns="http://www.w3.org/2000/svg"></svg>
+	
+		</div>
+		
+		<br><br>
+		
+
+
+		<!--Navigation Bar-->
+		<nav class="homeNavBar" data-aos="fade-left" data-aos-anchor=".navBarSeparator">
+			<!--Dark Mode Switch-->
+			<div style="display: inline;" class="darkSwitch darkSwitch-PC">
+				Dark Mode:
+				<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
+			</div>
+
+			<ul style="list-style-type: inside; padding-left: 0px;" id="navBar">
+				<a href="index.html" target="_parent" ><li>Home</li></a>
+				<a href="interactive.html" target="_parent"><li>Interactive</li></a>
+				<a href="about.html" target="_parent"><li>About</li></a>
+			</ul>
+			
+			<!--Dark Mode Switch-->
+			<div class="darkSwitch darkSwitch-Mobile">
+				Dark Mode:
+				<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
+			</div>
+
+		</nav>
+
+		<div class="container  navBarSeperator" id="container">
+
+			
+
+			<div class="introductions introduction  " data-aos="fade-down" id="introduction">
+				<h1 style="padding-bottom: 0;">Coding is a lot of fun!</h1>
+				
+				<p>Coding may seem really hard at first glance, maybe even every single time you see it. It actually is not that hard, with a lot of practice and learning, you can code and start to realise that its actually pretty easy to do!</p>
+
+			</div>
+
+			<br><br>
+
+			<div class="introductions interesting" data-aos="zoom-in-up">
+				<h1>What can you do with coding?</h1>
+
+				<p>I'm glad you asked. You can do A LOT of things with coding. It depends on what type of things do you want to make your code do. If you want to make a website like this, you probably want to learn HTML, CSS, and JavaScript. If you want to make programs that can automate your life, you can learn Python. You want to make a database on your server, you can learn SQL. There is a lot of possibility for coding. It's all in your hands</p>
+
+			</div>
+			
+			<br><br>
+
+			<div class="introductions funStuff" data-aos="fade-in">
+				<h1>Let me show you some cool features...</h1>
+
+				<p>You can toggle a cool background video to the website using this button: <button id="bgVideoToggle" onclick="bgVideo()">Turn On</button></p>
+				
+				<br>
+
+				<p id="bgImgChange">You want to change the background image into something else?Don't worry my friend, get a url of a picture, press this -> <button onclick="bgImgInput()">Button</button>, and enter the URL in the box :)</p>
+				
+				<input 
+				style="display: none;" 
+				id="bgImgInput" 
+				type="url" 
+				placeholder="Enter Image URL Here">
+
+				<button id="urlInputConfirm" style="display: none;" onclick="bgImgChange()">Confirm</button>
+				<p id="validationMsg" 
+				style="display: none; color: red;">Enter A Valid URL!</p>
+
+				<br><br>
+
+				<div class="alertPrompt">
+					<p>You can make an alert, or a warning that will pop up on the browser's screen.Let's start by typing the message here, careful there is a 100 character limit </p>
+					
+					<br>
+	
+					<div class="alertTextInput">
+	
+						<textarea name="alert" wrap="soft" maxlength="100" placeholder="Type Your Alert Text Here" id="alertInput"></textarea>
+	
+						
+						<button id="alertBtn" onclick="alertMessage()" >Confirm</button>
+						</p>
+					</div>
+	
+				</div>
+
+				<br><br>
+
+				<p>Here's one more cool thing, I can put my spotify playlist here, again just click this -> <button onclick="spotifyPlaylist()">Button</button> <- Click it again to remove it</p>
+
+				<br>
+
+				<div class="spotifyDiv" style="display: none;" data-aos="fade-in">
+					<embed src="https://open.spotify.com/embed/playlist/0vM7pb12Hl7aiD8urvX9Yk"  width="400" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></embed>
+
+					<p>Wanna see the code behind this one? Just press this -> <button id="spotifyExplainTgl" onclick="spotifyExplainTgl()">Button</button> <-
+					</p>
+
+					<div class="spotifyExp" style="display: none;">
+						
+<!--This part is preformatted text, so I have to make the indentation right-->
+<!--Don't even try to read what's on this part, just read it in the website itself-->				
+<pre><p>HTML</p><code class="language-html" data-lang="HTML">
+&lt;embed 
+	src=&quot;https://open.spotify.com/embed/playlist/0vM7pb12Hl7aiD8urvX9Yk&quot; 
+	width=&quot;400&quot; 
+	height=&quot;380&quot; 
+	frameborder=&quot;0&quot; 
+	allowtransparency=&quot;true&quot;
+	allow=&quot;encrypted-media&quot;
+	id=&quot;spotify&quot;&gt;
+&lt;/embed&gt;
+
+</code>
+</pre>
+
+	<p>Wanna see JavaScript with jQuery instead? Press this -> <button id="jQueryTgl" onclick="jqueryTgl()">With jQuery</button>
+	 || Don't know what jQuery is? Learn More <a href="about.html/#testingPurposes"> <button>here</button></a></p>
+
+<div class="normalJS">
+
+	<pre><p>Normal JavaScript DOM</p><code data-lang="Normal JavaScript" class="language-javascript">
+//Without jQuery
+var Playlist = document.getElementById("spotify");
+
+function spotifyPlaylist() {
+	if (Playlist.style.display === "none") {
+	Playlist.style.display = "inline";
+	} else {
+	Playlist.style.display = "none";
+	}
+}
+	</code></pre>
+
+</div>
+	
+<div class="withJQuery" style="display: none;">
+
+	<pre><p>Javascript With jQuery</p><code data-lang="Normal JavaScript" class="language-javascript">
+//Normal Javascript 
+function spotifyPlaylist() {
+	//if the playlist is displayed, then run this
+	if ($("#spotify").css("display") === "none") {
+		$("#spotify").css("display", "inline")
+	} //otherwise run this one instead 
+		else {
+		$("#spotify").css("display", "none")
+	}
+}
+	</code></pre>
+
+</div>
+					</div>
+				</div>
+
+				
+				
+				<br>
+
+				<p>You've seen some cool features website can do, well you can make your own tab in the Interactive Tab. Press Here -> <a href="interactive.html" id="dontInclude"><button>Interactive Page</button></a></p>
+			</div>
+
+			<br><br>
+
+			<div class="introductions mistakes" data-aos="fade-left">
+
+				<h1>Mistakes a lot of starter make (Even Me)</h1><h7>(Too Lazy To Read? Just Read The <strong>Red</strong>)</h7>
+
+				<p>A lot of starters, always think that professional programmers sit on their computer all day typing, that the codes <strong>just</strong> come flying in. That is a wrong mindset, all you need to <strong>memorize</strong> for coding is probably the <strong>boilerplate and</strong>  some <strong>basic stuff</strong>. Even all of those easy stuff have shortcuts that is integrated in some code editor. <strong>It's not</strong> a <strong>bad</strong> thing <strong>to forget codes</strong>, just Google them. That's what every programmers do, even the professional ones. They <strong>Google</strong> what they need, <strong>NOT MEMORIZE</strong> them.</p>
+
+			</div> 
+		</div>
+
+		
+		
+
+		<!--Prism Syntax Highlighter-->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
+
+		<!--AOS JS CDN-->
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+		<!--JavaScript Link-->
+		<script type="text/javascript" src="features.js"></script>
+		
+		<!--JQuery Link-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+		
+	</body>
+</html>
+
