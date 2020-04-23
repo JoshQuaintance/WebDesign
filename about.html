@@ -9,6 +9,12 @@
 
 		<!--CSS Link-->
 		<link class="WebsiteCSS" rel="stylesheet" href="main.css" />
+
+		<!--Simple Bar CSS-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.1.0/simplebar.min.css">
+
+		<!--Prism Css-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-okaidia.css">
 	
 		<!--AOS CDN-->
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -71,21 +77,95 @@
 
 			</div>
 
-			<br>
+			<br><br><br><br>
 			<h1>Libraries I Used</h1>
 
-			<div class="aboutPage">
+			<div class="aboutPage beforeStart">
+				<h1>Before we start...</h1>
+				<p>Before we start talking about libraries I used, we need to talk about what libraries are. Libraries are a code that people write to make coding essentially easier depending on the language they are writing. It's basically an extension or a mod to coding. There are a couple ways to apply a library to your code, but the one I'm using is a CDN (Content Delivery Network). So it essentially grabs the code online from a link and applies it to my code.</p>
+			</div>
 
-				<h1>Source Codes for My Codes</h1>
-				<p>If you want to edit somethings on the website to make it yours, or just look the codes up you can find it on the link below. You can use my code as a guideline or even part of your code for your website. Just make sure not to be to dependant on it. </p>
+			<div class="aboutPage jQueryUse">
+	
+				<h1><a href="https://jquery.com/">jQuery</a></h1>
+				
+				<p>One of the most used JavaScript. I learned a little bit of jQuery to help me make this website a lot easier to code. jQuery was made by John Resig on 2006 and it grew popularity. He created the library because he wants to make his website developing faster and easier. Here's and example of how jQuery makes your code shorter and easier to type</p>
+<div class="codeSnippets">
+<pre><p>Without jQuery</p><code class="language-javascript">
+var paragraph = document.getElementById("firstParagraph");
+for (var i = 0; i < paragraph.length; i++) {
+	paragraph[i].innerHTML("Changed The Text");
+};
+</code>
+</pre>
 
-				<h5>My Github Link</h5>
-				<a href=""><button>Github</button></a>
+<br>
+
+<pre><p>But With jQuery</p><code class="language-javascript">
+$("#firstParagraph").text("Changed The Text");
+</code>
+</pre>
+</div>
+
+ <p>It will do the same exact thing, which is change a text in a paragraph, but jQuery made it 3x faster. Here is the CDN I used for jQuery:</p>
+
+<div class="codeSnippets"><pre><code class="language-javascript">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js&quot;&gt;&lt;/script&gt;</code></pre> 
+</div>
+
 
 			</div>
+
+			<div class="aboutPage AOSUse">
+				<h1><a href="https://michalsnik.github.io/aos/">AOS (Animate On Scroll)</a></h1>
+				<p>This one is easy enough and the name explains itself. It basically helps me make animation without me coding it myself through css. It's how everything just slides in or fades in when you scroll. It was created by a guy in github with a username of michalsnik. Here is his github: <a href="https://github.com/michalsnik">https://github.com/michalsnik.</a> It is a very cool library that makes coding a lot faster. This one requires 2 CDNs, Here is the CDN I used for AOS: </p>
+
+<div class="codeSnippets"><pre><p>JavaScript</p><code class="language-javascript">&lt;script src=&quot;https://unpkg.com/aos@2.3.1/dist/aos.js&quot;&gt;&lt;/script&gt; </code>
+
+<p>CSS</p><code class="language-javascript">&lt;link href=&quot;https://unpkg.com/aos@2.3.1/dist/aos.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre> 
+
+</div>
+			</div>
+
+			<div class="aboutPage prismSyntaxHighlight">
+				<h1><a href="https://prismjs.com/">Prism Syntax Highlighter</a></h1>
+				<p>As the name says, it highlights syntax. You've seen most of it in action already. It highlights code snippets syntax, so it's easier to read for user that are viewing the snippets. It was made by a group of people, Lea Verou, Golmote, James DiGioia, Michael Schmidt, Jannik Zschiesche, Roman Komarov, and stellar. It makes this:</p>
+
+<pre><code>
+var paragraph = document.getElementById("firstParagraph");
+for (var i = 0; i < paragraph.length; i++) {
+	paragraph[i].innerHTML("Changed The Text");
+};
+</code></pre>
+
+			<p>Into this:</p>
+
+<div class="codeSnippets">
+<pre><code class="language-javascript">
+var paragraph = document.getElementById("firstParagraph");
+for (var i = 0; i < paragraph.length; i++) {
+	paragraph[i].innerHTML("Changed The Text");
+};
+</code></pre>
+</div>
+
+<p>Look at how the second one is highlighted, making it a lot easier to read and understand. This one also requires 2 CDNs: </p>
+
+<div class="codeSnippets"><pre><p>JavaScript</p><code class="language-javascript">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js&quot;&gt;&lt;/script&gt;</code>
+
+<p>CSS</p><code class="language-javascript">&lt;link href=&quot;https://unpkg.com/aos@2.3.1/dist/aos.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre> 
+	
+	</div>
+
+			</div>
+
 		</div>
 
 		
+		<!--Prism Syntax Highlighter-->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
+
+		<!--Simple Bar CDN-->
+		<script async type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.1.0/simplebar.min.js"></script>
 
 		<!--AOS JS CDN-->
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

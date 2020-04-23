@@ -409,6 +409,14 @@ code {
 	margin-right: 100px;
 	margin-right: 100px;
 	padding-top: 0;
-	padding-left: 20px;
+	padding-left: 25px;
 	white-space: pre-wrap;
+}
+
+.codeSnippets {
+	margin-right: 100px;
+	margin-left: 100px;
+	overflow-y: auto;
+	scrollbar-color: #7f7f7f transparent; /* thumb and track color */
+	scrollbar-width: thin;
 }

@@ -161,10 +161,7 @@ function darkSwitch() {
 		//checkDevice();
 		console.log(
 			"Website Theme is changed to " +
-				localStorage.getItem("websiteTheme") +
-				" mode" +
-				"TEST" +
-				$(".WebsiteCSS").attr("href")
+				localStorage.getItem("websiteTheme")
 		); //logs the theme change
 	} else {
 		darkModeOff();
