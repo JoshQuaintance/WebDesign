@@ -10,7 +10,7 @@
 
 //AOS Plugin
 AOS.init({
-	duration : 1500
+	duration : 1200
 });
 
 /**********************
@@ -22,7 +22,7 @@ AOS.init({
 function checkDevice() {
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 	
-	$(".WebsiteCSS").attr("href", "device-mobile.css");
+	$(".WebsiteCSS").attr("href", "/css/device-mobile.css");
 	if (/Android/i.test(navigator.userAgent)){
 		console.log("User Device - Android") 
 	} else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)){
@@ -34,7 +34,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phon
 	return "Android";
 	
 } else {
-	$(".WebsiteCSS").attr("href", "styles.css");
+	$(".WebsiteCSS").attr("href", "/css/main.css");
 	console.log("User Agent Detected - PC or Mac")
 	console.log("Using " + $(".WebsiteCSS").attr("href") + " for Website Style");
 	return "PC";
@@ -46,7 +46,7 @@ checkDevice();
 if (checkDevice === "Android") {
 	$(".darkSwitch-Mobile").css("display", "inline");
 	$(".darkSwitch-PC").css("display", "none");
-	$(".navBarSeparator").css("display", "inline")
+	$(".navBarSeparator").css("display", "inline");
 } else {
 	$(".darkSwitch-PC").css("display", "inline");
 	$(".darkSwitch-Mobile").css("display", "none");

@@ -8,7 +8,7 @@
 		<title>Codes Codes Codes!</title>
 
 		<!--CSS Link-->
-		<link async class="WebsiteCSS" rel="stylesheet" href="styles.css" />
+		<link async class="WebsiteCSS" rel="stylesheet" href="/css/main.css" />
 
 		<!--Prism Css-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-okaidia.css">
@@ -17,7 +17,7 @@
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 		<!--JavaScript Link-->
-		<script async type="text/javascript" src="features.js"></script>
+		<script async type="text/javascript" src="/javascript/main.js"></script>
 		
 		<!--JQuery Link-->
 		<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
@@ -29,31 +29,31 @@
 	<body>
 		
 
-		
+		<div id="startAnimation"></div>
 
 		<img id="bgImg" src="https://i.ytimg.com/vi/d-zKJCKsoWw/maxresdefault.jpg" style="visibility: hidden;">
 
 		<div class="frontPage">
-			<h1 style="font-size: 2.5em; padding-top: 250px; margin-top: 0;">Codes, Codes, Codes!</h1>
+			<h1 style="font-size: 2.5em; padding-top: 250px; margin-top: 0;" data-aos="fade-left" data-aos-anchor="#startAnimation">Codes, Codes, Codes!</h1>
 
-			<p style="font-size: 20px;">by: Joshua Pelealu</p>
+			<p style="font-size: 20px;" data-aos="fade-left" data-aos-anchor="#startAnimation">by: Joshua Pelealu</p>
 			<br><br>
 
 			<br>
 
-			<p>Scroll Down to Continue</p>
+			<p data-aos="fade-right" data-aos-anchor="#startAnimation">Scroll Down to Continue</p>
 			<br>
-			<a href="#container" target="_parent"><img class="scrollDown" src="untitled.svg"></img></a>
+			<a href="#container" target="_parent"><img class="scrollDown" src="/untitled.svg"></img></a>
 			<svg xmlns="http://www.w3.org/2000/svg"></svg>
 	
 		</div>
 		
 		<br><br>
-		
 
+		<hr id="whateverThisIs">
 
 		<!--Navigation Bar-->
-		<nav class="homeNavBar" data-aos="fade-left" data-aos-anchor=".navBarSeparator">
+		<nav class="homeNavBar" data-aos="fade-left" data-aos-anchor="#whateverThisIs" data-aos-anchor-placement="top-center">
 			<!--Dark Mode Switch-->
 			<div style="display: inline;" class="darkSwitch darkSwitch-PC">
 				Dark Mode:
@@ -67,18 +67,19 @@
 			</ul>
 			
 			<!--Dark Mode Switch-->
-			<div class="darkSwitch darkSwitch-Mobile">
+			<div class="darkSwitch darkSwitch-Mobile" id ="darkModeSwitch">
 				Dark Mode:
 				<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
 			</div>
 
 		</nav>
 
-		<div class="container  navBarSeperator" id="container">
+		
+		<br>
+		<div class="container" id="container">
 
-			
-
-			<div class="introductions introduction  " data-aos="fade-down" id="introduction">
+			<div class="introductions introduction  "  id="introduction" data-aos="fade-right" data-aos-anchor="#whateverThisIs"
+			data-aos-anchor-placement="top-center">
 				<h1 style="padding-bottom: 0;">Coding is a lot of fun!</h1>
 				
 				<p>Coding may seem really hard at first glance, maybe even every single time you see it. It actually is not that hard, with a lot of practice and learning, you can code and start to realise that its actually pretty easy to do!</p>
@@ -231,7 +232,7 @@ function spotifyPlaylist() {
 
 
 		<!--JavaScript Link-->
-		<script type="text/javascript" src="features.js"></script>
+		<script type="text/javascript" src="/javascript/main.js"></script>
 		
 		<!--JQuery Link-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
