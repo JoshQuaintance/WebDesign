@@ -216,7 +216,7 @@ function ifEnterIsPressed(elementPicked, funcCallback) {
 /*******************************************
  * Background Image on Introduction Toggle *
  *******************************************/
-
+//! STILL NOT WORKING
 function bgVideo() {
 	var bgVisible = $("#bgImg").css("visibility");
 
@@ -228,7 +228,7 @@ function bgVideo() {
 		$("#bgVideoToggle").text("Turn On");
 	}
 }
-
+//!STILL NOT WORKING
 /***************************
  * Background Image Change *
  ***************************/
