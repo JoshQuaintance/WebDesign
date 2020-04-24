@@ -7,6 +7,8 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Codes Codes Codes!</title>
 
+		<link rel="icon" href="source_code.svg" type="image/svg+xml">
+
 		<!--CSS Link-->
 		<link class="WebsiteCSS" rel="stylesheet" href="main.css" />
 
@@ -18,18 +20,16 @@
 	
 		<!--AOS CDN-->
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-		
-		<!--JavaScript Link-->
-		<script async type="text/javaScript" src="main.js"></script>
 
-		<!--JQuery Link-->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+		
 		
 	</head>
 
 	<body id="bodyTag">
+
+		<img id="bgImg" src="bgImg.jpg" style="visibility: visible;">
 		<!--Navigation Bar-->
-		<nav>
+		<nav data-aos="fade-left">
 			<!--Dark Mode Switch-->
 			<div style="display: inline;" class="darkSwitch darkSwitch-PC">
 				Dark Mode:
@@ -54,21 +54,21 @@
 		<div style="margin-top: 0; padding-top: 0;" class="aboutPageDiv" id="testingPurposes">
 
 				
-				<h1 class="titleOfPage">Information About The Page!</h1>
+				<h1 class="titleOfPage" data-aos="flip-up">Information About The Page!</h1>
 
-			<div class="aboutPage thanksYou">
+			<div class="aboutPage thanksYou" data-aos="flip-down">
 				
 				<h1>Thank you for visiting!</h1>
 				<p>I hope you guys enjoy my presentation of how fun coding can be. How cool it can look, and how easier it is than it looks. It is not the best representation and certainly not a lot of them, but making all of these features already making my code messy and full, and there is some JavaScript that I still don't know that I'm planning to learn </p>
 
 			</div>
 
-			<div class="aboutPage">
+			<div class="aboutPage" data-aos="fade-left">
 
 				<h1>About Me!</h1>
 				<p>My name is Joshua, and I like coding. It is my dream to be a professional coder. It's 2020, and I am currently a Sophomore in Sidney High School. Here comes self-promotion!!! You can follow me on these:</p>
 
-				<div class="socialMedia">
+				<div class="socialMedia" id="socialMedia">
 					<a href="https://instagram.com/joshuahasian_04">
 						
 						<img src="https://www.freepnglogos.com/uploads/instagram-logo-png-hd-31.png" width="50px"/>
@@ -202,6 +202,21 @@ for (var i = 0; i < paragraph.length; i++) {
 		</div>
 	</div>
 
+	<footer class="defaultFooter">
+
+		<div class="footerTitle">
+			<h1>Codes Codes Codes!</h1>
+			<h5>Made by: Joshua Pelealu</h5>
+		</div>
+
+		<div class="footerLinks">
+		<a class="btn" href="about.html#socialMedia"><span>Social Media</span></a>
+
+		<a class="btn" href="https://github.com/JoshuaPelealu/WebDesign/blob/master/about.html"><span>View This Page On GitHub</span></a>
+
+		</div>
+		
+	</footer>
 		
 		<!--Prism Syntax Highlighter-->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
@@ -212,12 +227,13 @@ for (var i = 0; i < paragraph.length; i++) {
 		<!--Font Awesome-->
 		<script src="https://use.fontawesome.com/297d00d3ba.js"></script>
 
-		
-		<!--JavaScript Link-->
-		<script type="text/javascript" src="main.js"></script>
-
 		<!--JQuery Link-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+		
+		<!--JavaScript Link-->
+		<script async type="text/javascript" src="main.js"></script>
+
+		
 
 		
 
