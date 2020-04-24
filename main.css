@@ -351,7 +351,8 @@ button:hover {
 	line-height: 2em;
 }
 
-.sourceCode a p {
+.sourceCode a p,
+.socialMedia a p {
 	color: white !important;
 	position: relative;
 	font-size: 25px;
@@ -359,7 +360,8 @@ button:hover {
 	opacity: 0%;
 }
 
-.sourceCode a:hover p {
+.sourceCode a:hover p,
+.socialMedia a:hover p {
 	opacity: 100%;
 	text-decoration: none;
 }
@@ -374,32 +376,36 @@ button:hover {
 	margin-left: 50px;
 }
 
-.sourceCode a:hover, .aboutPage a:hover {
+.sourceCode a:hover,
+.aboutPage a:hover {
 	border: 3px solid rgb(47, 34, 226);
 	border-radius: 5px;
 	text-decoration: none;
 	opacity: 100%;
 }
 
-.sourceCode a {
+.sourceCode a,
+.socialMedia a {
 	opacity: 50%;
 	margin-top: 0px;
 	box-sizing: border-box;
 }
 
-.sourceCode img {
-	margin-bottom: 20px;
+.socialMedia a {
+	display: inline-block;
+	text-decoration: none;
+	color: inherit;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	margin-right: 100px;
+	margin-left: 100px;
 }
 
-#instagram {
-	margin-right: 60px;
-	width: 45px;
-}
-
-#twitter {
-	margin-bottom: 5px;
-	margin-left: 60px;
-	width: 50px;
+.socialMedia a:hover {
+	border: 0;
+	opacity: 100%;
 }
 
 /* Dark Mode Stuff ALWAYS PUT IN THE BOTTOM */
