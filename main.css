@@ -353,7 +353,7 @@ button:hover {
 }
 
 .aboutPage a {
-	color: rgb(47, 34, 226);
+	color: rgb(106, 97, 231);
 }
 
 .aboutPage a:hover {
@@ -404,7 +404,7 @@ button:hover {
 
 .sourceCode a:hover,
 .aboutPage a:hover {
-	border: 3px solid rgb(47, 34, 226);
+	border: 3px solid rgb(106, 97, 231);
 	border-radius: 5px;
 	text-decoration: none;
 	opacity: 100%;
