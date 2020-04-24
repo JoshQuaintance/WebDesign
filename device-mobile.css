@@ -277,10 +277,6 @@ iframe {
 	padding-right: 20px;
 }
 
-.navBarSeperator {
-	padding-bottom: 150px;
-}
-
 .introductions {
 	backdrop-filter: blur(2px);
 	margin-top: 40px;
@@ -328,6 +324,29 @@ button:hover {
 	height: 10px;
 }
 
+.sourceCode a p {
+	color: white !important;
+	position: relative;
+	font-size: 25px;
+	margin-bottom: 0px;
+	opacity: 0%;
+}
+
+.sourceCode a:hover p {
+	opacity: 100%;
+	text-decoration: none;
+}
+
+.sourceCode a {
+	display: inline-block;
+	text-decoration: none;
+	color: inherit;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-right: 50px;
+	margin-left: 50px;
+}
+
 /* About Me Page */
 .aboutPage {
 	margin-top: 150px;
@@ -342,10 +361,6 @@ button:hover {
 
 .aboutPage a {
 	color: rgb(47, 34, 226);
-}
-
-.aboutPage a:hover {
-	text-decoration: underline;
 }
 
 .aboutPage p {
@@ -363,6 +378,23 @@ button:hover {
 
 .thanksYou {
 	margin-top: 20px !important;
+}
+
+.sourceCode a:hover .aboutPage a:hover {
+	border: 3px solid rgb(47, 34, 226);
+	border-radius: 5px;
+	text-decoration: none;
+	opacity: 100%;
+}
+
+.sourceCode a {
+	opacity: 50%;
+	margin-top: 0px;
+	box-sizing: border-box;
+}
+
+.sourceCode img {
+	margin-bottom: 20px;
 }
 
 #instagram {

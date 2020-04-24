@@ -374,7 +374,7 @@ button:hover {
 	margin-left: 50px;
 }
 
-.sourceCode a:hover {
+.sourceCode a:hover .aboutPage a:hover {
 	border: 3px solid rgb(47, 34, 226);
 	border-radius: 5px;
 	text-decoration: none;
