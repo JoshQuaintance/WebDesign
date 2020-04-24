@@ -133,6 +133,16 @@ if (
 
 var body = document.body;
 
+
+/*************************
+ * Random Code Additions *
+ *************************/
+
+//Links in About Page all go to new Tab
+
+$(".aboutPageDiv a").attr("target", "_blank");
+
+
 /******************************
  * Website Theme (Dark/Light) *
  ******************************/
@@ -159,10 +169,7 @@ function darkSwitch() {
 		darkModeOn();
 		localStorage.setItem("websiteTheme", "dark"); //sets the local storage
 		//checkDevice();
-		console.log(
-			"Website Theme is changed to " +
-				localStorage.getItem("websiteTheme")
-		); //logs the theme change
+		console.log("Website Theme is changed to " + localStorage.getItem("websiteTheme")); //logs the theme change
 	} else {
 		darkModeOff();
 		//checkDevice();
@@ -225,7 +232,7 @@ function bgVideo() {
 		$("#bgVideoToggle").text("Turn On");
 	}
 }
-//!STILL NOT WORKING
+
 /***************************
  * Background Image Change *
  ***************************/
