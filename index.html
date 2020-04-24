@@ -16,9 +16,6 @@
 		<!--AOS CDN-->
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-		<!--JavaScript Link-->
-		<script async type="text/javascript" src="main.js"></script>
-		
 		<!--JQuery Link-->
 		<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
@@ -31,12 +28,10 @@
 
 		<div id="startAnimation"></div>
 
-		<img id="bgImg" src="https://i.ytimg.com/vi/d-zKJCKsoWw/maxresdefault.jpg" style="visibility: hidden;">
+		<img id="bgImg" src="bgImg.jpg" style="visibility: visible;">
 
 		<div class="frontPage">
-			<h1 style="font-size: 2.5em; padding-top: 250px; margin-top: 0;" data-aos="fade-left" data-aos-anchor="#startAnimation">Codes, Codes, Codes!</h1>
-
-			<p style="font-size: 20px;" data-aos="fade-left" data-aos-anchor="#startAnimation">by: Joshua Pelealu</p>
+			<h1 style="font-size: 2.5em; padding-top: 250px; margin-top: 0;" data-aos="fade-left" data-aos-anchor="#startAnimation">Welcome, <span onclick="changeUserName()"></span> </h1>
 			<br><br>
 
 			<br>
@@ -100,12 +95,13 @@
 			<div class="introductions funStuff" data-aos="fade-in">
 				<h1>Let me show you some cool features...</h1>
 
-				<p>You can toggle a cool background video to the website using this button: <button id="bgVideoToggle" onclick="bgVideo()">Turn On</button></p>
-				
+				<p>You can toggle the background image to the website using this button: <button id="bgVideoToggle" onclick="bgVideo()">Turn Off</button></p>
+				<p>Owh yeah, it doesn't only turn it off now, if it is set to off now, the next time you visit this website, the background will be off and vice versa</p>
+
 				<br>
 
 				<!--! The Change Image Background Still Needs Fixed-->
-				<p id="bgImgChange">You want to change the background image into something else?Don't worry my friend, get a url of a picture, press this -> <button onclick="bgImgInput()">Button</button>, and enter the URL in the box :)</p>
+				<p id="bgImgChange">You want to change the background image into something else?Don't worry my friend, get a url of a picture, press this -> <button onclick="bgImgInput()">Button</button>, and enter the URL in the box :) Owh, for the sake of the nice polished website, the background you put will not stay. Sorry :(</p>
 				
 				<input 
 				style="display: none;" 
@@ -222,7 +218,21 @@ function spotifyPlaylist() {
 			</div> 
 		</div>
 
-		
+		<footer class="defaultFooter">
+
+			<div class="footerTitle">
+				<h1>Codes Codes Codes!</h1>
+				<h5>Made by: Joshua Pelealu</h5>
+			</div>
+
+			<div class="footerLinks">
+			<a class="btn" href="about.html#socialMedia"><span>Social Media</span></a>
+
+			<a class="btn" href="https://github.com/JoshuaPelealu/WebDesign/blob/master/index.html"><span>View This Page On GitHub</span></a>
+
+			</div>
+
+		</footer>
 		
 
 		<!--Prism Syntax Highlighter-->
@@ -231,12 +241,13 @@ function spotifyPlaylist() {
 		<!--AOS JS CDN-->
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-
-		<!--JavaScript Link-->
-		<script type="text/javascript" src="main.js"></script>
-		
 		<!--JQuery Link-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+		
+		<!--JavaScript Link-->
+		<script async type="text/javascript" src="main.js"></script>
+		
+		
 		
 	</body>
 </html>
