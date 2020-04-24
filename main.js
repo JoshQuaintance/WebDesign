@@ -133,7 +133,6 @@ if (
 
 var body = document.body;
 
-
 /*************************
  * Random Code Additions *
  *************************/
@@ -142,11 +141,106 @@ var body = document.body;
 
 $(".aboutPageDiv a").attr("target", "_blank");
 
+/*********************************
+ * Local Storage To Set Some CSS *
+ *********************************/
+
+localStorage.key("backgroundImgSet");
+
+if (localStorage.getItem("backgroundImgSet") === "On") {
+	$("#bgImg").css("visibility", "visible");
+	localStorage.setItem("backgroundImgSet", "On");
+} else if (localStorage.getItem("backgroundImgSet") === "Off") {
+	$("#bgImg").css("visibility", "hidden");
+	$("#bgVideoToggle").text("Turn On");
+	localStorage.setItem("backgroundImgSet", "Off");
+} else {
+	localStorage.setItem("backgroundImgSet", "On");
+}
+
+/*************
+ * Greetings *
+ *************/
+//Creates local storage key
+localStorage.key("rememberUserName");
+localStorage.key("userName");
+var userNameStore = localStorage.getItem("userName");
+var rememberNameStore = localStorage.getItem("rememberUserName");
+
+//prettier-ignore
+//Checks if there is a local storage named "rememberUserName" with a value of "yes"
+//and a local storage named "userName" with a string value and is not empty nor null nor undefined
+
+if (rememberNameStore === "Yes" && userNameStore !== "" && userNameStore !== null && userNameStore !== undefined) {
+		//if the condition is correct, then this block will run
+		$(".frontPage span").text(userNameStore);
+	} else {
+		//if not, its going to ask the user for name
+		var userName = window.prompt("Before We Start, What is your name?");
+		userNameStore = localStorage.setItem("userName", userName);
+		console.log(userName !== "" + "hello");
+
+		//checks if there is a string value for the prompt
+		if (userName !== "" && userName !== null && userName !== undefined) {
+			//if there is, then this block will run
+			console.log(userName);
+			$(".frontPage span").text(userName + "!");
+
+			//ask user if they want the browser to store their name
+			if (confirm("Do you want your browser to remember your name for the next time you visit this website?")) {
+				//yes they do
+				localStorage.setItem("rememberUserName", "Yes");
+			} else {
+				//no they don't, they are going to be asked again on the next visit of index.html
+				localStorage.setItem("rememberUserName", "No");
+			}
+		} else {
+			//if user did not enter a string, then this block will run
+			console.log("User Name is not Entered");
+			$(".frontPage span").text("Anonymous User!");
+			localStorage.setItem("userName", "Anonymous User!")
+		}
+	}
+
+//prettier-ignore
+$(".frontPage span").hover(function () {
+	//prettier-ignore
+	localStorage.setItem("userNameChange", userNameStore);
+	var userNameChange = localStorage.getItem("userNameChange")
+	$(this).text("Change Name").addClass("hoverToChange");
+}, function() {
+	var userNameStore = localStorage.getItem("userName")
+	console.log(userNameStore);
+	$(this).text(userNameStore).removeClass("hoverToChange");
+		
+	
+})
+
+function changeUserName() {
+	var userName = window.prompt("What is your name?");
+	userNameStore = localStorage.setItem("userName", userName);
+
+	if (userName === "" || userName === null || userName === undefined) {
+		$(".frontPage span").text("Anonymous User!");
+		localStorage.setItem("userName", "Anonymous User!");
+	} else {
+		$(".frontPage span").text(userName);
+
+		if (confirm("Do you want the browser to save your name for your next visit?")) {
+			localStorage.setItem("rememberUserName", "Yes");
+			console.log(userName);
+			localStorage.setItem("userName", userName);
+		} else {
+			console.log(userName);
+			localStorage.setItem("rememberUserName", "No");
+			localStorage.setItem("userName", userName);
+		}
+	}
+}
 
 /******************************
  * Website Theme (Dark/Light) *
  ******************************/
-
 localStorage.key("websiteTheme");
 console.log("Current Website Theme is Set as " + localStorage.getItem("websiteTheme") + " mode");
 
@@ -213,6 +307,7 @@ function ifEnterIsPressed(elementPicked, funcCallback) {
 		if (event.keyCode === 13) {
 			event.preventDefault();
 			funcCallback();
+			console.log("function " + funcCallBack + "is executed");
 		}
 	});
 }
@@ -220,19 +315,21 @@ function ifEnterIsPressed(elementPicked, funcCallback) {
 /*******************************************
  * Background Image on Introduction Toggle *
  *******************************************/
-//! STILL NOT WORKING
+
 function bgVideo() {
 	var bgVisible = $("#bgImg").css("visibility");
 
 	if (bgVisible === "hidden") {
 		$("#bgImg").css("visibility", "visible");
 		$("#bgVideoToggle").text("Turn Off");
+		localStorage.setItem("backgroundImgSet", "On");
 	} else {
 		$("#bgImg").css("visibility", "hidden");
 		$("#bgVideoToggle").text("Turn On");
+		localStorage.setItem("backgroundImgSet", "Off");
 	}
 }
-
+//! STILL NOT WORKING
 /***************************
  * Background Image Change *
  ***************************/
@@ -242,18 +339,19 @@ var urlConfirm = document.getElementById("urlInputConfirm");
 var validationMsg = $("#validationMsg");
 
 function bgImgChange() {
-	var urlInputValue = document.getElementById("bgImgInput").value;
-	var urlCheck = is_url(urlInputValue);
-	console.log(urlCheck);
+	var urlValue = $("#bgImgInput").val();
+	var urlCheck = is_url(urlValue);
+
 	if (urlCheck === true) {
-		bgImgInputRmv();
+		$("#bgImg").attr("src", urlValue);
 		$("#validationMsg").css("display", "none");
+		bgImgInputRmv();
 	} else {
 		$("#validationMsg").css("display", "inline");
 	}
 }
 
-ifEnterIsPressed(urlInput, bgImgInputRmv);
+ifEnterIsPressed(urlInput, bgImgChange);
 
 function bgImgInput() {
 	$("#bgImgInput").css("display", "inline");
