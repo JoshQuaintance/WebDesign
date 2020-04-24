@@ -340,13 +340,55 @@ button:hover {
 	padding-right: 80px;
 	font-size: 2em;
 	font-family: 'Comic Neue', cursive;
+	padding-bottom: 15px;
+	line-height: 2em;
 }
 
-.aboutPage p {
-	font-size: 2em;
+.aboutPage h1 {
+	font-size: 2.5em;
 	font-family: cursive;
 	padding-bottom: 15px;
 	line-height: 2em;
+}
+
+.sourceCode a p {
+	color: white !important;
+	position: relative;
+	font-size: 25px;
+	margin-bottom: 0px;
+	opacity: 0%;
+}
+
+.sourceCode a:hover p {
+	opacity: 100%;
+	text-decoration: none;
+}
+
+.sourceCode a {
+	display: inline-block;
+	text-decoration: none;
+	color: inherit;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-right: 50px;
+	margin-left: 50px;
+}
+
+.sourceCode a:hover {
+	border: 3px solid rgb(47, 34, 226);
+	border-radius: 5px;
+	text-decoration: none;
+	opacity: 100%;
+}
+
+.sourceCode a {
+	opacity: 50%;
+	margin-top: 0px;
+	box-sizing: border-box;
+}
+
+.sourceCode img {
+	margin-bottom: 20px;
 }
 
 #instagram {
