@@ -18,6 +18,8 @@
 		<!--AOS CDN CSS-->
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+		<!--Color Picker JS-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
 
 		<!--JQuery Link-->
 		<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
@@ -29,7 +31,7 @@
 
 		<img id="bgImg" src="bgImg.jpg" style="visibility: visible;">
 	<!--Navigation Bar-->
-	<nav data-aos="fade-left">
+	<nav data-aos="fade-left" data-aos-anchor="#bodyTag">
 		<!--Dark Mode Switch-->
 		<div style="display: inline;" class="darkSwitch darkSwitch-PC">
 			Dark Mode:
@@ -52,74 +54,79 @@
 
 
 		<br>
-		<div id="interactiveDiv">
-			<p>Now let's make your own webpage with a this template!</p>
-			<!--Asks for texts input that will be displayed, as soon as the user confirms the input, the div will be removed.-->
-			<div id="inputDiv">
-				<label>First, Pick A Header Type: </label>
-				<select name="" id="headerSelect">
-					<option style="font-size: 2em;" value="h1">Heading 1</option>
-					<option style="font-size: 1.5em;" value="h2">Heading 2</option>
-					<option style="font-size: 1.17em;" value="h3">Heading 3</option>
-					<option style="font-size: 1em;" value="h4">Heading 4</option>
-					<option style="font-size: .83em;" value="h5">Heading 5</option>
-					<option style="font-size: .67em;" value="h6">Heading 6</option>
-				</select>
-				
-				<p>
-					Input text to display, 00choose wisely, you can only put it in
-					once! Be careful, there is a 500 character limit!
-				</p>
-
-				<textarea
-					name="text"
-					wrap="soft"
-					maxlength="500"
-					id="textInput"
-					placeholder="Input Text"
-				></textarea>
-
-				<button id="textButton" onclick="textButton()">Confirm</button>
-				<br />
-			</div>
-
-			<!--Button make text color settings appear-->
-			<button id="textColorToggle" onclick="textColorToggle()">
-				Change Text Color
-			</button>
-
-			<!-- Color Settings -->
-			<div id="colorInput">
-				<p>Type a valid color name or in a different type (Hex Value, RGB(), or RGBA())</p>
-				<input id="colorPlace" placeholder="Enter A Color" />
-				<button id="stylesButton" onclick="styleButton()">Confirm</button>
-			</div>
-
-			<!--Button make font-size settings appear-->
-			<button id="fontSizeTgl" onclick="fontChangeTgl()">
-				Font Size Changer
-			</button>
-
-			<!--Font-size settings -->
-			<div id="fontChangeDiv">
-				<p>Font Size (px):</p>
-				<input
-					type="number"
-					id="fontSizeInput"
-					placeholder="Font Size"
-				/>
-				<button id="fontSizeConfirmBtn" onclick="fontSizeConfirm()">
-					Confirm
-				</button>
-			</div>
-
-			<p id="prototype"></p>
-		</div>
 		
-		<h1 style="font-size: 4em;">Still In Progress!</h1>
+			<p>Now let's make your own webpage with a this template!</p>
+
+		<div id="interactiveDiv" class="interactiveDiv">
+			<div class="newPanelContainer" id="newPanelContainer">
 
 
-		<footer class="defaultFooter">
+			</div>
+
+
+			<img class="addBtn" src="plus.svg" type="image/svg+xml">
+			<!--Asks for texts input that will be displayed, as soon as the user confirms the input, the div will be removed.-->
+
+			<br>	
+
+			<div id="testingreact"></div>
+
+			<div class="addNewPanel" style="display: none;">
+				<div class="bgColorPicker">
+
+				<label for="backgroundColor">Choose the background color for the card:</label>
+				<div class="color-picker"></div>
+				<label for=""> - Default value is already applied</label>
+				</div>
+
+				<br><br>
+				<div id="inputDiv">
+					<label>Pick A Header Type: </label>
+					<select name="headerSelect" id="headerSelect">
+						<option style="display: none;" value="undefined">Heading Type</option>
+						<option style="font-size: 2em;" value="h1">Heading 1</option>
+						<option style="font-size: 1.5em;" value="h2">Heading 2</option>
+						<option style="font-size: 1.17em;" value="h3">Heading 3</option>
+						<option style="font-size: 1em;" value="h4">Heading 4</option>
+						<option style="font-size: .83em;" value="h5">Heading 5</option>
+						<option style="font-size: .67em;" value="h6">Heading 6</option>
+					</select>
+
+					<input class="inputSubmit" type="submit" onclick="headingSelected()" value="Confirm">
+
+
+				</div>
+					<div class="headingText" style="display: none;">
+						<label for="">Type in Heading Text:</label>
+						<input type="text" name="headingText" id="headingInput" maxlength="50">
+						<input type="submit" value="Confirm" onclick="headingTextSelected()">
+
+					</div>
+					<br>
+					
+					<div class="changeTextDiv" style="display: none;">
+					
+					<p>Type your text for your paragraph</p>
+					<textarea name="TextForPanel" id="panelText" cols="30" rows="10" placeholder="Type Your Text Here" maxlength="500"></textarea>
+
+					<br><br><br>
+
+					<!--<span class="paragraphConfirmBtn" onclick="paragraphTextSelected()">Confirm Text</span>-->
+
+					</div>
+					<div class="fontChanging">
+
+
+					</div>
+					
+					<br><br>
+					<span class="addPanel addPanelSpan" onclick="addPanel()" style="display: none;">Add New Panel</span>
+					<br>
+
+			</div>
+			
+		</div>
+		<footer class="defaultFooter ">
 
 			<div class="footerTitle">
 				<h1>Codes Codes Codes!</h1>
@@ -135,12 +142,14 @@
 			
 		</footer>
 		
-		
 		<!--AOS JS CDN-->
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 		<!--Prism Syntax Highlighter-->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
+
+		<!--Color Picker-->
+		<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
 
 		<!--JQuery Link-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
@@ -149,6 +158,9 @@
 		<script async type="text/javascript" src="main.js"></script>
 		
 		<!--JavaScript 2 Link-->
-		<script async type="text/javascript" src="script.js"></script>
+		<script async type="text/javascript" src="interactive.js"></script>
+
+		<!--JavaScript Link 3-->
+		<script async type="text/javascript" src="react-app.js"></script>
 	</body>
 </html>
