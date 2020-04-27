@@ -2,18 +2,10 @@
  * Interactive Part of the Website *
  **********************************/
 
-/********************
- * Back-End Scripts * 
- ********************/
-
 //AOS Plugin
 AOS.init({
 	duration : 1200
 });
-
-/****************************
- * Start of Front-EndScript *
- ****************************/
 
 /******************************
  * Website Theme (Dark/Light) *
@@ -77,6 +69,170 @@ function darkModeOff() {
 	localStorage.setItem("websiteTheme", "light"); //sets local storage to light
 }
 
+//Pickr
+
+// Simple example, see optional options for more configuration.
+const pickr = Pickr.create({
+	el                    : ".color-picker",
+	theme                 : "classic", // or 'monolith', or 'nano'
+
+	defaultRepresentation : "RGBA",
+	closeWithKey          : "Escape",
+	default               : "rgba(17, 17, 17, 0.6)",
+
+	//prettier-ignore
+	swatches              : [ 
+
+							"rgba(17, 17, 17, 0.6)",
+							"#222",
+							"rgba(225, 225, 225, 0.5)"
+
+							],
+
+	components            : {
+		// Main components
+		preview     : true,
+		opacity     : true,
+		hue         : true,
+
+		// Input / output Options
+		interaction : {
+			hex   : true,
+			rgba  : true,
+			input : true,
+			save  : true
+		}
+	}
+});
+
+var bgColors = `rgba(17, 17, 17, 0.6)`;
+//prettier-ignore
+pickr.on("save", (color, instance) => {
+		//console.log(color.toRGBA());
+
+		var bgColor = color.toRGBA();
+
+		//$(".panel").css("background-color", `rgba(${bgColor[0]}, ${bgColor[1]}, ${bgColor[2]}, ${bgColor[3]})`);
+
+		pickr.hide();
+
+		console.log("Card Background Color Picked - " + `RGBA(${bgColor[0]}, ${bgColor[1]}, ${bgColor[2]}, ${bgColor[3]})`)
+
+		return bgColors = `RGBA(${bgColor[0]}, ${bgColor[1]}, ${bgColor[2]}, ${bgColor[3]})`
+
+
+	}).on("swatchselect", (color, instance) => {
+		console.log(color.toRGBA());
+	}).on("change", (color, instance) => {
+		pickr.on("hide", (instance) => {
+		console.log(color.toRGBA());
+		
+	})
+	});
+
+/***************************
+* Add Button For New Board *
+****************************/
+
+$("img.addBtn").on("click", function() {
+	console.log("test!");
+	$(this).css("display", "none");
+	$(".addNewPanel").css("display", "inline");
+	$("#inputDiv").css("display", "inline");
+	$(".headingText").css("display", "none");
+	$(".changeTextDiv").css("display", "none");
+});
+
+/******************
+ * Adds New Panel *
+ ******************/
+
+var uniqueNum = 0;
+var headingPicked;
+var headingText;
+var paragraphText;
+
+//Select Heading - 1
+function headingSelected() {
+	if ($("#headerSelect").val() !== "undefined") {
+		console.log($("select").val());
+		$("#inputDiv").css("display", "none");
+		$(".headingText").css("display", "inline");
+		return (headingPicked = $("select").val());
+	} else {
+		alert("Please Pick A Heading Type");
+	}
+}
+
+//Select Heading Text - 2
+function headingTextSelected() {
+	if ($("#headingInput").val() !== "") {
+		$(".headingText").css("display", "none");
+		$(".changeTextDiv").css("display", "inline");
+		$(".addPanelSpan").css("display", "inline");
+		return (headingText = $("#headingInput").val());
+	} else {
+		$(".headingText").css("display", "none");
+		$(".changeTextDiv").css("display", "inline");
+		$(".addPanelSpan").css("display", "inline");
+		return (headingText = "Heading");
+	}
+}
+
+//Select Paragraph Text - 3
+function paragraphTextSelected() {
+	if ($("#panelText").val() !== "") {
+		$(".changeTextDiv").css("display", "none");
+		return (paragraphText = $("#panelText").val());
+	} else {
+		$(".changeTextDiv").css("display", "none");
+		//placeholder
+		//prettier-ignore
+		return (paragraphText ="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas maecenas pharetra convallis posuere morbi leo urna molestie at. Elementum nibh tellus molestie nunc non blandit massa enim nec. Id semper risus in hendrerit gravida rutrum. Vitae tempus quam pellentesque nec. Aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod. Dolor morbi non arcu risus quis varius quam quisque id. Nulla pellentesque dignissim enim sit amet venenatis urna cursus. Id aliquet risus feugiat in ante metus dictum at. Est velit egestas dui id ornare. Nec nam aliquam sem et tortor consequat id porta.");
+	}
+}
+
+
+function addPanel() {
+	paragraphTextSelected();
+	var uniqueDivClass = "newCard" + uniqueNum + " newPanels";
+	var divClassToAppend = "newCard" + uniqueNum;
+	var uniqueHeadingClass = "newHeading" + uniqueNum;
+	var uniqueParagraphClass = "newParagraph" + uniqueNum;
+	var headingType = "<" + headingPicked + ">";
+
+	//New Div
+	var newCard = $("<div></div>").addClass(uniqueDivClass);
+
+	//Adds Heading to The Div
+	var newHeading = $(headingType).addClass(uniqueHeadingClass);
+
+	$(newHeading).text(headingText);
+
+	$(newCard).append(newHeading);
+	console.log(headingType);
+
+	//Adds Paragraph to The Div
+	var panelParagraph = $("<p>").addClass(uniqueParagraphClass);
+
+	$(panelParagraph).text(paragraphText);
+
+	$(newCard).append(panelParagraph);
+	console.log(paragraphText);
+
+	//adds div
+	console.log(bgColors);
+	$(newCard).css("background-color", bgColors);
+
+	$("#newPanelContainer").append(newCard);
+
+	uniqueNum++;
+
+	$(".addPanelSpan").css("display", "none");
+	$(".addBtn").css("display", "inline");
+	$(".addNewPanel").css("display", "none");
+}
+
 /*********************************************************
 * Reusable Function For "Enter" Keypress event listener *
 *********************************************************/
@@ -88,66 +244,3 @@ function ifEnterIsPressed(elementPicked, funcCallback) {
 		}
 	});
 }
-
-/*******************
- * Change the HTML  *
- *******************/
-
-//function that will be run when the "Confirm" button is pressed
-function textButton() {
-	var removeBox = document.getElementById("inputDiv");
-	var textValue = document.getElementById("textInput").value;
-	document.getElementById("prototype").innerHTML = textValue;
-	document.getElementById("myInput").value = "";
-	document.getElementById("myInput").innerHTML = "";
-	removeBox.remove();
-}
-
-/*************************
- * Change the text color  *
- *************************/
-var colorInput = document.getElementById("colorPlace");
-var colorToggle = document.getElementById("textColorToggle");
-var stylesBtn = document.getElementById("stylesButton");
-
-//function that will toggle the color settings
-function textColorToggle() {
-	document.getElementById("colorInput").style.display = "block";
-	document.getElementById("textColorToggle").style.display = "none";
-}
-
-//function that will be run when the "Confirm" button is pressed
-function styleButton() {
-	var coloring = document.getElementById("colorPlace").value;
-	document.getElementById("prototype").style.color = coloring;
-	document.getElementById("colorInput").style.display = "none";
-	colorToggle.style.display = "inline";
-	document.getElementById("colorPlace").value = "";
-}
-
-ifEnterIsPressed(colorInput, styleButton);
-
-/*******************
- * Change Font Size *
- *******************/
-
-var sizeInput = $("#fontSizeInput");
-
-//Button to make the text size settings appear
-function fontChangeTgl() {
-	$("#fontSizeTgl").css("display", "none");
-	$("#fontChangeDiv").css("display", "inline");
-}
-
-//Button when makes the settings disappear and the toggle button re-appear | Also changes the font size of the text displayed.
-function fontSizeConfirm() {
-	var theSize = $("#fontSizeInput").val();
-	$("#prototype").css("font-size", theSize + "px");
-	//document.getElementById("prototype").style.fontSize = theSize + "px";
-	$("#fontSizeTgl").css("display", "inline");
-	$("#fontChangeDiv").css("display", "none");
-}
-
-//when the user presses the "Enter", it will click the button automatically
-
-ifEnterIsPressed(sizeInput, fontSizeConfirm);
