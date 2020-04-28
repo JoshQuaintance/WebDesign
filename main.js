@@ -329,7 +329,7 @@ function bgVideo() {
 		localStorage.setItem("backgroundImgSet", "Off");
 	}
 }
-//! STILL NOT WORKING
+
 /***************************
  * Background Image Change *
  ***************************/
