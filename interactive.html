@@ -52,19 +52,47 @@
 
 	</nav>
 
-
+ 
 		<br>
-		
+			<h1 style="color: red;">Please Do Mind That This Part of the Website is Still In Progress</h1>
 			<p>Now let's make your own webpage with a this template!</p>
 
 		<div id="interactiveDiv" class="interactiveDiv">
-			<div class="newPanelContainer" id="newPanelContainer">
 
+			<div class="editHeadingPanelContainer editPanelContainer" data-aos="fade-up">
+				<img class="deletePanelCrossImg closeHeadingEditPanel" src="exit_icon_red.svg" type="img/svg+xml" alt="" onclick="closeHeadingEditPanel()">
+
+				<br>
+
+				<h1>Edit Heading for Panel <span id="headingNum"></span></h1>
+
+				<br><br><br><br>
+
+				<p>Change Heading Text :</p>
+				<input type="text" class="newHeadingInput" placeholder="Change Heading Text">&emsp;<span class="editInputConfirm" onclick="grabNewHeading()">Confirm</span>
+
+				<br><br><br><br><br><br><br><br>
+
+				<p>Change Heading Color :</p>&emsp;
+				<div class="color-picker" style="vertical-align: text-bottom;"></div>
+
+				<br>
+
+				<div class="saveAndConfirmBtn">
+
+				<span id="saveBtn">Save</span><span id="cancelBtn" onclick="closeHeadingEditPanel()">Cancel</span>
+
+				</div>
+
+			</div>
+
+			<div class="newPanelContainer" id="newPanelContainer">
+				<h1 class="panelHeadings"></h1>
 
 			</div>
 
 
-			<img class="addBtn" src="plus.svg" type="image/svg+xml">
+			<img class="addBtn addBtnH" src="plus.svg" type="image/svg+xml">
 			<!--Asks for texts input that will be displayed, as soon as the user confirms the input, the div will be removed.-->
 
 			<br>	
@@ -104,7 +132,7 @@
 					</div>
 					<br>
 					
-					<div class="changeTextDiv" style="display: none;">
+					<div class="changeTextDiv" style="display: none;" >
 					
 					<p>Type your text for your paragraph</p>
 					<textarea name="TextForPanel" id="panelText" cols="30" rows="10" placeholder="Type Your Text Here" maxlength="500"></textarea>
@@ -114,10 +142,7 @@
 					<!--<span class="paragraphConfirmBtn" onclick="paragraphTextSelected()">Confirm Text</span>-->
 
 					</div>
-					<div class="fontChanging">
-
-
-					</div>
+					
 					
 					<br><br>
 					<span class="addPanel addPanelSpan" onclick="addPanel()" style="display: none;">Add New Panel</span>
@@ -126,6 +151,8 @@
 			</div>
 			
 		</div>
+		
+
 		<footer class="defaultFooter ">
 
 			<div class="footerTitle">
@@ -160,7 +187,7 @@
 		<!--JavaScript 2 Link-->
 		<script async type="text/javascript" src="interactive.js"></script>
 
-		<!--JavaScript Link 3-->
-		<script async type="text/javascript" src="react-app.js"></script>
+
+
 	</body>
 </html>
