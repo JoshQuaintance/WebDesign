@@ -134,13 +134,19 @@ pickr.on("save", (color, instance) => {
 * Add Button For New Board *
 ****************************/
 
-$("img.addBtn").on("click", function() {
-	console.log("test!");
-	$(this).css("display", "none");
+function addPanelNow() {
+	console.log("fastHey");
+	$("img.addBtn").css("display", "none");
 	$(".addNewPanel").css("display", "inline");
 	$("#inputDiv").css("display", "inline");
 	$(".headingText").css("display", "none");
 	$(".changeTextDiv").css("display", "none");
+}
+
+$("img.addBtn").on("click", () => {
+	$("img.addBtn").css("animation", "rotation 0.4s linear infinite");
+	$("img.addBtn").removeClass("addBtnH");
+	setTimeout(addPanelNow, 500);
 });
 
 /******************
@@ -151,6 +157,7 @@ var uniqueNum = 0;
 var headingPicked;
 var headingText;
 var paragraphText;
+var deletePanelText = "<h2>Delete Panel</h2>";
 
 //Select Heading - 1
 function headingSelected() {
@@ -186,26 +193,39 @@ function paragraphTextSelected() {
 		return (paragraphText = $("#panelText").val());
 	} else {
 		$(".changeTextDiv").css("display", "none");
-		//placeholder
+		//placeholder text
 		//prettier-ignore
 		return (paragraphText ="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas maecenas pharetra convallis posuere morbi leo urna molestie at. Elementum nibh tellus molestie nunc non blandit massa enim nec. Id semper risus in hendrerit gravida rutrum. Vitae tempus quam pellentesque nec. Aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod. Dolor morbi non arcu risus quis varius quam quisque id. Nulla pellentesque dignissim enim sit amet venenatis urna cursus. Id aliquet risus feugiat in ante metus dictum at. Est velit egestas dui id ornare. Nec nam aliquam sem et tortor consequat id porta.");
 	}
 }
 
-
 function addPanel() {
 	paragraphTextSelected();
 	var uniqueDivClass = "newCard" + uniqueNum + " newPanels";
-	var divClassToAppend = "newCard" + uniqueNum;
+	var divClassToDel = "newCard" + uniqueNum;
 	var uniqueHeadingClass = "newHeading" + uniqueNum;
 	var uniqueParagraphClass = "newParagraph" + uniqueNum;
 	var headingType = "<" + headingPicked + ">";
+	var deletePanelImg = $("<img>");
 
 	//New Div
 	var newCard = $("<div></div>").addClass(uniqueDivClass);
 
 	//Adds Heading to The Div
+	//prettier-ignore
 	var newHeading = $(headingType).addClass(uniqueHeadingClass);
+
+	let x = headingText.length;
+	var headingWidth = x + 16;
+	console.log(headingWidth);
+	//prettier-ignore
+	newHeading = $(newHeading).attr({
+		onmouseover : "headingHovered(" + "'" + uniqueHeadingClass + "'" + ")",
+		onmouseout  : "headingNotHovered(" + "'" + uniqueHeadingClass + "'" + ")",
+		onclick : "editPanelHeading(" + "'" + uniqueHeadingClass + "'" + ")",
+		onchange: "headingChanged(" + "'" + uniqueHeadingClass + "'" + ")",
+		style : headingWidth + "em"
+	}).addClass("panelHeadings");
 
 	$(newHeading).text(headingText);
 
@@ -226,18 +246,131 @@ function addPanel() {
 
 	$("#newPanelContainer").append(newCard);
 
+	console.log(newCard);
+	//prettier-ignore
+	//adds delete panel cross image
+	deletePanelImg = $(deletePanelImg).addClass("deletePanelCrossImg " + "deletePanelNum" + uniqueNum).attr({
+			onclick: "deleteSelectedPanel(" + "'" + "newCard" + uniqueNum + "'" + ")",
+			src: "exit_icon.svg"
+
+		});
+
+	//var returnFunction = () => (uniqueHeadingClass = uniqueHeadingClass);
+	//appends it on the top of the panel
+	//$(newCard).prepend(deletePanelText);
+	$(newCard).prepend(deletePanelImg);
+
 	uniqueNum++;
 
 	$(".addPanelSpan").css("display", "none");
+	$("img.addBtn").css("animation", "none");
+	$("img.addBtn").addClass("addBtnH");
 	$(".addBtn").css("display", "inline");
 	$(".addNewPanel").css("display", "none");
 }
+
+/**********************************
+ * Animation when text is changed *
+ **********************************/
+function headingChanged(headingNum) {
+	let headingClass = "." + headingNum;
+	$(headingClass).css("animation", "changeHappened 1s");
+	console.log("something changed");
+}
+
+/************************
+ * Heading Edit Options *
+ ************************/
+
+//Heading is hovered
+let headingHovered = (headingNum) => {
+	let headingClass = "." + headingNum;
+	var headingText = $(headingClass).text();
+	console.log(headingText);
+	let x = headingText.length;
+	var headingWidth = x * 2;
+	console.log(headingWidth);
+
+	$(headingClass).css("width", headingWidth + "em");
+	//console.log($(headingClass).css("width"));
+	$(headingClass).text("Edit Heading").addClass("headingHovered");
+	return (headingTextBack = headingText);
+};
+
+//heading is not hovered
+let headingNotHovered = (headingNum) => {
+	let headingClass = "." + headingNum;
+	$(headingClass).text(headingTextBack).removeClass("headingHovered");
+};
+
+/*******************************
+ * Edit Panel Option Container *
+ *******************************/
+//Opens Up the Container When A heading Is Open
+function editPanelHeading(headingNum) {
+	$(".editHeadingPanelContainer").addClass("editPanelContainerOn");
+
+	let headingUniqueNum = headingNum.match(/(\d+)/);
+	let headingX = headingUniqueNum[0];
+	let headingI = Number(headingX);
+	let headingNumSpan = headingI + 1;
+	console.log(headingNumSpan);
+
+	//Changes Number For Editing Panel
+	$("#headingNum").text(headingNumSpan);
+
+	return (currentlyEditHeading = headingNum);
+}
+
+function closeHeadingEditPanel() {
+	let headingX = currentlyEditHeading;
+	let headingY = "." + headingX;
+	let originalH = headingTextBack;
+	console.log(originalH);
+
+	$(headingY).text(originalH).css("animation", "changeHappened .7s");
+	$(".editHeadingPanelContainer").removeClass("editPanelContainerOn");
+}
+
+function grabNewHeading() {
+	let newHeading = $(".newHeadingInput").val();
+	let headingX = currentlyEditHeading;
+	let headingY = "." + headingX;
+
+	$(headingY).text(newHeading).css("animation", "changeHappened .7s");
+
+	setTimeout(() => {
+		$(headingY).text(newHeading).css("animation", "");
+		console.log("run");
+	}, 710);
+	//$().text(newHeading);
+}
+
+function saveHeadingEdit() {}
+
+/*****************************
+ * Delete Panel With Warning *
+ *****************************/
+let deleteSelectedPanel = (panelNum) => {
+	panelNum = "." + panelNum;
+	$(panelNum).attr("data-aos", "fade-out-screen");
+
+	setTimeout(deletedSelectedPanel, 1000);
+	return (panelNumDel = panelNum);
+};
+
+let deletedSelectedPanel = () => {
+	console.log(panelNumDel + "deleting");
+	//panelNum = "." + panelNum;
+	$(panelNumDel).css("display", "none");
+	console.log($(panelNumDel));
+};
 
 /*********************************************************
 * Reusable Function For "Enter" Keypress event listener *
 *********************************************************/
 function ifEnterIsPressed(elementPicked, funcCallback) {
-	elementPicked.addEventListener("keyup", function(event) {
+	elementPicked.addEventListener("keyup", (event) => {
 		if (event.keyCode === 13) {
 			event.preventDefault();
 			funcCallback();
