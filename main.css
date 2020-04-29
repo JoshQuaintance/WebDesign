@@ -258,6 +258,7 @@ nav h1 {
 
 .frontPage {
 	background-color: inherit;
+	cursor: none;
 }
 
 p {
