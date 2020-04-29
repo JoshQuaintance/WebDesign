@@ -205,8 +205,19 @@ function addPanel() {
 	var divClassToDel = "newCard" + uniqueNum;
 	var uniqueHeadingClass = "newHeading" + uniqueNum;
 	var uniqueParagraphClass = "newParagraph" + uniqueNum;
+	let parDivClass = "div_newParagraph" + uniqueNum;
+	let par = uniqueParagraphClass;
 	var headingType = "<" + headingPicked + ">";
 	var deletePanelImg = $("<img>");
+	let dotMenu = $(
+		//prettier-ignore
+		"<div class='dot-menu dot" + par + "'" +
+			'onmouseover="dotHovered(' +"'" + par +"'" +')" onmouseout="dotNotHovered(' +"'" + par +"'" +')">' +
+			"<img src='dot-fill.svg'  id='dot-menu' class='dot1'>" +
+			"<img src='dot-fill.svg' id='dot-menu' class='dot2'>" +
+			"<img src='dot-fill.svg' id='dot-menu' class='dot3'>" +
+			"</div><br>"
+	);
 
 	//New Div
 	var newCard = $("<div></div>").addClass(uniqueDivClass);
@@ -215,29 +226,31 @@ function addPanel() {
 	//prettier-ignore
 	var newHeading = $(headingType).addClass(uniqueHeadingClass);
 
-	let x = headingText.length;
-	var headingWidth = x + 16;
-	console.log(headingWidth);
 	//prettier-ignore
 	newHeading = $(newHeading).attr({
 		onmouseover : "headingHovered(" + "'" + uniqueHeadingClass + "'" + ")",
 		onmouseout  : "headingNotHovered(" + "'" + uniqueHeadingClass + "'" + ")",
 		onclick : "editPanelHeading(" + "'" + uniqueHeadingClass + "'" + ")",
-		onchange: "headingChanged(" + "'" + uniqueHeadingClass + "'" + ")",
-		style : headingWidth + "em"
+		onchange: "headingChanged(" + "'" + uniqueHeadingClass + "'" + ")"
 	}).addClass("panelHeadings");
 
 	$(newHeading).text(headingText);
 
 	$(newCard).append(newHeading);
-	console.log(headingType);
+
+	//Adds 3 dot menu after the heading for paragraph edit
+	$(dotMenu).insertAfter(newHeading);
 
 	//Adds Paragraph to The Div
+	let parDiv = $("<div>").addClass(parDivClass)
 	var panelParagraph = $("<p>").addClass(uniqueParagraphClass);
 
+	$(parDiv).append(panelParagraph)
 	$(panelParagraph).text(paragraphText);
 
-	$(newCard).append(panelParagraph);
+	console.log("Testing1" + dotMenu);
+	$(newCard).append(parDiv);
+
 	console.log(paragraphText);
 
 	//adds div
@@ -285,13 +298,10 @@ function headingChanged(headingNum) {
 //Heading is hovered
 let headingHovered = (headingNum) => {
 	let headingClass = "." + headingNum;
+	
 	var headingText = $(headingClass).text();
 	console.log(headingText);
-	let x = headingText.length;
-	var headingWidth = x * 2;
-	console.log(headingWidth);
 
-	$(headingClass).css("width", headingWidth + "em");
 	//console.log($(headingClass).css("width"));
 	$(headingClass).text("Edit Heading").addClass("headingHovered");
 	return (headingTextBack = headingText);
@@ -330,6 +340,9 @@ function closeHeadingEditPanel() {
 
 	$(headingY).text(originalH).css("animation", "changeHappened .7s");
 	$(".editHeadingPanelContainer").removeClass("editPanelContainerOn");
+
+	$(".newHeadingInput").val("");
+	console.log($(".newHeadingInput").val());
 }
 
 function grabNewHeading() {
@@ -346,8 +359,120 @@ function grabNewHeading() {
 	//$().text(newHeading);
 }
 
-function saveHeadingEdit() {}
+function saveHeadingEdit() {
+	let newHeading = $(".newHeadingInput").val();
+	let headingX = currentlyEditHeading;
+	let headingY = "." + headingX;
 
+	$(headingY).text(newHeading).css("animation", "changeHappened .7s");
+	$(".editHeadingPanelContainer").removeClass("editPanelContainerOn");
+}
+
+/**************************
+ * Paragraph Edit Options *
+ **************************/
+let drawPencil = (parNum) => {
+	let parClass = "." + parNum;
+	let parDivClass = ".div_" + headingNum;
+	let x = $("<div id=\"parEditOptions\">" + 
+	"<div id=\"editDatPencil\"" +  
+	"onmouseover=\"pencilHovered(" + "\'" + parNum + "\')\"" +
+	"onmouseout=\"pencilNotHovered(" + "\'" + parNum + "\')\">" +
+	"<img src='pencil.svg' id='pencilEdit'" +  "onmouseover=\"pencilHovered(" + "\'" + parNum + "\')\"" +
+	"onmouseout=\"pencilNotHovered(" + "\'" + parNum + "\')\">" +
+	"<img src='copy_icon.svg' id='parCopy'" +
+	"onmouseover=\"copyHovered(" + "\'" + parNum + "\')\"" +
+	"onmouseout=\"copyNotHovered(" + "\'" + parNum + "\')\">" +
+	"</div></div>");
+	x = x.css("z-index", "1000");
+
+	if ($("#pencilEdit").length){
+	} else {
+		$(x).insertBefore(parClass);
+	}
+};
+
+var dotHovered = (parNum) => {
+	let parClass = "." + parNum;
+	console.log("dot hovered")
+	
+	$(parClass).addClass("dotHoverActive");
+	$(parClass).attr({
+		onmouseover : "hoverPar(" + "'" + parNum + "')", 
+		onmouseout  : "notHoverPar(" + "'" + parNum + "')"
+	});
+
+	drawPencil(parNum);
+};
+
+let dotNotHovered = (parNum) => {
+	let parClass = "." + parNum;
+
+	$(parClass).removeClass("dotHoverActive");
+
+	if ($(parClass).is(":hover")) {
+		
+	} else {
+		$(parClass).attr({
+			onmouseover : "", 
+			onmouseout  : ""
+		});
+	}
+
+	$("#parEditOptions").remove();
+};
+
+let hoverPar = (parNum) => {
+	let parClass = "." + parNum;
+	let dotClass = ".dot" + parNum;
+
+	$(dotClass).addClass("hover");
+	$(parClass).addClass("parHoverActive");
+
+	drawPencil(parNum);
+};
+
+let notHoverPar = (parNum) => {
+	let parClass = "." + parNum;
+	let dotClass = ".dot" + parNum;
+
+
+	if ($("#parEditOptions").length) {
+			
+			if ($("#parEditOptions").is(":hover") === true) {
+				console.log("hovering Pencil")
+			} else {
+				$("#parEditOptions").remove();
+				$(parClass).attr({
+					onmouseover : "",
+					onmouseout  : ""
+				});
+			}
+		
+	}
+
+	$("#editDatPencil")
+	$(dotClass).removeClass("hover");
+	$(parClass).removeClass("parHoverActive");
+	
+
+};
+
+let pencilHovered = (parNum) => {
+	let parClass = "." + parNum;
+	hoverPar(parNum)
+	//$(dotClass).addClass("hover");
+}
+
+let pencilNotHovered = (parNum) => {
+	let parClass = "." + parNum;
+
+	if ($(parClass).hasClass("parHoverActive")) {
+		hoverPar(parNum);
+	} else {
+		notHoverPar(parNum);
+	}
+}
 /*****************************
  * Delete Panel With Warning *
  *****************************/

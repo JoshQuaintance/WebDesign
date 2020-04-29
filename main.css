@@ -84,19 +84,35 @@ a {
 	100% {background-color: inherit;}
 }
 
-@keyframes pulse {
-	0% {
-		-webkit-transform: translate(0, 0);
-		transform: translate(0, 0);
-	}
-	50% {
-		-webkit-transform: translate(0, 10px);
-		transform: translate(0, 10px);
-	}
-	100% {
-		-webkit-transform: translate(0, 0);
-		transform: translate(0, 0);
-	}
+/* prettier-ignore */
+@keyframes dot1 {
+	0% {transform: translate(0);}
+	15% {transform: translate(0, -5px);}
+	25% {transform: translate(0, -10px)}
+	35% {transform: translate(0, -5px);}
+	50% {transform: translate(0);}
+	75%{transform: translate(0);}
+	100% {transform: translate(0);}
+}
+
+@keyframes dot2 {
+	0% {transform: translate(0);}
+	25% {transform: translate(0);}
+	40% {transform: translate(0, -5px);}
+	50% {transform: translate(0, -10px);}
+	60% {transform: translate(0, -5px);}
+	75%{transform: translate(0);}
+	100% {transform: translate(0);}
+}
+
+@keyframes dot3 {
+	0% {transform: translate(0);}
+	25% {transform: translate(0)}
+	50% {transform: translate(0);}
+	65% {transform: translate(0, -5px);}
+	75%{transform: translate(0, -10px);}
+	85% {transform: translate(0, -5px);}
+	100% {transform: translate(0);}
 }
 
 @keyframes rotation {
@@ -132,6 +148,24 @@ a {
 	100% {transform: translate(0);}
 	
 }
+
+.dot-menu:hover .dot1, div.hover .dot1 {
+	animation: dot1 1s ease infinite;
+}
+
+.dot-menu:hover .dot2, div.hover .dot2 {
+	animation: dot2 1s ease infinite;
+}
+
+.dot-menu:hover .dot3, div.hover .dot3 {
+	animation: dot3 1s ease infinite;
+}
+
+.dot-menu:hover {
+	cursor: pointer;
+}
+
+
 
 .somethingChanged {
 	animation-name: changeHappened;
@@ -599,7 +633,7 @@ footer {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	color: rgba(255, 255, 255, 0.4);
-	cursor: pointer;
+	cursor: none;
 	transition: all 0.5s ease;
 }
 
@@ -740,16 +774,17 @@ select option:hover {
 }
 
 .headingHovered {
-	cursor: pointer;
+	cursor: none;
 	border: 2px solid currentColor !important;
 	transition: all 0.4s ease;
 	text-align: center;
+
 }
 
 .panelHeadings {
 	border: 0;
 	transition: all 0.4s ease;
-	max-width: 30em;
+	width: 95%;
 }
 
 /* Edit Panel Elements CSS */
@@ -847,3 +882,68 @@ select option:hover {
 	transition: all 0.6s ease;
 	border: transparent;
 }
+
+#dot-menu {
+	width: 7px;
+}
+
+.newPanels p {
+	transition: all 0.3s ease;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+.dot-menu {
+	padding-right: 15px;
+	float: right;
+	z-index: 2;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+.dotHoverActive {
+	border: 2px solid white;
+	transition: all 0.3 ease;
+	padding-left: 10px;
+	filter: blur(4px);
+}
+
+.parHoverActive{
+	border: 2px solid white;
+	transition: all 0.3 ease;
+	padding-left: 10px;
+	filter: blur(4px);
+}
+
+div#parEditOptions {
+	position: absolute;
+	right: 50%;
+	top: 50%;
+    left: 50%;
+	bottom: 50%;
+	padding-bottom: 0;
+	
+}
+
+#pencilEdit, #parCopy {
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	border: 1px solid white;
+	border-radius: 700px;
+	z-index: 3;
+}
+
+#pencilEdit:hover, #parCopy:hover {
+	background-color: rgba(255, 255, 255, 0.582);
+	cursor: none;
+	border: 3px solid rgba(0, 0, 0, 0.548);
+	padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+

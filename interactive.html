@@ -74,17 +74,26 @@
 				<br><br><br><br><br><br><br><br>
 
 				<p>Change Heading Color :</p>&emsp;
-				<div class="color-picker" style="vertical-align: text-bottom;"></div>
+				<input type="color" name="headingColor" id="headingColorInput" value="#FFFFFF">
 
 				<br>
 
 				<div class="saveAndConfirmBtn">
 
-				<span id="saveBtn">Save</span><span id="cancelBtn" onclick="closeHeadingEditPanel()">Cancel</span>
+				<span id="saveBtn" onclick="saveHeadingEdit()">Save</span><span id="cancelBtn" onclick="closeHeadingEditPanel()">Cancel</span>
 
 				</div>
 
 			</div>
+			
+			<!-- Dot menu Template
+			<div class="dot-menu">
+
+			<img src="dot-fill.svg" alt="" id="dot-menu" class="dot1">
+			<img src="dot-fill.svg" alt="" id="dot-menu" class="dot2">
+			<img src="dot-fill.svg" alt="" id="dot-menu" class="dot3">
+
+			</div>-->
 
 			<div class="newPanelContainer" id="newPanelContainer">
 				<h1 class="panelHeadings"></h1>
