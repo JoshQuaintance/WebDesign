@@ -7,7 +7,7 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Codes Codes Codes!</title>
 
-		<link rel="icon" href="source_code.svg" type="image/svg+xml">
+		<link rel="icon" href="svg/source_code.svg" type="image/svg+xml">
 
 		<!--CSS Link-->
 		<link class="WebsiteCSS" rel="stylesheet" href="main.css" />
@@ -26,29 +26,16 @@
 	</head>
 
 	<body id="bodyTag">
-
+		<!--data-aos="fade-left" data-aos-anchor="#bodyTag"-->
 		<img id="bgImg" src="bgImg.jpg" style="visibility: visible;">
 		<!--Navigation Bar-->
-		<nav data-aos="fade-left" data-aos-anchor="#bgImg">
-			<!--Dark Mode Switch-->
-			<div style="display: inline;" class="darkSwitch darkSwitch-PC">
-				Dark Mode:
-				<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
-			</div>
+		<nav  data-link-hover>
 
-			<ul style="list-style-type: inside; padding-left: 0px;" id="navBar">
-				<a href="index.html" target="_parent" ><li>Home</li></a>
-				<a href="interactive.html" target="_parent"><li>Interactive</li></a>
-				<a href="about.html" target="_parent"><li>About</li></a>
-			</ul>
-			
-			<!--Dark Mode Switch-->
-			<div class="darkSwitch darkSwitch-Mobile">
-				Dark Mode:
-				<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
-			</div>
+			<a href="about.html" target="_parent" id="about">About</a>
+			<a href="interactive.html" target="_parent" id="interactive">Interactive</a>
+			<a href="index.html" target="_parent" id="home"Home>Home</a>
 
-		</nav>
+	</nav>
 		
 		<br>
 		<div style="margin-top: 0; padding-top: 0;" class="aboutPageDiv" id="testingPurposes">
@@ -63,18 +50,18 @@
 
 			</div>
 
-			<div class="aboutPage" data-aos="fade-left">
+			<div class="aboutPage aboutMe" data-aos="fade-left">
 
 				<h1>About Me!</h1>
 				<p>My name is Joshua, and I like coding. It is my dream to be a professional coder. It's 2020, and I am currently a Sophomore in Sidney High School. Here comes self-promotion!!! You can follow me on these:</p>
 
 				<div class="socialMedia" id="socialMedia">
-					<a href="https://instagram.com/joshuahasian_04">
+					<a id="instagram" href="https://instagram.com/joshuahasian_04">
 						
 						<img src="https://www.freepnglogos.com/uploads/instagram-logo-png-hd-31.png" width="50px"/>
 					</a>
 			
-					<a href="https://twitter.com/bigbrainfes">
+					<a id="twitter" href="https://twitter.com/bigbrainfes">
 						
 						<img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-logo-vector-png-clipart-1.png" title="Twitter Logo" alt="Twitter Logo"  id="twitter" width="65px"/>
 					</a>
@@ -127,7 +114,7 @@ $("#firstParagraph").text("Changed The Text");
 
 			<div class="aboutPage AOSUse" data-aos="fade-left">
 				<h1><a href="https://michalsnik.github.io/aos/">AOS (Animate On Scroll)</a></h1>
-				<p>This one is easy enough and the name explains itself. It basically helps me make animation without me coding it myself through css. It's how everything just slides in or fades in when you scroll. It was created by a guy in github with a username of michalsnik. Here is his github: <br><a href="https://github.com/michalsnik">https://github.com/michalsnik.</a> It is a very cool library that makes coding a lot faster. This one requires 2 CDNs, Here is the CDN I used for AOS: </p>
+				<p>This one is easy enough and the name explains itself. It basically helps me make animation without me coding it myself through css. It's how everything just slides in or fades in when you scroll. It was created by michalsnik here is his github: <a href="https://github.com/michalsnik">https://github.com/michalsnik.</a><br> It is a very cool library that makes coding a lot faster. This one requires 2 CDNs, Here is the CDN I used for AOS: </p>
 
 <div class="codeSnippets"><pre><p>JavaScript</p><code class="language-javascript">&lt;script src=&quot;https://unpkg.com/aos@2.3.1/dist/aos.js&quot;&gt;&lt;/script&gt; </code>
 
@@ -174,10 +161,11 @@ for (var i = 0; i < paragraph.length; i++) {
 			<div class="aboutPage editorUsed" data-aos="fade-left">
 
 				<h1><a href="https://code.visualstudio.com">Visual Studio Code</a></h1>
-				<p>Visual Studio Code, often called VS Code is an open source text editor made by Microsoft. It is a very powerful text editor. It can be a normal text editor, or you can make it a full blown IDE with a little bit of tweaking. I used it because I can literally make multiple IDEs for different languages. Just add a little extensions and there you go. Here's what my editor looks like with just a little tweaking:<br> <img src="VSCode_showcase.png" width="100%"><br>I changed the theme and used <a href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme">Material Theme</a> extension. The theme is also not to original one. I changed the text highlighting, etc... As you can also see to the left of the image, the logo with 9 notifications on it, thats git. It has git support, which really helps me commit and push all of these html, css, and javascript files to github without drag and dropping them. Also with a little bit of help from GitLens, pushing my commits became a ton easier. Overall, 10/10. You can press the title for their website or go here to download it here</p>
+				<p>Visual Studio Code, often called VS Code is an open source text editor made by Microsoft. It is a very powerful text editor. It can be a normal text editor, or you can make it a full blown IDE with a little bit of tweaking. I used it because I can literally make multiple IDEs for different languages. Just add a little extensions and there you go. Here's what my editor looks like with just a little tweaking:<br> <img src="VSCode_showcase.png" width="100%"><br>I changed the theme and used <a href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme">Material Theme</a> extension. The theme is also not to original one. I changed the text highlighting, etc... As you can also see to the left of the image, the logo with 29 notifications on it, thats git. It has git support, which really helps me commit and push all of these html, css, and javascript files to github without drag and dropping them. Also with a little bit of help from GitLens, pushing my commits became a ton easier. Overall, 10/10. You can press the title for their website or go here to download it here</p>
+
 
 				<p style="text-align: center;">
-				-> <a style="text-align: center;" href="https://code.visualstudio.com/download">VS Code</a> <-</p>
+				-> <a style="text-align: center;" href="https://code.visualstudio.com/download"> Visual Studio Code</a> <-</p>
 
 
 			</div>
@@ -195,7 +183,7 @@ for (var i = 0; i < paragraph.length; i++) {
 	
 			<a href="https://github.com/joshuapelealu/WebDesign/" alt="Github Code Octicon" title="Github Code Octicon">
 				<p>Source Code </p>
-				<img src="source_code.svg" width="125px;">
+				<img src="svg/source_code.svg" width="125px;">
 			</a>
 			
 			</div>
@@ -203,17 +191,25 @@ for (var i = 0; i < paragraph.length; i++) {
 		</div>
 	</div>
 
+	<h1>Other Stuff I Used</h1>
+	
+	<div class="aboutPage otherStuff" data-aos="fade-left">
+		<h1><a href="https://primer.style/octicons" target="_blank">GitHub Octicons</a></h1>
+		<p>GitHub is the free platform I used to deploy this website.GitHub was developed by Chris Wanstrath, P. J. Hyett, Tom Preston-Werner and Scott Chacon using Ruby on Rails which is another programming language. More info about GitHub's History <a href="https://en.wikipedia.org/wiki/GitHub">here.</a>It was eventually bought by Microsoft. Anyways, GitHub was made by the community, and they released their source code and engine, basically everything that runs GitHub, including <em>Octicons</em>. All the small icons you see in this website is from GitHub Octicons. They are simple, free and is in SVG format. It being in SVG format, that means resizing is very easy to do. Overall, they are really great to use.</p>
+		
+	</div>
+
 	<footer class="defaultFooter">
 
 		<div class="footerTitle">
-			<h1>Codes Codes Codes!</h1>
+			<h1><img src="svg/terminal.svg" id="terminalIcon">Codes Codes Codes!</h1>
 			<h5>Made by: Joshua Pelealu</h5>
 		</div>
 
 		<div class="footerLinks">
 		<a class="btn" href="about.html#socialMedia"><span>Social Media</span></a>
 
-		<a class="btn" href="https://github.com/JoshuaPelealu/WebDesign/blob/master/about.html"><span>View This Page On GitHub</span></a>
+		<a class="btn" href="https://github.com/JoshuaPelealu/WebDesign/blob/master/about.html"><span>View This Page On&nbsp;<img src="svg/mark-github.svg" alt="GitHub Mark" class="githubLogos Mark"><img src="svg/logo-github.svg" alt="GitHub Logo" class="githubLogos Logo"> </span></a>
 
 		</div>
 		
