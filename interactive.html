@@ -7,7 +7,7 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Codes Codes Codes!</title>
 
-		<link rel="icon" href="source_code.svg" type="image/svg+xml">
+		<link rel="icon" href="svg/source_code.svg" type="image/svg+xml">
 
 		<!--CSS Link-->
 		<link async class="WebsiteCSS" rel="stylesheet" href="main.css" />
@@ -31,28 +31,15 @@
 
 		<img id="bgImg" src="bgImg.jpg" style="visibility: visible;">
 	<!--Navigation Bar-->
-	<nav data-aos="fade-left" data-aos-anchor="#bodyTag">
-		<!--Dark Mode Switch-->
-		<div style="display: inline;" class="darkSwitch darkSwitch-PC">
-			Dark Mode:
-			<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
-		</div>
+	<nav data-aos="fade-left" data-aos-anchor="#bodyTag" data-link-hover>
 
-		<ul style="list-style-type: inside; padding-left: 0px;" id="navBar">
-			<a href="index.html" target="_parent" ><li>Home</li></a>
-			<a href="interactive.html" target="_parent"><li>Interactive</li></a>
-			<a href="about.html" target="_parent"><li>About</li></a>
-		</ul>
-		
-		<!--Dark Mode Switch-->
-		<div class="darkSwitch darkSwitch-Mobile">
-			Dark Mode:
-			<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
-		</div>
+			<a href="index.html" target="_parent" id="home"Home>Home</a>
+			<a href="interactive.html" target="_parent" id="interactive">Interactive</a>
+			<a href="about.html" target="_parent" id="about">About</a>
 
 	</nav>
 
- 
+		
 		<br>
 			<h1 style="color: red;">Please Do Mind That This Part of the Website is Still In Progress</h1>
 			<p>Now let's make your own webpage with a this template!</p>
@@ -60,7 +47,7 @@
 		<div id="interactiveDiv" class="interactiveDiv">
 
 			<div class="editHeadingPanelContainer editPanelContainer" data-aos="fade-up">
-				<img class="deletePanelCrossImg closeHeadingEditPanel" src="exit_icon_red.svg" type="img/svg+xml" alt="" onclick="closeHeadingEditPanel()">
+				<img class="deletePanelCrossImg closeHeadingEditPanel" src="svg/exit_icon_red.svg" type="img/svg+xml" alt="" onclick="closeHeadingEditPanel()">
 
 				<br>
 
@@ -101,7 +88,7 @@
 			</div>
 
 
-			<img class="addBtn addBtnH" src="plus.svg" type="image/svg+xml">
+			<img class="addBtn addBtnH" src="svg/plus.svg" type="image/svg+xml">
 			<!--Asks for texts input that will be displayed, as soon as the user confirms the input, the div will be removed.-->
 
 			<br>	
@@ -162,18 +149,18 @@
 		</div>
 		
 
-		<footer class="defaultFooter ">
+		<footer class="defaultFooter">
 
 			<div class="footerTitle">
-				<h1>Codes Codes Codes!</h1>
+				<h1><img src="svg/terminal.svg" id="terminalIcon">Codes Codes Codes!</h1>
 				<h5>Made by: Joshua Pelealu</h5>
 			</div>
-
+	
 			<div class="footerLinks">
 			<a class="btn" href="about.html#socialMedia"><span>Social Media</span></a>
-
-			<a class="btn" href="https://github.com/JoshuaPelealu/WebDesign/blob/master/interactive.html"><span>View This Page On GitHub</span></a>
-
+	
+			<a class="btn" href="https://github.com/JoshuaPelealu/WebDesign/blob/master/about.html"><span>View This Page On&nbsp;<img src="svg/mark-github.svg" alt="GitHub Mark" class="githubLogos Mark"><img src="svg/logo-github.svg" alt="GitHub Logo" class="githubLogos Logo"> </span></a>
+	
 			</div>
 			
 		</footer>
