@@ -213,12 +213,12 @@ function addPanel() {
 		//prettier-ignore
 		"<div class='dot-menu dot" + par + "'" +
 			'onmouseover="dotHovered(' +"'" + par +"'" +')" onmouseout="dotNotHovered(' +"'" + par +"'" +')">' +
-			"<img src='dot-fill.svg'  id='dot-menu' class='dot1'>" +
-			"<img src='dot-fill.svg' id='dot-menu' class='dot2'>" +
-			"<img src='dot-fill.svg' id='dot-menu' class='dot3'>" +
+			"<img src='svg/dot-fill.svg'  id='dot-menu' class='dot1'>" +
+			"<img src='svg/dot-fill.svg' id='dot-menu' class='dot2'>" +
+			"<img src='svg/dot-fill.svg' id='dot-menu' class='dot3'>" +
 			"</div><br>"
 	);
-
+		
 	//New Div
 	var newCard = $("<div></div>").addClass(uniqueDivClass);
 
@@ -264,7 +264,7 @@ function addPanel() {
 	//adds delete panel cross image
 	deletePanelImg = $(deletePanelImg).addClass("deletePanelCrossImg " + "deletePanelNum" + uniqueNum).attr({
 			onclick: "deleteSelectedPanel(" + "'" + "newCard" + uniqueNum + "'" + ")",
-			src: "exit_icon.svg"
+			src: "svg/exit_icon.svg"
 
 		});
 
@@ -378,9 +378,9 @@ let drawPencil = (parNum) => {
 	"<div id=\"editDatPencil\"" +  
 	"onmouseover=\"pencilHovered(" + "\'" + parNum + "\')\"" +
 	"onmouseout=\"pencilNotHovered(" + "\'" + parNum + "\')\">" +
-	"<img src='pencil.svg' id='pencilEdit'" +  "onmouseover=\"pencilHovered(" + "\'" + parNum + "\')\"" +
+	"<img src='svg/pencil.svg' id='pencilEdit'" +  "onmouseover=\"pencilHovered(" + "\'" + parNum + "\')\"" +
 	"onmouseout=\"pencilNotHovered(" + "\'" + parNum + "\')\">" +
-	"<img src='copy_icon.svg' id='parCopy'" +
+	"<img src='svg/copy_icon.svg' id='parCopy'" +
 	"onmouseover=\"copyHovered(" + "\'" + parNum + "\')\"" +
 	"onmouseout=\"copyNotHovered(" + "\'" + parNum + "\')\">" +
 	"</div></div>");
@@ -431,6 +431,8 @@ let hoverPar = (parNum) => {
 
 	drawPencil(parNum);
 };
+
+
 
 let notHoverPar = (parNum) => {
 	let parClass = "." + parNum;
