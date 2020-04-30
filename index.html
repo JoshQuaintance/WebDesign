@@ -4,10 +4,9 @@
         by: Joshua Pelealu-->
 	<head>
 		<meta charset="UTF-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Codes Codes Codes!</title>
 
-		<link rel="icon" href="source_code.svg" type="image/svg+xml">
+		<link rel="icon" href="svg/source_code.svg" type="image/svg+xml">
 
 		<!--CSS Link-->
 		<link async class="WebsiteCSS" rel="stylesheet" href="main.css" />
@@ -25,7 +24,7 @@
 
 	</head>
 
-	<body>
+	<body style="background-image:none;"!important>
 		
 
 		<div id="startAnimation"></div>
@@ -40,7 +39,7 @@
 
 			<p data-aos="fade-right" data-aos-anchor="#startAnimation">Scroll Down to Continue</p>
 			<br>
-			<a href="#container" target="_parent"><img class="scrollDown" src="untitled.svg"></img></a>
+			<a href="#container" target="_parent"><img class="scrollDown" src="svg/untitled.svg"></img></a>
 			<svg xmlns="http://www.w3.org/2000/svg"></svg>
 	
 		</div>
@@ -50,25 +49,12 @@
 		<hr id="whateverThisIs">
 
 		<!--Navigation Bar-->
-		<nav class="homeNavBar" data-aos="fade-left" data-aos-anchor="#whateverThisIs" data-aos-anchor-placement="top-center">
-			<!--Dark Mode Switch-->
-			<div style="display: inline;" class="darkSwitch darkSwitch-PC">
-				Dark Mode:
-				<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
-			</div>
+		<nav data-aos="fade-left" data-link-hover data-aos-anchor-placement="top-center" data-aos-anchor="#whateverThisIs">
 
-			<ul style="list-style-type: inside; padding-left: 0px;" id="navBar">
-				<a href="index.html" target="_parent" ><li>Home</li></a>
-				<a href="interactive.html" target="_parent"><li>Interactive</li></a>
-				<a href="about.html" target="_parent"><li>About</li></a>
-			</ul>
-			
-			<!--Dark Mode Switch-->
-			<div class="darkSwitch darkSwitch-Mobile" id ="darkModeSwitch">
-				Dark Mode:
-				<p id="innerSwitch" onclick="darkSwitch()">OFF</p>
-			</div>
-
+				<a href="index.html" target="_parent" id="home"Home>Home</a>
+				<a href="interactive.html" target="_parent" id="interactive">Interactive</a>
+				<a href="about.html" target="_parent" id="about">About</a>
+	
 		</nav>
 
 		
@@ -209,7 +195,7 @@ function spotifyPlaylist() {
 			</div>
 
 			<br><br>
-
+			
 			<div class="introductions mistakes" data-aos="fade-left">
 
 				<h1>Mistakes a lot of starter make (Even Me)</h1><h7>(Too Lazy To Read? Just Read The <strong>Red</strong>)</h7>
@@ -222,17 +208,17 @@ function spotifyPlaylist() {
 		<footer class="defaultFooter">
 
 			<div class="footerTitle">
-				<h1>Codes Codes Codes!</h1>
+				<h1><img src="svg/terminal.svg" id="terminalIcon">Codes Codes Codes!</h1>
 				<h5>Made by: Joshua Pelealu</h5>
 			</div>
-
+	
 			<div class="footerLinks">
 			<a class="btn" href="about.html#socialMedia"><span>Social Media</span></a>
-
-			<a class="btn" href="https://github.com/JoshuaPelealu/WebDesign/blob/master/index.html"><span>View This Page On GitHub</span></a>
-
+	
+			<a class="btn" href="https://github.com/JoshuaPelealu/WebDesign/blob/master/about.html"><span>View This Page On&nbsp;<img src="svg/mark-github.svg" alt="GitHub Mark" class="githubLogos Mark"><img src="svg/logo-github.svg" alt="GitHub Logo" class="githubLogos Logo"> </span></a>
+	
 			</div>
-
+			
 		</footer>
 		
 

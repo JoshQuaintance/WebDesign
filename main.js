@@ -158,6 +158,39 @@ if (localStorage.getItem("backgroundImgSet") === "On") {
 	localStorage.setItem("backgroundImgSet", "On");
 }
 
+/*****************
+ * Nav Bar Hover *
+ *****************/
+for (let cont of document.querySelectorAll("[data-link-hover]")) {
+	let hoverTimeout = null;
+	for (let elem of cont.children) {
+		elem.addEventListener(
+			"mouseenter",
+			() => {
+				if (hoverTimeout) {
+					clearTimeout(hoverTimeout);
+					hoverTimeout = null;
+				}
+				for (let child of cont.children) child.style.opacity = "0.4";
+
+				elem.style.opacity = "1";
+			},
+			false
+		);
+		elem.addEventListener(
+			"mouseleave",
+			() => {
+				hoverTimeout = setTimeout(() => {
+					hoverTimeout = null;
+					for (let child of cont.children) child.style.opacity = "1";
+				}, 200);
+			},
+			false
+		);
+	}
+}
+
+
 /*************
  * Greetings *
  *************/
@@ -238,40 +271,28 @@ function changeUserName() {
 	}
 }
 
-/******************************
- * Website Theme (Dark/Light) *
- ******************************/
-localStorage.key("websiteTheme");
-console.log("Current Website Theme is Set as " + localStorage.getItem("websiteTheme") + " mode");
-
 var switchText = document.getElementById("innerSwitch");
 var navBar = document.getElementsByTagName("nav");
 var introDiv = document.querySelectorAll(".introductions");
 var spotifySnippet = document.getElementById("spotifySnippet");
-
-if (localStorage.getItem("websiteTheme") === "dark") {
-	darkModeOn();
-} else {
-	darkModeOff();
-}
 
 //function run when the dark mode button is pressed
 function darkSwitch() {
 	var darkSwitchMode = document.getElementById("innerSwitch").innerHTML;
 	//changes the text and the mode according to the text value on the button
 	if (darkSwitchMode === "OFF") {
-		darkModeOn();
 		localStorage.setItem("websiteTheme", "dark"); //sets the local storage
 		//checkDevice();
 		console.log("Website Theme is changed to " + localStorage.getItem("websiteTheme")); //logs the theme change
 	} else {
-		darkModeOff();
 		//checkDevice();
 		localStorage.setItem("websiteTheme", "light"); //sets local storage to light
 		console.log("Website Theme is changed to " + localStorage.getItem("websiteTheme") + " mode"); //logs the theme change
 	}
 }
 
+/*
+//turned off
 //function that will change the colors of the website | reusable
 function darkModeOn() {
 	$("#innerSwitch, #innerSwitch").text("ON"); //text on the button
@@ -298,7 +319,7 @@ function darkModeOff() {
 	});
 	localStorage.setItem("websiteTheme", "light"); //sets local storage to light
 }
-
+*/
 /*********************************************************
  * Reusable Function For "Enter" Keypress event listener *
  *********************************************************/
