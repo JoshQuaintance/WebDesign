@@ -132,7 +132,7 @@ if (
  ****************************/
 
 var body = document.body;
-
+randomMargin();
 /*************************
  * Random Code Additions *
  *************************/
@@ -143,7 +143,7 @@ $(".aboutPageDiv a").attr("target", "_blank");
 /******************************
  * Random Numbers for Margins *
  *****************************/
-
+function randomMargin() {
 //picks margin-left or margin-right
 let marginText = [
 	"right",
@@ -204,9 +204,8 @@ for (let i = 0; i < elementClasses.length; i++) {
 	$(elementClasses[i]).css("margin-" + marginText[i], randomNum[i]);
 	$(elementClasses[i]).css("margin-" + marginText2[i], randomNum2[i]);
 
-	console.log($(elementClasses[i]).css("margin"));
 }
-
+}
 /*********************************
  * Local Storage To Set Some CSS *
  *********************************/
@@ -236,10 +235,14 @@ function userCurrentPage() {
 	const HOME = CURRENT_PAGE.match(PAGE_REGEX);
 
 	console.log(HOME[0]);
-	if (HOME[0] == null) return;
 
+	if (HOME[0] == null) {
+		backgroundImg();
+		$("#home span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
+		$("#home").css("color", "rgb(94, 138, 235)");
+	} 
+	
 	if (HOME[0] == "index") {
-		console.log("im in index");
 		backgroundImg();
 		$("#home span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
 		$("#home").css("color", "rgb(94, 138, 235)");
