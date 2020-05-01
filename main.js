@@ -234,27 +234,26 @@ function userCurrentPage() {
 	const PAGE_REGEX = /index|about|interactive/g;
 	const HOME = CURRENT_PAGE.match(PAGE_REGEX);
 
-	console.log(HOME[0]);
 
-	if (HOME[0] == null) {
+	if (HOME == null) {
 		backgroundImg();
 		$("#home span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
 		$("#home").css("color", "rgb(94, 138, 235)");
 	} 
 	
-	if (HOME[0] == "index") {
+	else if (HOME[0] == "index") {
 		backgroundImg();
 		$("#home span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
 		$("#home").css("color", "rgb(94, 138, 235)");
 	}
 
-	if (HOME[0] == "about") {
+	else if (HOME[0] == "about") {
 		console.log("Im in about");
 		$("#about span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
 		$("#about").css("color", "rgb(94, 138, 235)");
 	}
 
-	if (HOME[0] == "interactive") {
+	else if (HOME[0] == "interactive") {
 		console.log("im in interactive");
 		$("#interactive span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
 		$("#interactive").css("color", "rgb(94, 138, 235)");
