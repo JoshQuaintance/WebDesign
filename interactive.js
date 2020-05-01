@@ -374,6 +374,7 @@ function saveHeadingEdit() {
 let drawPencil = (parNum) => {
 	let parClass = "." + parNum;
 	let parDivClass = ".div_" + headingNum;
+	/* prettier-ignore */
 	let x = $("<div id=\"parEditOptions\">" + 
 	"<div id=\"editDatPencil\"" +  
 	"onmouseover=\"pencilHovered(" + "\'" + parNum + "\')\"" +

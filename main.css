@@ -16,8 +16,9 @@
 /*  Others */
 :root {
 	--darkBgColor: #222;
-	--blueHover: rgba(62, 109, 211, 0.822);
+	--blueHover: rgba(48, 95, 197, 0.822);
 	--chevronCursor: url("svg/chevron-down.svg"), auto;
+	--randomMargin: 150px;
 }
 
 /* Changes the whole website's CSS, but can still overridden by other more specifically targeted CSS */
@@ -81,6 +82,16 @@ a {
 [data-aos="fade-out-screen"].aos-animate {
 	opacity: 0;
 }
+
+/* prettier-ignore */
+[data-aos="fade-middle-out"] {
+	opacity: 1;
+	transform: translate3d(0, 100, 0);
+}
+
+
+
+
 
 /* prettier-ignore */
 @keyframes changeHappened {
@@ -217,6 +228,7 @@ nav {
 }
 
 nav a {
+	display: inline;
 	padding: 15px 3rem 15px 3rem;
 	transition: all 0.5s ease;
 	cursor: none;
@@ -226,13 +238,27 @@ nav a:hover {
 	background-color: var(--blueHover);
 	transition: all 0.5s ease;
 	cursor: none;
-	color: black;
+	color: black !important;
 	padding: 15px 4rem 15px 4rem;
 }
 
 nav h1 {
-	font-size: 35px;
+	font-size: 20px;
 }
+
+nav span {
+	color: white;
+	opacity: 0%;
+	transition: all 0.9s ease;
+	filter: contrast(1) brightness(1y);
+}
+
+#about:hover span, #interactive:hover span, #home:hover span{
+	color: black !important;
+	opacity: 100%;
+	transition: all 0.9s ease;
+}
+
 
 /*  =======================
 	=	Dark Mode Switch  =
@@ -287,6 +313,7 @@ p {
 #alertBtn {
 	display: inline-block;
 	vertical-align: text-bottom;
+
 }
 
 #alertInput {
@@ -371,8 +398,8 @@ textarea {
 .container {
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	text-align: left;
-	padding-left: 50px;
-	padding-right: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
 	padding-top: 100px;
 }
 
@@ -389,11 +416,28 @@ iframe {
 	padding-top: 40px;
 	padding-left: 50px;
 	padding-right: 50px;
-	background-color: rgba(49, 49, 49, 0.7);
+	background-color: transparent;
 	backdrop-filter: blur(4px);
 	line-height: 50px;
 }
+/*
+.introduction {
+	margin-right: 150px;
+}
 
+.interesting {
+	margin-left: 300px;
+}
+
+.funStuff {
+	margin-right: 200px;
+	margin-left: 20px;
+}
+
+.mistakes {
+	margin-left: 400px;
+}
+*/
 button {
 	color: inherit;
 	background-color: rgba(10, 10, 10, 0.2);
@@ -430,11 +474,11 @@ button:hover {
 /* About Me Page */
 .aboutPage {
 	margin-top: 100px;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 10px;
+	margin-right: 10px;
 	padding-top: 5px;
 	padding-bottom: 20px;
-	background-color: rgba(17, 17, 17, 0.6);
+	background-color: transparent;
 	-webkit-backdrop-filter: blur(4px);
 	backdrop-filter: blur(4px);
 }
@@ -470,6 +514,7 @@ button:hover {
 
 .aboutMe {
 	min-height: 520px;
+	margin-right: 500px;
 }
 
 .sourceCode a p,

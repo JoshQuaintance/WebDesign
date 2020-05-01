@@ -138,8 +138,74 @@ var body = document.body;
  *************************/
 
 //Links in About Page all go to new Tab
-
 $(".aboutPageDiv a").attr("target", "_blank");
+
+/******************************
+ * Random Numbers for Margins *
+ *****************************/
+
+//picks margin-left or margin-right
+let marginText = [
+	"right",
+	"left",
+	"right",
+	"left",
+	"right",
+	"left",
+	"right",
+	"left",
+	"right",
+	"left",
+	"right",
+	"left",
+	"right"
+];
+
+let marginText2 = [
+	"left",
+	"right",
+	"left",
+	"right",
+	"left",
+	"right",
+	"left",
+	"right",
+	"left",
+	"right",
+	"left",
+	"right",
+	"left"
+];
+
+//Element Classes
+let elementClasses = [
+	".introduction",
+	".interesting",
+	".funStuff",
+	".mistakes",
+	".thanksYou",
+	".aboutMe",
+	".beforeStart",
+	".jQueryUse",
+	".AOSUse",
+	".prismSyntaxHighlight",
+	".editorUsed",
+	".sourceCode",
+	".otherStuff"
+];
+
+//generates random number value for the margin and applies margin to each element
+let randomNum2 = [];
+let randomNum = [];
+for (let i = 0; i < elementClasses.length; i++) {
+	randomNum.push(Math.floor(Math.random() * 300) + 150);
+	randomNum2.push(Math.floor(Math.random() * 100) + 5);
+
+	$(elementClasses[i]).css("margin-" + marginText[i], randomNum[i]);
+	$(elementClasses[i]).css("margin-" + marginText2[i], randomNum2[i]);
+
+	console.log($(elementClasses[i]).css("margin"));
+}
 
 /*********************************
  * Local Storage To Set Some CSS *
@@ -156,6 +222,40 @@ if (localStorage.getItem("backgroundImgSet") === "On") {
 	localStorage.setItem("backgroundImgSet", "Off");
 } else {
 	localStorage.setItem("backgroundImgSet", "On");
+}
+
+/***********************************
+ * Checks What Page the User is In *
+ ***********************************/
+userCurrentPage();
+
+function userCurrentPage() {
+	const CURRENT_URL = $(location).attr("href");
+	const CURRENT_PAGE = encodeURIComponent(CURRENT_URL);
+	const PAGE_REGEX = /index|about|interactive/g;
+	const HOME = CURRENT_PAGE.match(PAGE_REGEX);
+
+	console.log(HOME[0]);
+	if (HOME[0] == null) return;
+
+	if (HOME[0] == "index") {
+		console.log("im in index");
+		backgroundImg();
+		$("#home span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
+		$("#home").css("color", "rgb(94, 138, 235)");
+	}
+
+	if (HOME[0] == "about") {
+		console.log("Im in about");
+		$("#about span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
+		$("#about").css("color", "rgb(94, 138, 235)");
+	}
+
+	if (HOME[0] == "interactive") {
+		console.log("im in interactive");
+		$("#interactive span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
+		$("#interactive").css("color", "rgb(94, 138, 235)");
+	}
 }
 
 /*****************
@@ -189,7 +289,6 @@ for (let cont of document.querySelectorAll("[data-link-hover]")) {
 		);
 	}
 }
-
 
 /*************
  * Greetings *
@@ -275,7 +374,7 @@ var switchText = document.getElementById("innerSwitch");
 var navBar = document.getElementsByTagName("nav");
 var introDiv = document.querySelectorAll(".introductions");
 var spotifySnippet = document.getElementById("spotifySnippet");
-
+/*
 //function run when the dark mode button is pressed
 function darkSwitch() {
 	var darkSwitchMode = document.getElementById("innerSwitch").innerHTML;
@@ -291,7 +390,7 @@ function darkSwitch() {
 	}
 }
 
-/*
+
 //turned off
 //function that will change the colors of the website | reusable
 function darkModeOn() {
@@ -354,48 +453,49 @@ function bgVideo() {
 /***************************
  * Background Image Change *
  ***************************/
-var urlInput = document.getElementById("bgImgInput");
-var urlInputValue = urlInput.value;
-var urlConfirm = document.getElementById("urlInputConfirm");
-var validationMsg = $("#validationMsg");
+function backgroundImg() {
+	var urlInput = document.getElementById("bgImgInput");
+	var urlInputValue = urlInput.value;
+	var urlConfirm = document.getElementById("urlInputConfirm");
+	var validationMsg = $("#validationMsg");
 
-function bgImgChange() {
-	var urlValue = $("#bgImgInput").val();
-	var urlCheck = is_url(urlValue);
+	function bgImgChange() {
+		var urlValue = $("#bgImgInput").val();
+		var urlCheck = is_url(urlValue);
 
-	if (urlCheck === true) {
-		$("#bgImg").attr("src", urlValue);
-		$("#validationMsg").css("display", "none");
-		bgImgInputRmv();
-	} else {
-		$("#validationMsg").css("display", "inline");
+		if (urlCheck === true) {
+			$("#bgImg").attr("src", urlValue);
+			$("#validationMsg").css("display", "none");
+			bgImgInputRmv();
+		} else {
+			$("#validationMsg").css("display", "inline");
+		}
+	}
+
+	ifEnterIsPressed(urlInput, bgImgChange);
+
+	function bgImgInput() {
+		$("#bgImgInput").css("display", "inline");
+		$("#urlInputConfirm").css("display", "inline");
+	}
+
+	function bgImgInputRmv() {
+		$("bgImg").attr("src", urlInputValue);
+		$("#bgImgInput").css("display", "none");
+		$("#urlInputConfirm").css("display", "none");
+	}
+
+	//checks url validity
+	function is_url(str) {
+		var regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+
+		if (regexp.test(str)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
-
-ifEnterIsPressed(urlInput, bgImgChange);
-
-function bgImgInput() {
-	$("#bgImgInput").css("display", "inline");
-	$("#urlInputConfirm").css("display", "inline");
-}
-
-function bgImgInputRmv() {
-	$("bgImg").attr("src", urlInputValue);
-	$("#bgImgInput").css("display", "none");
-	$("#urlInputConfirm").css("display", "none");
-}
-
-//checks url validity
-function is_url(str) {
-	var regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-
-	if (regexp.test(str)) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
 /********************
  * Spotify Playlist *
  ********************/
@@ -427,6 +527,7 @@ function jqueryTgl() {
 		$(".normalJS").css("display", "inline");
 	}
 }
+
 /**********************
  * Alert Text Message *
  **********************/
