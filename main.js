@@ -301,10 +301,8 @@ localStorage.key("userName");
 var userNameStore = localStorage.getItem("userName");
 var rememberNameStore = localStorage.getItem("rememberUserName");
 
-//prettier-ignore
 //Checks if there is a local storage named "rememberUserName" with a value of "yes"
 //and a local storage named "userName" with a string value and is not empty nor null nor undefined
-
 if (rememberNameStore === "Yes" && userNameStore !== "" && userNameStore !== null && userNameStore !== undefined) {
 		//if the condition is correct, then this block will run
 		$(".frontPage span").text(userNameStore);
@@ -376,6 +374,10 @@ var switchText = document.getElementById("innerSwitch");
 var navBar = document.getElementsByTagName("nav");
 var introDiv = document.querySelectorAll(".introductions");
 var spotifySnippet = document.getElementById("spotifySnippet");
+
+/**************************
+ * Dark Mode - Turned Off *
+ **************************/
 /*
 //function run when the dark mode button is pressed
 function darkSwitch() {

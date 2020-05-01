@@ -11,6 +11,8 @@ AOS.init({
  * Website Theme (Dark/Light) *
  ******************************/
 
+ //turned OFF
+
 localStorage.key("websiteTheme");
 console.log("Current Website Theme is Set as " + localStorage.getItem("websiteTheme") + " mode");
 
@@ -19,6 +21,7 @@ var navBar = document.getElementsByTagName("nav");
 var introDiv = document.querySelectorAll(".introductions");
 var spotifySnippet = document.getElementById("spotifySnippet");
 
+/*
 if (localStorage.getItem("websiteTheme") === "dark") {
 	darkModeOn();
 } else {
@@ -68,8 +71,11 @@ function darkModeOff() {
 	});
 	localStorage.setItem("websiteTheme", "light"); //sets local storage to light
 }
+*/
 
-//Pickr
+/*********
+ * Pickr *
+ *********/
 
 // Simple example, see optional options for more configuration.
 const pickr = Pickr.create({
@@ -207,16 +213,11 @@ function addPanel() {
 	var uniqueParagraphClass = "newParagraph" + uniqueNum;
 	let parDivClass = "div_newParagraph" + uniqueNum;
 	let par = uniqueParagraphClass;
-	var headingType = "<" + headingPicked + ">";
+	var headingType = `<${headingPicked}>`;
 	var deletePanelImg = $("<img>");
 	let dotMenu = $(
 		//prettier-ignore
-		"<div class='dot-menu dot" + par + "'" +
-			'onmouseover="dotHovered(' +"'" + par +"'" +')" onmouseout="dotNotHovered(' +"'" + par +"'" +')">' +
-			"<img src='svg/dot-fill.svg'  id='dot-menu' class='dot1'>" +
-			"<img src='svg/dot-fill.svg' id='dot-menu' class='dot2'>" +
-			"<img src='svg/dot-fill.svg' id='dot-menu' class='dot3'>" +
-			"</div><br>"
+		`<div class='dot-menu dot${par}'onmouseover="dotHovered('${par}')" onmouseout="dotNotHovered('${par}')"><img src='svg/dot-fill.svg'  id='dot-menu' class='dot1'><img src='svg/dot-fill.svg' id='dot-menu' class='dot2'><img src='svg/dot-fill.svg' id='dot-menu' class='dot3'></div><br>`
 	);
 		
 	//New Div
@@ -228,10 +229,10 @@ function addPanel() {
 
 	//prettier-ignore
 	newHeading = $(newHeading).attr({
-		onmouseover : "headingHovered(" + "'" + uniqueHeadingClass + "'" + ")",
-		onmouseout  : "headingNotHovered(" + "'" + uniqueHeadingClass + "'" + ")",
-		onclick : "editPanelHeading(" + "'" + uniqueHeadingClass + "'" + ")",
-		onchange: "headingChanged(" + "'" + uniqueHeadingClass + "'" + ")"
+		onmouseover : `headingHovered('${uniqueHeadingClass}')`,
+		onmouseout  : `headingNotHovered('${uniqueHeadingClass}')`,
+		onclick : `editPanelHeading('${uniqueHeadingClass}')`,
+		onchange: `headingChanged('${uniqueHeadingClass}')`
 	}).addClass("panelHeadings");
 
 	$(newHeading).text(headingText);
@@ -263,7 +264,7 @@ function addPanel() {
 	//prettier-ignore
 	//adds delete panel cross image
 	deletePanelImg = $(deletePanelImg).addClass("deletePanelCrossImg " + "deletePanelNum" + uniqueNum).attr({
-			onclick: "deleteSelectedPanel(" + "'" + "newCard" + uniqueNum + "'" + ")",
+			onclick: `deleteSelectedPanel('newCard${uniqueNum}')`,
 			src: "svg/exit_icon.svg"
 
 		});
@@ -375,16 +376,11 @@ let drawPencil = (parNum) => {
 	let parClass = "." + parNum;
 	let parDivClass = ".div_" + headingNum;
 	/* prettier-ignore */
-	let x = $("<div id=\"parEditOptions\">" + 
-	"<div id=\"editDatPencil\"" +  
-	"onmouseover=\"pencilHovered(" + "\'" + parNum + "\')\"" +
-	"onmouseout=\"pencilNotHovered(" + "\'" + parNum + "\')\">" +
-	"<img src='svg/pencil.svg' id='pencilEdit'" +  "onmouseover=\"pencilHovered(" + "\'" + parNum + "\')\"" +
-	"onmouseout=\"pencilNotHovered(" + "\'" + parNum + "\')\">" +
-	"<img src='svg/copy_icon.svg' id='parCopy'" +
-	"onmouseover=\"copyHovered(" + "\'" + parNum + "\')\"" +
-	"onmouseout=\"copyNotHovered(" + "\'" + parNum + "\')\">" +
-	"</div></div>");
+	let x = $(`<div id="parEditOptions">` +
+	`<div id="editDatPencil" onmouseover="pencilHovered('${parNum}')" onmouseout="pencilNotHovered('${parNum}')">` +
+	`<img src='svg/pencil.svg' id='pencilEdit'  onmouseover="pencilHovered('${parNum}')" onmouseout="pencilNotHovered('${parNum}')">` + 
+	`<img src='svg/copy_icon.svg' id='parCopy' onmouseover="copyHovered('${parNum}')" onmouseout="copyNotHovered('${parNum}')">` +
+	`</div></div>`);
 	x = x.css("z-index", "1000");
 
 	if ($("#pencilEdit").length){
@@ -399,8 +395,8 @@ var dotHovered = (parNum) => {
 	
 	$(parClass).addClass("dotHoverActive");
 	$(parClass).attr({
-		onmouseover : "hoverPar(" + "'" + parNum + "')", 
-		onmouseout  : "notHoverPar(" + "'" + parNum + "')"
+		onmouseover : `hoverPar('${parNum}')`, 
+		onmouseout  : `notHoverPar('${parNum}')`
 	});
 
 	drawPencil(parNum);
