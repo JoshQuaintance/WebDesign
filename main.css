@@ -17,7 +17,7 @@
 :root {
 	--darkBgColor: #222;
 	--blueHover: rgba(48, 95, 197, 0.822);
-	--chevronCursor: url("svg/chevron-down.svg"), auto;
+	--chevronCursor: url("normal.cur"), auto;
 	--randomMargin: 150px;
 }
 
@@ -25,6 +25,9 @@
 * {
 	border-color: currentColor;
 	scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 h1 {
@@ -36,8 +39,7 @@ html {
 }
 
 body {
-	margin: 0;
-	padding: 0;
+	cursor: var(--chevronCursor);
 	overflow-wrap: break-word;
 	z-index: 1;
 	text-align: center;
@@ -88,10 +90,6 @@ a {
 	opacity: 1;
 	transform: translate3d(0, 100, 0);
 }
-
-
-
-
 
 /* prettier-ignore */
 @keyframes changeHappened {
@@ -207,7 +205,6 @@ div.hover .dot3 {
 	=                       =
 	=========================  */
 
-
 nav a {
 	float: right;
 	text-decoration: none;
@@ -253,12 +250,13 @@ nav span {
 	filter: contrast(1) brightness(1y);
 }
 
-#about:hover span, #interactive:hover span, #home:hover span{
+#about:hover span,
+#interactive:hover span,
+#home:hover span {
 	color: black !important;
 	opacity: 100%;
 	transition: all 0.9s ease;
 }
-
 
 /*  =======================
 	=	Dark Mode Switch  =
@@ -313,7 +311,6 @@ p {
 #alertBtn {
 	display: inline-block;
 	vertical-align: text-bottom;
-
 }
 
 #alertInput {
@@ -694,20 +691,23 @@ footer a:hover span {
 	padding-top: 25px;
 	text-align: left;
 	background-color: inherit;
-	padding-bottom: 50px;
-	margin-bottom: none;
+	margin-bottom: 0;
 }
 
 .footerTitle h5 {
 	font-size: 25px;
 	margin-top: 0;
 	padding-top: 0;
+	padding-bottom: 50px;
 }
 
 .footerTitle h1 {
 	font-size: 75px;
-	margin-bottom: 20px;
-	padding-bottom: 0;
+	padding-bottom: 50px;
+}
+
+.footerLinks {
+	padding-bottom: 35px;
 }
 
 .footerLinks a {
