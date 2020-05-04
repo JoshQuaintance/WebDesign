@@ -13,6 +13,7 @@ AOS.init({
 	duration : 1200
 });
 
+
 /**********************
  * Checks User Device *
  **********************/
@@ -145,24 +146,29 @@ $(".aboutPageDiv a").attr("target", "_blank");
  * Random Stars Generation *
  ***************************/
 
-let starGeneration = () => {
+function starGeneration() {
 	let randomPosition = [ "left", "right" ];
 
-	for (let i = 1; i <= 60; i++) {
-		let randomTopNum = Math.floor(Math.random() * 1000) + 10;
+	for (let i = 1; i <= 150; i++) {
+		let randomTopNum = Math.floor(Math.random() * 1200) + 10;
 		let randomPosNum = Math.floor(Math.random() * 700) + 10;
 		let xPosition = Math.round(Math.random());
-		let starSpan = $(`<span class="stars star${i}"></span>`);
 		let positionName = randomPosition[xPosition];
+
+		//Random number for star scale
+		let randomScaleNum = Math.random() * 0.2 + 1;
+		console.log(randomScaleNum);
+
+		//creates the span element for the stars
+		let starSpan = $(`<span class="stars star${i}"></span>`);
 
 		$(starSpan).css("top", randomTopNum);
 		$(starSpan).css(positionName, randomPosNum);
+		$(starSpan).css("transform", `scale(${randomScaleNum})`);
 
 		$("div.starContainer").append(starSpan);
 	}
-};
-
-starGeneration();
+}
 /******************************
  * Random Numbers for Margins *
  *****************************/
@@ -221,7 +227,7 @@ function randomMargin() {
 	let randomNum2 = [];
 	let randomNum = [];
 	for (let i = 0; i < elementClasses.length; i++) {
-		randomNum.push(Math.floor(Math.random() * 300) + 150);
+		randomNum.push(Math.floor(Math.random() * 200) + 150);
 		randomNum2.push(Math.floor(Math.random() * 100) + 5);
 
 		$(elementClasses[i]).css("margin-" + marginText[i], randomNum[i]);
@@ -253,25 +259,31 @@ userCurrentPage();
 function userCurrentPage() {
 	const CURRENT_URL = $(location).attr("href");
 	const CURRENT_PAGE = encodeURIComponent(CURRENT_URL);
-	const PAGE_REGEX = /index|about|interactive/g;
+	const PAGE_REGEX = /index|about|interactive|scene/gi;
 	const HOME = CURRENT_PAGE.match(PAGE_REGEX);
+	const navColor = "#000";
 
+	console.log(CURRENT_PAGE + " " + HOME)
 	if (HOME == null) {
 		backgroundImg();
-		$("#home span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
-		$("#home").css("color", "rgb(94, 138, 235)");
+		$("#home span").css("opacity", "1").css("color", navColor);
+		$("#home").css("color", navColor);
 	} else if (HOME[0] == "index") {
 		backgroundImg();
-		$("#home span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
-		$("#home").css("color", "rgb(94, 138, 235)");
+		starGeneration();
+		$("#home span").css("opacity", "1").css("color", navColor);
+		$("#home").css("color", navColor);
 	} else if (HOME[0] == "about") {
 		console.log("Im in about");
-		$("#about span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
-		$("#about").css("color", "rgb(94, 138, 235)");
+		$("#about span").css("opacity", "1").css("color", navColor);
+		$("#about").css("color", navColor);
 	} else if (HOME[0] == "interactive") {
 		console.log("im in interactive");
-		$("#interactive span").css("opacity", "1").css("color", "rgb(94, 138, 235)");
-		$("#interactive").css("color", "rgb(94, 138, 235)");
+		$("#interactive span").css("opacity", "1").css("color", navColor);
+		$("#interactive").css("color", navColor);
+	} else if (HOME[0] == "Scene") {
+		$("#scene span").css("opacity", "1").css("color", navColor);
+		$("#scene").css("color", navColor);
 	}
 }
 
@@ -320,7 +332,7 @@ var rememberNameStore = localStorage.getItem("rememberUserName");
 //and a local storage named "userName" with a string value and is not empty nor null nor undefined
 if (rememberNameStore === "Yes" && userNameStore !== "" && userNameStore !== null && userNameStore !== undefined) {
 	//if the condition is correct, then this block will run
-	$(".frontPage span").text(userNameStore);
+	$("#userName").text(userNameStore);
 } else {
 	//if not, its going to ask the user for name
 	var userName = window.prompt("Before We Start, What is your name?");
@@ -331,7 +343,7 @@ if (rememberNameStore === "Yes" && userNameStore !== "" && userNameStore !== nul
 	if (userName !== "" && userName !== null && userName !== undefined) {
 		//if there is, then this block will run
 		console.log(userName);
-		$(".frontPage span").text(userName + "!");
+		$("#userName").text(userName + "!");
 
 		//ask user if they want the browser to store their name
 		if (confirm("Do you want your browser to remember your name for the next time you visit this website?")) {
@@ -344,13 +356,13 @@ if (rememberNameStore === "Yes" && userNameStore !== "" && userNameStore !== nul
 	} else {
 		//if user did not enter a string, then this block will run
 		console.log("User Name is not Entered");
-		$(".frontPage span").text("Anonymous User!");
+		$("#userName").text("Anonymous User!");
 		localStorage.setItem("userName", "Anonymous User!");
 	}
 }
 
 //prettier-ignore
-$(".frontPage span").hover(function () {
+$("#userName").hover(function () {
 	//prettier-ignore
 	localStorage.setItem("userNameChange", userNameStore);
 	var userNameChange = localStorage.getItem("userNameChange")
@@ -368,10 +380,10 @@ function changeUserName() {
 	userNameStore = localStorage.setItem("userName", userName);
 
 	if (userName === "" || userName === null || userName === undefined) {
-		$(".frontPage span").text("Anonymous User!");
+		$("#userName").text("Anonymous User!");
 		localStorage.setItem("userName", "Anonymous User!");
 	} else {
-		$(".frontPage span").text(userName);
+		$("#userName").text(userName);
 
 		if (confirm("Do you want the browser to save your name for your next visit?")) {
 			localStorage.setItem("rememberUserName", "Yes");
@@ -440,13 +452,23 @@ function darkModeOff() {
 */
 /*********************************************************
  * Reusable Function For "Enter" Keypress event listener *
- *********************************************************/
+ *********************************************************
 function ifEnterIsPressed(elementPicked, funcCallback) {
 	elementPicked.addEventListener("keyup", function(event) {
 		if (event.keyCode === 13) {
 			event.preventDefault();
 			funcCallback();
 			console.log("function " + funcCallBack + "is executed");
+		}
+	});
+}*/
+
+function ifEnterIsPressed(elementSelector, funcCallback) {
+	$(elementSelector).on("keyup", (event) => {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+			funcCallback();
+			console.log(`Enter is pressed in ${elementSelector}, ${funcCallback} function is executed`);
 		}
 	});
 }
@@ -456,7 +478,7 @@ function ifEnterIsPressed(elementPicked, funcCallback) {
  *******************************************/
 
 function bgVideo() {
-	var bgVisible = $("#bgImg").css("visibility");
+	let bgVisible = $("#bgImg").css("visibility");
 
 	if (bgVisible === "hidden") {
 		$("#bgImg").css("visibility", "visible");

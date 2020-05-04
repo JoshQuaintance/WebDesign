@@ -22,6 +22,7 @@
 	--clouds: url("svg/clouds.svg");
 }
 
+
 /* Changes the whole website's CSS, but can still overridden by other more specifically targeted CSS */
 * {
 	border-color: currentColor;
@@ -46,7 +47,7 @@ body {
 	text-align: center;
 	overflow-x: hidden !important;
 	transition: all 0.4s ease;
-	background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+	background-image: linear-gradient(to top, #30cfd0 0%, #14042e 100%);
 	color: black;
 }
 
@@ -80,6 +81,7 @@ a {
 	width: 5px;
 	border-radius: 50%;
 	box-shadow: 5px 5px 1px #fff;
+	z-index: -1;
 }
 
 /* Animation Keyframes */
@@ -226,7 +228,7 @@ div.hover .dot3 {
 	position: absolute;
 	padding-top: 100px;
 	bottom: 0px;
-	top: 0px;
+	top: 1500px;
 	left: 0px;
 	right: 0px;
 	z-index: -1;
@@ -243,18 +245,38 @@ div.hover .dot3 {
 }
 
 .x3 {
-	animation: cloudAnimations 71s linear infinite;
+	animation: cloudAnimations 61s linear infinite;
 	transform: scale(0.4);
 }
 
 .x4 {
-	animation: cloudAnimations 69s linear infinite;
+	animation: cloudAnimations 35s linear infinite;
 	transform: scale(0.5);
 }
 
 .x5 {
 	animation: cloudAnimations 27s linear infinite;
 	transform: scale(0.4);
+}
+
+.x6 {
+ animation: cloudAnimations 50s linear infinite;
+ transform: scale(0.4);
+}	
+
+.x7 {
+ animation: cloudAnimations 43s linear infinite;
+ transform: scale(0.5);
+}
+
+.x8 {
+ animation: cloudAnimations 31s linear infinite;
+ transform: scale(0.6);
+}
+
+.x9 {
+ animation: cloudAnimations 25s linear infinite;
+ transform: scale(0.4);
 }
 
 .cloud {
@@ -298,6 +320,12 @@ div.hover .dot3 {
 	=                       =
 	=========================  */
 
+#menuBar:hover {
+	background-color: white;
+}
+
+
+
 nav a {
 	float: right;
 	text-decoration: none;
@@ -305,20 +333,24 @@ nav a {
 	font-size: 20px;
 	margin-top: 20px;
 	font-family: 'Noto Sans JP', sans-serif;
+	
 }
 
 nav {
+	opacity: 100%;
+	width: 100%;
 	float: right;
 	padding-top: 0;
 	position: sticky !important;
 	top: 5px;
 	z-index: 2;
 	background-color: transparent;
+	transition: all 0.5s ease;
 }
 
 nav a {
 	display: inline;
-	padding: 15px 3rem 15px 3rem;
+	padding: 15px 2.5rem 15px 2.5rem;
 	transition: all 0.5s ease;
 	cursor: none;
 }
@@ -329,6 +361,7 @@ nav a:hover {
 	cursor: none;
 	color: black !important;
 	padding: 15px 4rem 15px 4rem;
+	border: 0 solid transparent;
 }
 
 nav h1 {
@@ -342,9 +375,15 @@ nav span {
 	filter: contrast(1) brightness(1y);
 }
 
+.frontPage:hover nav {
+	opacity: 0 !important;
+}
+
+
 #about:hover span,
 #interactive:hover span,
-#home:hover span {
+#home:hover span, 
+#scene:hover span {
 	color: black !important;
 	opacity: 100%;
 	transition: all 0.9s ease;
@@ -393,7 +432,8 @@ nav span {
 
 .frontPage {
 	cursor: var(--chevronCursor);
-	/*background-image: linear-gradient(to top, #332375 0%, #050936 100%);*/
+	color: rgb(221, 221, 221);
+	z-index: 1;
 }
 
 p {
@@ -564,12 +604,12 @@ button:hover {
 	backdrop-filter: blur(4px);
 }
 
-.aboutPage a {
+.aboutPage a, .mistakes a {
 	color: rgb(106, 97, 231);
 	transition: all 0.4s ease;
 }
 
-.aboutPage a:hover {
+.aboutPage a:hover, .mistakes a:hover{
 	text-decoration: underline;
 	background-color: var(--blueHover);
 	color: var(--darkBgColor);
@@ -578,8 +618,8 @@ button:hover {
 
 .aboutPage p {
 	text-align: left;
-	padding-left: 80px;
-	padding-right: 80px;
+	padding-left: 50px;
+	padding-right: 50px;
 	font-size: 2em;
 	font-family: 'Comic Neue', cursive;
 	padding-bottom: 15px;
@@ -637,7 +677,8 @@ a[class= btn]:hover {
 }
 
 .sourceCode a:hover,
-.aboutPage a:hover {
+.aboutPage a:hover,
+.mistakes a:hover {
 	border: 3px solid rgb(106, 97, 231);
 	border-radius: 5px;
 	text-decoration: none;
@@ -746,7 +787,6 @@ code {
 footer {
 	font-family: 'Montserrat', sans-serif;
 	transition: all 0.4s ease;
-	background-image: url("footer-background.png");
 	z-index: 5;
 	color: white;
 }
@@ -763,6 +803,7 @@ footer a:hover {
 	padding-top: 15px;
 	padding-left: 25px;
 	padding-right: 25px;
+	border: transparent;
 }
 
 footer a:hover span {
@@ -792,6 +833,7 @@ footer a:hover span {
 }
 
 .footerLinks {
+	margin-top: 50px;
 	padding-bottom: 35px;
 }
 

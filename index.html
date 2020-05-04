@@ -39,7 +39,7 @@
 				
 			</div>
 
-			<h1 style="font-size: 2.5em; padding-top: 250px; margin-top: 0;" data-aos="fade-left" data-aos-anchor="#startAnimation">Welcome, <span onclick="changeUserName()"></span> </h1>
+			<h1 style="font-size: 2.5em; padding-top: 250px; margin-top: 0;" data-aos="fade-left" data-aos-anchor="#startAnimation">Welcome, <span onclick="changeUserName()" id="userName"></span> </h1>
 			<br><br>
 
 			<br>
@@ -56,16 +56,18 @@
 		<i id="whateverThisIs" class=".frontPage">
 
 		<!--Navigation Bar-->
-		<nav data-aos="fade-left" data-link-hover data-aos-anchor-placement="top-center" data-aos-anchor="#whateverThisIs">
+		<nav>
 
-			<a href="about.html" target="_parent" id="about"><span>&lt;</span> About <span>&gt;</span></a>
-			<a href="interactive.html" target="_parent" id="interactive"><span>&lt;</span> Interactive <span>&gt;</span></a>
-			<a href="index.html" target="_parent" id="home"><span>&lt;</span> Home <span>&gt;</span></a>
+			<a href="/behindScenes.html" target="_parent" id="scene"><span>&lt;</span> Behind The Scenes <span>&gt;</span></a></a>
+			<a href="/about.html" target="_parent" id="about"><span>&lt;</span> About <span>&gt;</span></a>
+			<a href="/interactive.html" target="_parent" id="interactive"><span>&lt;</span> Interactive <span>&gt;</span></a>
+			<a href="/index.html" target="_parent" id="home"Home><span>&lt;</span> Home <span>&gt;</span></a>
 	
 		</nav>
 
 		
 		<br>
+		
 		<div class="container" id="container">
 
 			
@@ -89,6 +91,45 @@
 			
 			<br><br>
 
+			<div class="cloudsWrapper">
+				<div class="x1">
+					<div class="cloud"></div>
+				</div>
+	
+				<div class="x2">
+					<div class="cloud"></div>
+				</div>
+	
+				<div class="x3">
+					<div class="cloud"></div>
+				</div>
+	
+				<div class="x4">
+					<div class="cloud"></div>
+				</div>
+	
+				<div class="x5">
+					<div class="cloud"></div>
+				</div>
+
+				<div class="x6">
+					<div class="cloud"></div>
+				</div>
+
+				<div class="x7">
+					<div class="cloud"></div>
+				</div>
+
+				<div class="x8">
+					<div class="cloud"></div>
+				</div>
+
+				<div class="x9">
+					<div class="cloud"></div>
+				</div>
+	
+			</div>
+
 			<div class="introductions funStuff" data-aos="fade-up-right">
 				<h1>Let me show you some cool features...</h1>
 
@@ -97,9 +138,8 @@
 
 				<div class="alertPrompt">
 					<p>You can make an alert, or a warning that will pop up on the browser's screen.Let's start by typing the message here, careful there is a 100 character limit </p>
-					
+
 					<br>
-	
 					<div class="alertTextInput">
 	
 						<textarea name="alert" wrap="soft" maxlength="100" placeholder="Type Your Alert Text Here" id="alertInput"></textarea>
@@ -179,31 +219,6 @@ function spotifyPlaylist() {
 </div>
 					</div>
 				</div>
-
-				<div class="cloudsWrapper">
-					<div class="x1">
-		
-						<div class="cloud"></div>
-					</div>
-		
-					<div class="x2">
-						<div class="cloud"></div>
-					</div>
-		
-					<div class="x3">
-						<div class="cloud"></div>
-					</div>
-		
-					<div class="x4">
-						<div class="cloud"></div>
-					</div>
-		
-					<div class="x5">
-						<div class="cloud"></div>
-					</div>
-		
-				</div>
-		
 				
 				
 				<br>
@@ -211,13 +226,24 @@ function spotifyPlaylist() {
 				<p>You've seen some cool features website can do, well you can make your own tab in the Interactive Tab. Press Here -> <a href="interactive.html" id="dontInclude"><button>Interactive Page</button></a></p>
 			</div>
 
-			<br><br>
+			<div class="x4">
+				<div class="cloud"></div>
+			</div>
+
+			<div class="x2">
+				<div class="cloud"></div>
+			</div>
+
+			<div class="x6">
+				<div class="cloud"></div>
+			</div>
 			
+
 			<div class="introductions mistakes" data-aos="fade-up-left">
+			
+				<h1>Why Coding?</h1>
 
-				<h1>Mistakes a lot of starter make (Even Me)</h1><h7>(Too Lazy To Read? Just Read The <strong>Red</strong>)</h7>
-
-				<p>A lot of starters, always think that professional programmers sit on their computer all day typing, that the codes <strong>just</strong> come flying in. That is a wrong mindset, all you need to <strong>memorize</strong> for coding is probably the <strong>boilerplate and</strong>  some <strong>basic stuff</strong>. Even all of those easy stuff have shortcuts that is integrated in some code editor. <strong>It's not</strong> a <strong>bad</strong> thing <strong>to forget codes</strong>, just Google them. That's what every programmers do, even the professional ones. They <strong>Google</strong> what they need, <strong>NOT MEMORIZE</strong> them.</p>
+				<p>You've seen what codes can do, how cool it can make something looks. You've seen the powerful tool that is coding, but you're still not sure yet. You ask yourself, "Why Coding?" There are a lot more other jobs out there. Well, here's 1 big benefit, you have resources everywhere in the internet and even books. If you forget how to do a certain code, you've got Google. Maybe you want to learn more language, there is a lot of free websites that offer to teach how to code, for example <a href="https://Codecademy">Codecademy</a></p>
 
 			</div> 
 		
@@ -229,8 +255,8 @@ function spotifyPlaylist() {
 		<footer class="defaultFooter"> 
 
 			<div class="footerTitle">
-				<h1><img src="svg/terminal.svg" id="terminalIcon">Codes Codes Codes!</h1>
-				<h5>Made by: Joshua Pelealu</h5>
+				<h1><img src="svg/terminal.svg" id="terminalIcon" alt="Terminal Icon">Codes Codes Codes!</h1>
+				<h2>Made by: Joshua Pelealu</h2>
 			</div>
 	
 			<div class="footerLinks">
@@ -241,7 +267,6 @@ function spotifyPlaylist() {
 			</div>
 			
 		</footer>
-		
 
 		<!--Prism Syntax Highlighter-->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"></script>
