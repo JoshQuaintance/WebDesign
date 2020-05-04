@@ -13,7 +13,6 @@ AOS.init({
 	duration : 1200
 });
 
-
 /**********************
  * Checks User Device *
  **********************/
@@ -263,13 +262,15 @@ function userCurrentPage() {
 	const HOME = CURRENT_PAGE.match(PAGE_REGEX);
 	const navColor = "#000";
 
-	console.log(CURRENT_PAGE + " " + HOME)
+	console.log(CURRENT_PAGE + " " + HOME);
 	if (HOME == null) {
 		backgroundImg();
+		starGeneration();
 		$("#home span").css("opacity", "1").css("color", navColor);
 		$("#home").css("color", navColor);
 	} else if (HOME[0] == "index") {
 		backgroundImg();
+		console.log("index");
 		starGeneration();
 		$("#home span").css("opacity", "1").css("color", navColor);
 		$("#home").css("color", navColor);
