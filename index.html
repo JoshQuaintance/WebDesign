@@ -8,7 +8,8 @@
 
 		<link rel="icon" href="svg/source_code.svg" type="image/svg+xml">
 
-		<!--CSS Link-->
+
+		<!-- CSS Link -->
 		<link async class="WebsiteCSS" rel="stylesheet" href="main.css" />
 
 		<!--Prism Css-->
@@ -28,10 +29,16 @@
 		
 
 		<div id="startAnimation"></div>
-
+		<!--
 		<img id="bgImg" src="bgImg.jpg" style="visibility: visible;">
+-->		
 
 		<div class="frontPage">
+
+			<div class="starContainer">
+				
+			</div>
+
 			<h1 style="font-size: 2.5em; padding-top: 250px; margin-top: 0;" data-aos="fade-left" data-aos-anchor="#startAnimation">Welcome, <span onclick="changeUserName()"></span> </h1>
 			<br><br>
 
@@ -46,7 +53,7 @@
 		
 		<br><br>
 
-		<hr id="whateverThisIs">
+		<i id="whateverThisIs" class=".frontPage">
 
 		<!--Navigation Bar-->
 		<nav data-aos="fade-left" data-link-hover data-aos-anchor-placement="top-center" data-aos-anchor="#whateverThisIs">
@@ -61,6 +68,7 @@
 		<br>
 		<div class="container" id="container">
 
+			
 			<div class="introductions introduction  "  id="introduction" data-aos="fade-up-right" data-aos-anchor="#whateverThisIs"
 			data-aos-anchor-placement="top-center">
 				<h1 style="padding-bottom: 0;">Coding is a lot of fun!</h1>
@@ -73,6 +81,7 @@
 
 			<div class="introductions interesting" data-aos="fade-up-left">
 				<h1>What can you do with coding?</h1>
+				<br>
 
 				<p>I'm glad you asked. You can do A LOT of things with coding. It depends on what type of things do you want to make your code do. If you want to make a website like this, you probably want to learn HTML, CSS, and JavaScript. If you want to make programs that can automate your life, you can learn Python. You want to make a database on your server, you can learn SQL. There is a lot of possibility for coding. It's all in your hands</p>
 
@@ -83,22 +92,6 @@
 			<div class="introductions funStuff" data-aos="fade-up-right">
 				<h1>Let me show you some cool features...</h1>
 
-				<p>You can toggle the background image to the website using this button: <button id="bgVideoToggle" onclick="bgVideo()">Turn Off</button></p>
-				<p>Owh yeah, it doesn't only turn it off now, if it is set to off now, the next time you visit this website, the background will be off and vice versa</p>
-
-				<br>
-
-				<p id="bgImgChange">You want to change the background image into something else?Don't worry my friend, get a url of a picture, press this -> <button onclick="bgImgInput()">Button</button>, and enter the URL in the box :) Owh, for the sake of the nice polished website, the background you put will not stay. Sorry :(</p>
-				
-				<input 
-				style="display: none;" 
-				id="bgImgInput" 
-				type="url" 
-				placeholder="Enter Image URL Here">
-
-				<button id="urlInputConfirm" style="display: none;" onclick="bgImgChange()">Confirm</button>
-				<p id="validationMsg" 
-				style="display: none; color: red;">Enter A Valid URL!</p>
 
 				<br><br>
 
@@ -187,6 +180,30 @@ function spotifyPlaylist() {
 					</div>
 				</div>
 
+				<div class="cloudsWrapper">
+					<div class="x1">
+		
+						<div class="cloud"></div>
+					</div>
+		
+					<div class="x2">
+						<div class="cloud"></div>
+					</div>
+		
+					<div class="x3">
+						<div class="cloud"></div>
+					</div>
+		
+					<div class="x4">
+						<div class="cloud"></div>
+					</div>
+		
+					<div class="x5">
+						<div class="cloud"></div>
+					</div>
+		
+				</div>
+		
 				
 				
 				<br>
@@ -203,9 +220,13 @@ function spotifyPlaylist() {
 				<p>A lot of starters, always think that professional programmers sit on their computer all day typing, that the codes <strong>just</strong> come flying in. That is a wrong mindset, all you need to <strong>memorize</strong> for coding is probably the <strong>boilerplate and</strong>  some <strong>basic stuff</strong>. Even all of those easy stuff have shortcuts that is integrated in some code editor. <strong>It's not</strong> a <strong>bad</strong> thing <strong>to forget codes</strong>, just Google them. That's what every programmers do, even the professional ones. They <strong>Google</strong> what they need, <strong>NOT MEMORIZE</strong> them.</p>
 
 			</div> 
-		</div>
+		
+		
+</div>
+		<div class="grassContainer">&nbsp;<br>&nbsp;</div>
+		<div class="dirtContainer">&nbsp;</div>
 
-		<footer class="defaultFooter">
+		<footer class="defaultFooter"> 
 
 			<div class="footerTitle">
 				<h1><img src="svg/terminal.svg" id="terminalIcon">Codes Codes Codes!</h1>
