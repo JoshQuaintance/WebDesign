@@ -11,7 +11,7 @@ AOS.init({
  * Website Theme (Dark/Light) *
  ******************************/
 
- //turned OFF
+//turned OFF
 
 localStorage.key("websiteTheme");
 console.log("Current Website Theme is Set as " + localStorage.getItem("websiteTheme") + " mode");
@@ -217,9 +217,9 @@ function addPanel() {
 	var deletePanelImg = $("<img>");
 	let dotMenu = $(
 		//prettier-ignore
-		`<div class='dot-menu dot${par}'onmouseover="dotHovered('${par}')" onmouseout="dotNotHovered('${par}')"><img src='svg/dot-fill.svg'  id='dot-menu' class='dot1'><img src='svg/dot-fill.svg' id='dot-menu' class='dot2'><img src='svg/dot-fill.svg' id='dot-menu' class='dot3'></div><br>`
+		`<div class='dot-menu dot${par}'onmouseover="dotHovered('${par}')" onmouseout="dotNotHovered('${par}') onclick="dotClicked('${par}')"><img src='svg/dot-fill.svg'  id='dot-menu' class='dot1'><img src='svg/dot-fill.svg' id='dot-menu' class='dot2'><img src='svg/dot-fill.svg' id='dot-menu' class='dot3'></div><br>`
 	);
-		
+
 	//New Div
 	var newCard = $("<div></div>").addClass(uniqueDivClass);
 
@@ -243,10 +243,10 @@ function addPanel() {
 	$(dotMenu).insertAfter(newHeading);
 
 	//Adds Paragraph to The Div
-	let parDiv = $("<div>").addClass(parDivClass)
-	var panelParagraph = $("<p>").addClass(uniqueParagraphClass);
+	let parDiv = $("<div>").addClass(parDivClass);
+	let panelParagraph = $("<p>").addClass(uniqueParagraphClass);
 
-	$(parDiv).append(panelParagraph)
+	$(parDiv).append(panelParagraph);
 	$(panelParagraph).text(paragraphText);
 
 	console.log("Testing1" + dotMenu);
@@ -299,7 +299,7 @@ function headingChanged(headingNum) {
 //Heading is hovered
 let headingHovered = (headingNum) => {
 	let headingClass = "." + headingNum;
-	
+
 	var headingText = $(headingClass).text();
 	console.log(headingText);
 
@@ -377,25 +377,35 @@ let drawPencil = (parNum) => {
 	let parDivClass = ".div_" + headingNum;
 	/* prettier-ignore */
 	let x = $(`<div id="parEditOptions">` +
-	`<div id="editDatPencil" onmouseover="pencilHovered('${parNum}')" onmouseout="pencilNotHovered('${parNum}')">` +
-	`<img src='svg/pencil.svg' id='pencilEdit'  onmouseover="pencilHovered('${parNum}')" onmouseout="pencilNotHovered('${parNum}')">` + 
-	`<img src='svg/copy_icon.svg' id='parCopy' onmouseover="copyHovered('${parNum}')" onmouseout="copyNotHovered('${parNum}')">` +
+	`<div id="editDatPencil" onmouseover="pencilHovered('${parNum}')" onmouseout="pencilNotHovered('${parNum}')" >` +
+
+	`<img src='svg/pencil.svg' id='pencilEdit'  onmouseover="pencilHovered('${parNum}')" onmouseout="pencilNotHovered('${parNum}')" onclick="editCurrentParagraph('${parNum}')">` + 
+
+	`<img src='svg/tools.svg' id='otherEdit' onmouseover="toolsHovered('${parNum}')" onmouseout="toolsNotHovered('${parNum}')" onclick="otherParOptions('${parNum}')">` +
+	
+	`<img src='svg/copy_icon.svg' id='parCopy' onmouseover="copyHovered('${parNum}')" onmouseout="copyNotHovered('${parNum}')" onclick="copyCurrentParagraph('${parNum}')">` +
+
 	`</div></div>`);
+
 	x = x.css("z-index", "1000");
 
-	if ($("#pencilEdit").length){
+	if ($("#pencilEdit").length) {
 	} else {
 		$(x).insertBefore(parClass);
 	}
 };
 
+/*********************************
+ * 3 Dot on top of the paragraph *
+ *********************************/
+
 var dotHovered = (parNum) => {
 	let parClass = "." + parNum;
-	console.log("dot hovered")
-	
+	console.log("dot hovered");
+
 	$(parClass).addClass("dotHoverActive");
 	$(parClass).attr({
-		onmouseover : `hoverPar('${parNum}')`, 
+		onmouseover : `hoverPar('${parNum}')`,
 		onmouseout  : `notHoverPar('${parNum}')`
 	});
 
@@ -407,17 +417,22 @@ let dotNotHovered = (parNum) => {
 
 	$(parClass).removeClass("dotHoverActive");
 
-	if ($(parClass).is(":hover")) {
-		
-	} else {
-		$(parClass).attr({
-			onmouseover : "", 
-			onmouseout  : ""
-		});
-	}
-
 	$("#parEditOptions").remove();
 };
+
+function dotClicked(parNum) {
+	let parClass = `.${parNum}`;
+
+	$(parClass).addClass("dotHoverActive");
+	$(parClass).attr({
+		onmouseover : `hoverPar('${parNum}')`,
+		onmouseout  : `notHoverPar('${parNum}')`
+	});
+}
+
+/*******************************
+ * When hovering the paragraph *
+ *******************************/
 
 let hoverPar = (parNum) => {
 	let parClass = "." + parNum;
@@ -429,39 +444,40 @@ let hoverPar = (parNum) => {
 	drawPencil(parNum);
 };
 
-
-
 let notHoverPar = (parNum) => {
 	let parClass = "." + parNum;
 	let dotClass = ".dot" + parNum;
 
-
-	if ($("#parEditOptions").length) {
-			
-			if ($("#parEditOptions").is(":hover") === true) {
-				console.log("hovering Pencil")
-			} else {
-				$("#parEditOptions").remove();
-				$(parClass).attr({
-					onmouseover : "",
-					onmouseout  : ""
-				});
-			}
-		
+	if ($(dotClass).is(":hover")) {
+		dotHovered();
 	}
 
-	$("#editDatPencil")
+	if ($("#parEditOptions").length) {
+		if ($("#parEditOptions").is(":hover") === true) {
+		} else {
+			$(parClass).removeClass("dotHoverActive");
+			$("#parEditOptions").remove();
+			$(parClass).attr({
+				onmouseover : "",
+				onmouseout  : ""
+			});
+		}
+	}
+
+	$("#editDatPencil");
 	$(dotClass).removeClass("hover");
 	$(parClass).removeClass("parHoverActive");
-	
-
 };
+
+/************************
+ * When hovering pencil *
+ ************************/
 
 let pencilHovered = (parNum) => {
 	let parClass = "." + parNum;
-	hoverPar(parNum)
+	hoverPar(parNum);
 	//$(dotClass).addClass("hover");
-}
+};
 
 let pencilNotHovered = (parNum) => {
 	let parClass = "." + parNum;
@@ -471,7 +487,97 @@ let pencilNotHovered = (parNum) => {
 	} else {
 		notHoverPar(parNum);
 	}
+};
+
+/**********************
+ * Edit Text on Panel *
+ **********************/
+function editCurrentParagraph(parNum) {
+	$("#parEditOptions").remove();
+	dotNotHovered(parNum);
+	let parClass = `.${parNum}`;
+	let parDivClass = `.div_${parNum}`;
+	let currentParText = $(parClass).text();
+	let parHeight = $(parClass).height();
+	let parWidth = $(parClass).width();
+	let parFontSize = $(parClass).css("font-size");
+	let parFontFamily = $(parClass).css("font-family");
+	let parLineHeight = $(parClass).css("line-height");
+
+	let inputConfirm = $(
+		`<span class="btn confirmParChange confirm${parNum}" onclick="currentParagraphChanged('${parNum}')">Confirm Paragraph Change</span>`
+	);
+
+	let newParInput = $(
+		`<textarea name="New Paragraph Input" id="newPanelText" class="input${parNum}" maxlength="1500" onclick="this.select(); this.onclick=null;">${currentParText}</textarea>`
+	).css({
+		height             : parHeight,
+		width              : parWidth,
+		"font-size"        : parFontSize,
+		"font-family"      : parFontFamily,
+		"line-height"      : parLineHeight,
+		"background-color" : "rgba(25, 25, 25, 0.5)",
+		color              : "white"
+	});
+
+	$(parClass).remove();
+
+	//makes sure it only makes 1
+	if ($(`.input${parNum}`).length === 0) {
+		$(parDivClass).append(newParInput);
+		$(inputConfirm).insertBefore(`.input${parNum}`);
+		$(`.input${parNum}`).click();
+	}
 }
+
+//Text Changed
+function currentParagraphChanged(parNum) {
+	let parDivClass = `.div_${parNum}`;
+	let panelParagraph = $("<p>").addClass(parNum);
+	let inputText = $(`.input${parNum}`).val();
+	let newText = $(panelParagraph).text(inputText);
+	console.log(inputText);
+	console.log("Hello" + $(newText).text());
+
+	$(`.input${parNum}`).remove();
+	$(`.confirm${parNum}`).remove();
+
+	$(parDivClass).append(newText);
+	$(`.dot${parNum}`).removeClass("hover");
+}
+
+/***************
+ * Copy Button *
+ ***************/
+
+function copyHovered(parNum) {
+	hoverPar(parNum);
+}
+
+function copyNotHovered(parNum) {
+	let parClass = `.${parNum}`;
+
+	if ($(parClass).hasClass("parHoverActive")) {
+		hoverPar(parNum);
+	} else {
+		notHoverPar(parNum);
+	}
+}
+
+function copyCurrentParagraph(parNum) {
+	let parClass = `.${parNum}`;
+	let simpleRegex = /[0-9]+/;
+	let panelNum = parNum.match(simpleRegex);
+	
+	let paragraphText = $(parClass).text();
+	let dummyInput = $(`<input id="dummyInput">`).val(paragraphText).appendTo('body').select();
+
+	document.execCommand("copy");
+	$("#dummyInput").remove();
+	
+	alert(`Copied Text Paragraph From Panel ${panelNum}`);parNotHovered();
+}
+
 /*****************************
  * Delete Panel With Warning *
  *****************************/

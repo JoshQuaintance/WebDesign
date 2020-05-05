@@ -921,11 +921,25 @@ footer a:hover span {
 }
 
 .btn:hover {
-	color: #292929;
+	color: #161616;
 	background: var(--blueHover);
+	cursor: pointer;
 }
 
 /*  Interactive Part of the Website */
+
+.confirmParChange {
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+#parEditOptions, #editDatPencil {
+	display: inline;
+}
+
 
 .addBtn {
 	margin-top: 25px;
@@ -1063,6 +1077,7 @@ select option:hover {
 	background-color: rgba(49, 49, 49, 0.7);
 	backdrop-filter: blur(4px);
 	line-height: 50px;
+	word-wrap: break-word;
 }
 
 /*  Delete Panel Cross Image And Text */
@@ -1230,33 +1245,39 @@ select option:hover {
 
 div#parEditOptions {
 	position: absolute;
-	right: 50%;
-	top: 50%;
-	left: 50%;
-	bottom: 50%;
+	margin: auto;
 	padding-bottom: 0;
+	margin-left: -144px;
+	left: 50%;
+	top: 50%;
+	margin-top: 20px;
 }
 
 #pencilEdit,
-#parCopy {
-	margin-left: 10px;
+#parCopy, 
+#otherEdit {
 	margin-right: 10px;
+	margin-left: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
 	padding-top: 25px;
 	padding-bottom: 25px;
-	border: 1px solid white;
-	border-radius: 700px;
+	border-radius: 50%;
 	z-index: 3;
+	transition: all 0.4s ease;
 }
 
 #pencilEdit:hover,
-#parCopy:hover {
-	background-color: rgba(255, 255, 255, 0.582);
+#parCopy:hover, 
+#otherEdit:hover {
+	margin-right: 10px;
+	margin-left: 10px;
+	background-color: rgba(255, 255, 255, 0.288);
+	transition: all 0.4s ease;
 	cursor: none;
-	border: 3px solid rgba(0, 0, 0, 0.548);
-	padding-left: 22px;
-	padding-right: 22px;
-	padding-top: 22px;
-	padding-bottom: 22px;
+	border: 1px solid white;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 25px;
+	padding-bottom: 25px
 }
