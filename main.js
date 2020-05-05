@@ -138,9 +138,11 @@ randomMargin();
  * Random Code Additions *
  *************************/
 
-//Links in About Page all go to new Tab
-$(".aboutPageDiv a").attr("target", "_blank");
-
+//Links all go to new Tab except navbar and some others
+$("body a").attr("target", "_blank");
+$("nav a").attr("target", "_parent");
+$(".frontPage a").attr("target", "_parent");
+$(".dontInclude").attr("target", "_parent");
 /***************************
  * Random Stars Generation *
  ***************************/
