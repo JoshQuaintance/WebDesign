@@ -1228,3 +1228,50 @@ div#parEditOptions {
 	padding-bottom: 10px;
 	transition: all 0.4s ease;
 }
+
+.panelHeadingDiv {
+	word-wrap: break-word;
+}
+
+.introContainerDelete {
+	filter: blur(4px);
+	border: 2px solid white;
+	border-radius: 25px;
+}
+
+.deleteIntro {
+	width: 48px;
+	position: absolute;
+	margin-left: -24px;
+	left: 50%;
+	height: 150px;
+}
+
+.introTrashCan {
+	position: absolute;
+	top: 50%;
+	margin-top: -48px;
+	z-index: 4;
+	transition: all 0.4s ease;
+	border-radius: 50%;
+}
+
+.introTrashCan:hover {
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: rgba(255, 255, 255, 0.062);
+	transition: all 0.4s ease;
+	cursor: none;
+	border: 1px solid white;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	transition: all 0.4s ease;
+	border-radius: 50%;
+	z-index: 4;
+}
+
+.interactiveFooter {
+	margin-top: 200px;
+}

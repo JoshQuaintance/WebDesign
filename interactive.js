@@ -136,6 +136,36 @@ pickr.on("save", (color, instance) => {
 	})
 	});
 
+/**********************
+ * Deletes Intro Text *
+ **********************/
+let trashcanIcon = $(
+	`<div class="deleteIntro" onclick="deleteIntro()">` +
+		`<img src="svg/trashcan.svg" class="introTrashCan">` +
+		`</div>`
+);
+
+if ($(".introContainer").length == "1") {
+	$(".introContainer").hover(
+		() => {
+			$(trashcanIcon).insertBefore(".introContainer");
+			$(".introContainer").addClass("introContainerDelete");
+		},
+		() => {
+			if ($(trashcanIcon).is(":hover")) {
+			} else {
+				$(trashcanIcon).remove();
+				$(".introContainer").removeClass("introContainerDelete");
+			}
+		}
+	);
+}
+
+function deleteIntro() {
+	$(".introContainer").remove();
+	$(".deleteIntro").remove();
+}
+
 /***************************
 * Add Button For New Board *
 ****************************/
@@ -159,8 +189,14 @@ $("img.addBtn").on("click", () => {
 /******************
  * Adds New Panel *
  ******************/
+localStorage.key("panelNum");
 
-var uniqueNum = 0;
+if (localStorage.getItem("panelNum") == null || localStorage.getItem("panelNum") == "") {
+	var xx = 0;
+} else {
+	var xx = localStorage.getItem("panelNum");
+}
+
 var headingPicked;
 var headingText;
 var paragraphText;
@@ -207,6 +243,7 @@ function paragraphTextSelected() {
 }
 
 function addPanel() {
+	var uniqueNum = localStorage.getItem("panelNum");
 	paragraphTextSelected();
 	var uniqueDivClass = "newCard" + uniqueNum + " newPanels";
 	var divClassToDel = "newCard" + uniqueNum;
@@ -215,7 +252,7 @@ function addPanel() {
 	let parDivClass = "div_newParagraph" + uniqueNum;
 	let par = uniqueParagraphClass;
 	let headingType = `<${headingPicked}></${headingPicked}>`;
-	let headingDiv = `<div class="${uniqueHeadingClass}Div ${headingPicked}"> </div>`;
+	let headingDiv = `<div class="${uniqueHeadingClass}Div ${headingPicked} panelHeadingDiv"> </div>`;
 	var deletePanelImg = $("<img>");
 	let dotMenu = $(
 		//prettier-ignore
@@ -277,7 +314,9 @@ function addPanel() {
 	//$(newCard).prepend(deletePanelText);
 	$(newCard).prepend(deletePanelImg);
 
-	uniqueNum++;
+	xx++;
+	localStorage.setItem("panelNum", xx);
+	console.log(xx);
 
 	$(".addPanelSpan").css("display", "none");
 	$("img.addBtn").css("animation", "none");
@@ -339,7 +378,7 @@ function editCurrentHeading(headingNum) {
 	let headingFontFamily = $(headingClass).css("font-family");
 
 	let newHeadingInput = $(
-		`<textarea name="New Heading Input" class="newPanelHeadingInput headingInput${headingNum}" onclick="this.select(); this.onclick=null;">${headingText}</textarea> `
+		`<textarea name="New Heading Input" class="newPanelHeadingInput headingInput${headingNum}" maxlength="100" onclick="this.select(); this.onclick=null;">${headingText}</textarea> `
 	).css({
 		width         : headingWidth,
 		height        : headingHeight,
@@ -380,6 +419,8 @@ function currentHeadingChanged(headingNum) {
 	$(headingInputConfirm).remove();
 
 	$(headingDivClass).append(newPanelHeading);
+	$(headingNum).addClass("somethingChanged");
+
 	savePageFormat();
 }
 
@@ -416,7 +457,6 @@ let drawPencil = (parNum) => {
 
 var dotHovered = (parNum) => {
 	let parClass = "." + parNum;
-	console.log("dot hovered");
 
 	$(parClass).addClass("dotHoverActive");
 	$(parClass).attr({
@@ -551,8 +591,6 @@ function currentParagraphChanged(parNum) {
 	let panelParagraph = $("<p>").addClass(parNum);
 	let inputText = $(`.input${parNum}`).val();
 	let newText = $(panelParagraph).text(inputText);
-	console.log(inputText);
-	console.log("Hello" + $(newText).text());
 
 	$(`.input${parNum}`).remove();
 	$(`.confirm${parNum}`).remove();
@@ -584,7 +622,9 @@ function copyCurrentParagraph(parNum) {
 	let parClass = `.${parNum}`;
 	let simpleRegex = /[0-9]+/;
 	let panelNum = parNum.match(simpleRegex);
-	let x = panelNum + 1;
+	let u = panelNum.toString();
+	let j = parseInt(u);
+	let x = j + 1;
 
 	let paragraphText = $(parClass).text();
 	let dummyInput = $(`<input id="dummyInput">`).val(paragraphText).appendTo("body").select();
@@ -608,10 +648,9 @@ let deleteSelectedPanel = (panelNum) => {
 };
 
 let deletedSelectedPanel = () => {
-	console.log(panelNumDel + "deleting");
+	console.log(panelNumDel + " deleting");
 	//panelNum = "." + panelNum;
 	$(panelNumDel).remove();
-	console.log($(panelNumDel));
 	savePageFormat();
 };
 
@@ -622,21 +661,15 @@ function savePageFormat() {
 	let x = document.getElementById("newPanelContainer");
 	let newPageFormat = x.innerHTML;
 	let g = localStorage.getItem("pageFormat");
-	console.log(x.innerHTML);
 	localStorage.key("pageFormat");
 	localStorage.setItem("pageFormat", newPageFormat);
-	console.log(localStorage.key("pageFormat"));
 }
-
-
 
 function applyPageFormat() {
 	let x = document.getElementById("newPanelContainer");
-	let g = localStorage.getItem("pageFormat")
-	console.log(g)
+	let g = localStorage.getItem("pageFormat");
 	$(x).append(g);
 }
-
 
 if (localStorage.getItem("pageFormat") == null || localStorage.getItem("pageFormat") == "") {
 	savePageFormat();
@@ -644,15 +677,23 @@ if (localStorage.getItem("pageFormat") == null || localStorage.getItem("pageForm
 	applyPageFormat();
 }
 
-
 /*********************************************************
 * Reusable Function For "Enter" Keypress event listener *
-*********************************************************/
-function ifEnterIsPressed(elementPicked, funcCallback) {
+********************************************************
+function ifEnterIsPressed(elementPicked, funcCallback, elementNum) {
 	elementPicked.addEventListener("keyup", (event) => {
 		if (event.keyCode === 13) {
 			event.preventDefault();
-			funcCallback();
+			funcCallback(elementNum);
+		}
+	});
+}*/
+
+function ifEnterIsPressed(elementClass, funcCallback, elementNum) {
+	$(elementClass).on("keyup", (event) => {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+			funcCallback(elementNum);
 		}
 	});
 }

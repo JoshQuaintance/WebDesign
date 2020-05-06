@@ -515,6 +515,7 @@ function backgroundImg() {
 		}
 	}
 
+	
 	ifEnterIsPressed(urlInput, bgImgChange);
 
 	function bgImgInput() {
