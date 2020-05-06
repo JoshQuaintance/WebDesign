@@ -619,16 +619,29 @@ let deletedSelectedPanel = () => {
  * Test chamber *
  ****************/
 function savePageFormat() {
-	let x = document.getElementById("interactiveDiv");
-	let newPageFormat = x.outerHTML;
+	let x = document.getElementById("newPanelContainer");
+	let newPageFormat = x.innerHTML;
 	let g = localStorage.getItem("pageFormat");
 	localStorage.key("pageFormat");
 	localStorage.setItem("pageFormat", newPageFormat);
-	console.log("added New Page Format");
+	console.log(localStorage.key("pageFormat"));
 }
 
-savePageFormat();
 
+
+function applyPageFormat() {
+	let x = document.getElementById("newPanelContainer");
+	let g = localStorage.getItem("pageFormat")
+	console.log(g)
+	$(x).append(g);
+}
+
+
+if (localStorage.getItem("pageFormat") == null || localStorage.getItem("pageFormat") == "") {
+	savePageFormat();
+} else {
+	applyPageFormat();
+}
 
 
 /*********************************************************
