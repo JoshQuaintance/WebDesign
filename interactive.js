@@ -622,6 +622,7 @@ function savePageFormat() {
 	let x = document.getElementById("newPanelContainer");
 	let newPageFormat = x.innerHTML;
 	let g = localStorage.getItem("pageFormat");
+	console.log(x.innerHTML);
 	localStorage.key("pageFormat");
 	localStorage.setItem("pageFormat", newPageFormat);
 	console.log(localStorage.key("pageFormat"));
