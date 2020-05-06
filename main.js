@@ -158,7 +158,6 @@ function starGeneration() {
 
 		//Random number for star scale
 		let randomScaleNum = Math.random() * 0.2 + 1;
-		console.log(randomScaleNum);
 
 		//creates the span element for the stars
 		let starSpan = $(`<span class="stars star${i}"></span>`);

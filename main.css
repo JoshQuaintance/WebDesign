@@ -22,7 +22,6 @@
 	--clouds: url("svg/clouds.svg");
 }
 
-
 /* Changes the whole website's CSS, but can still overridden by other more specifically targeted CSS */
 * {
 	border-color: currentColor;
@@ -37,6 +36,10 @@ h1 {
 
 html:not(.frontPage) {
 	text-align: center;
+	/*background-image: linear-gradient(to top, #30cfd0 0%, #14042e 100%);*/
+}
+
+#indexHtml {
 	background-image: linear-gradient(to top, #30cfd0 0%, #14042e 100%);
 }
 
@@ -51,18 +54,27 @@ body:not(.interactiveBody) {
 	color: black;
 }
 
-.behindScenesBody, .behindScenesHtml {
-	background-image: linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%) !important;
+.behindScenesBody,
+.behindScenesHtml {
+	background-image: linear-gradient(
+		to top,
+		#3f51b1 0%,
+		#5a55ae 13%,
+		#7b5fac 25%,
+		#8f6aae 38%,
+		#a86aa4 50%,
+		#cc6b8e 62%,
+		#f18271 75%,
+		#f3a469 87%,
+		#f7c978 100%
+	) !important;
 }
-
 .behindScenesBody footer {
-	background-color: #3D2B56 !important;
+	background-color: #3d2b56 !important;
 }
-
 .interactiveBody {
 	background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%) !important;
 }
-
 #bgImg {
 	z-index: -1;
 	position: fixed;
@@ -72,12 +84,10 @@ body:not(.interactiveBody) {
 	min-height: 150%;
 	filter: brightness(75%);
 }
-
 a {
 	text-decoration: none;
 	color: inherit;
 }
-
 .hoverToChange {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -86,7 +96,6 @@ a {
 	border-radius: 5px;
 	font-size: 30px;
 }
-
 .stars {
 	position: absolute;
 	height: 5px;
@@ -95,63 +104,109 @@ a {
 	box-shadow: 5px 5px 1px #fff;
 	z-index: -1;
 }
-
 /* Animation Keyframes */
-/* prettier-ignore */
+.stars {
+	position: absolute;
+	height: 5px;
+	width: 5px;
+	border-radius: 50%;
+	box-shadow: 5px 5px 1px #fff;
+	z-index: -1;
+}
+/* Animation Keyframes */
+
 [data-aos="fade-out-screen"] {
 	opacity: 1;
 	transition-property: opacity;
-	
 }
-
 [data-aos="fade-out-screen"].aos-animate {
 	opacity: 0;
 }
-
-/* prettier-ignore */
 [data-aos="fade-middle-out"] {
 	opacity: 1;
 	transform: translate3d(0, 100, 0);
 }
-
-/* prettier-ignore */
 @keyframes changeHappened {
-	0% {background-color: inherit;}
-	50% {background-color: white;}
-	100% {background-color: inherit;}
+	0% {
+		background-color: inherit;
+	}
+	50% {
+		background-color: white;
+	}
+	100% {
+		background-color: inherit;
+	}
 }
-
-/* prettier-ignore */
 @keyframes dot1 {
-	0% {transform: translate(0);}
-	15% {transform: translate(0, -5px);}
-	25% {transform: translate(0, -10px)}
-	35% {transform: translate(0, -5px);}
-	50% {transform: translate(0);}
-	75%{transform: translate(0);}
-	100% {transform: translate(0);}
+	0% {
+		transform: translate(0);
+	}
+	15% {
+		transform: translate(0, -5px);
+	}
+	25% {
+		transform: translate(0, -10px);
+	}
+	35% {
+		transform: translate(0, -5px);
+	}
+	50% {
+		transform: translate(0);
+	}
+	75% {
+		transform: translate(0);
+	}
+	100% {
+		transform: translate(0);
+	}
 }
 
-/* prettier-ignore */
 @keyframes dot2 {
-	0% {transform: translate(0);}
-	25% {transform: translate(0);}
-	40% {transform: translate(0, -5px);}
-	50% {transform: translate(0, -10px);}
-	60% {transform: translate(0, -5px);}
-	75% {transform: translate(0);}
-	100% {transform: translate(0);}
+	0% {
+		transform: translate(0);
+	}
+	25% {
+		transform: translate(0);
+	}
+	40% {
+		transform: translate(0, -5px);
+	}
+	50% {
+		transform: translate(0, -10px);
+	}
+	60% {
+		transform: translate(0, -5px);
+	}
+	75% {
+		transform: translate(0);
+	}
+	100% {
+		transform: translate(0);
+	}
 }
 
-/* prettier-ignore */
 @keyframes dot3 {
-	0% {transform: translate(0);}
-	25% {transform: translate(0);}
-	50% {transform: translate(0);}
-	65% {transform: translate(0, -5px);}
-	75% {transform: translate(0, -10px);}
-	85% {transform: translate(0, -5px);}
-	100% {transform: translate(0);}
+	0% {
+		transform: translate(0);
+	}
+	25% {
+		transform: translate(0);
+	}
+	50% {
+		transform: translate(0);
+	}
+	65% {
+		transform: translate(0, -5px);
+	}
+	75% {
+		transform: translate(0, -10px);
+	}
+	85% {
+		transform: translate(0, -5px);
+	}
+	100% {
+		transform: translate(0);
+	}
 }
 
 @keyframes rotation {
@@ -162,7 +217,6 @@ a {
 		transform: rotate(360deg);
 	}
 }
-
 @keyframes slideDown {
 	from {
 		bottom: 100px;
@@ -174,44 +228,46 @@ a {
 	}
 }
 
-/* prettier-ignore */
 @keyframes slideLeft {
-	from {right: 100px; opacity: 0%}
-	to 	 {right: 0px; opacity: 100%}
+	from {
+		right: 100px;
+		opacity: 0%;
+	}
+	to {
+		right: 0px;
+		opacity: 100%;
+	}
 }
-
-/* prettier-ignore */
 @keyframes scroll {
-	0% {transform: translate(0);}
-	50% {transform: translate(0,40px);}
-	100% {transform: translate(0);}
-	
+	0% {
+		transform: translate(0);
+	}
+	50% {
+		transform: translate(0, 40px);
+	}
+	100% {
+		transform: translate(0);
+	}
 }
-
 .dot-menu:hover .dot1,
 div.hover .dot1 {
 	animation: dot1 1s ease infinite;
 }
-
 .dot-menu:hover .dot2,
 div.hover .dot2 {
 	animation: dot2 1s ease infinite;
 }
-
 .dot-menu:hover .dot3,
 div.hover .dot3 {
 	animation: dot3 1s ease infinite;
 }
-
 .dot-menu:hover {
 	cursor: pointer;
 }
-
 .somethingChanged {
 	animation-name: changeHappened;
 	animation-duration: 1s;
 }
-
 .scrollDown {
 	display: block;
 	margin: auto;
@@ -221,13 +277,11 @@ div.hover .dot3 {
 	-o-animation: scroll 3s ease infinite;
 	animation: scroll 3s ease infinite;
 }
-
-/*  =========================
+/* =========================
 	=                       =
 	=  Clouds Animation     =                      
 	=                       =
-	=========================  */
-
+	========================= */
 @keyframes cloudAnimations {
 	0% {
 		margin-left: -1000px;
@@ -245,54 +299,42 @@ div.hover .dot3 {
 	right: 0px;
 	z-index: -1;
 }
-
 .x1 {
 	animation: cloudAnimations 40s linear infinite;
 	transform: scale(0.3);
 }
-
 .x2 {
 	animation: cloudAnimations 87s linear infinite;
 	transform: scale(0.3);
 }
-
 .x3 {
 	animation: cloudAnimations 61s linear infinite;
 	transform: scale(0.4);
 }
-
 .x4 {
 	animation: cloudAnimations 35s linear infinite;
 	transform: scale(0.5);
 }
-
 .x5 {
 	animation: cloudAnimations 27s linear infinite;
 	transform: scale(0.4);
 }
-
 .x6 {
- animation: cloudAnimations 50s linear infinite;
- transform: scale(0.4);
-}	
-
+	animation: cloudAnimations 50s linear infinite;
+	transform: scale(0.4);
+}
 .x7 {
- animation: cloudAnimations 43s linear infinite;
- transform: scale(0.5);
+	animation: cloudAnimations 43s linear infinite;
+	transform: scale(0.5);
 }
-
 .x8 {
- animation: cloudAnimations 31s linear infinite;
- transform: scale(0.6);
+	animation: cloudAnimations 31s linear infinite;
+	transform: scale(0.6);
 }
-
 .x9 {
- animation: cloudAnimations 25s linear infinite;
- transform: scale(0.4);
+	animation: cloudAnimations 25s linear infinite;
+	transform: scale(0.4);
 }
-
-
-
 .x11 {
 	right: 50px;
 	margin-top: 250px;
@@ -301,7 +343,6 @@ div.hover .dot3 {
 	float: right;
 	z-index: 1;
 }
-
 .x12 {
 	left: 650px;
 	margin-top: 50px;
@@ -309,7 +350,6 @@ div.hover .dot3 {
 	transform: scale(0.8);
 	float: right;
 }
-
 .x10 {
 	left: 100px;
 	margin-top: 80px;
@@ -317,7 +357,6 @@ div.hover .dot3 {
 	transform: scale(0.8);
 	float: right;
 }
-
 .cloud {
 	background: white;
 	background: linear-gradient(top, white 5%, #f1f1f1 100%);
@@ -328,7 +367,6 @@ div.hover .dot3 {
 	position: relative;
 	width: 350px;
 }
-
 .cloud:after,
 .cloud:before {
 	background: white;
@@ -336,7 +374,6 @@ div.hover .dot3 {
 	position: absolute;
 	z-index: -1;
 }
-
 .cloud:after {
 	border-radius: 100px;
 	height: 100px;
@@ -344,7 +381,6 @@ div.hover .dot3 {
 	top: -50px;
 	width: 100px;
 }
-
 .cloud:before {
 	border-radius: 100px;
 	height: 180px;
@@ -352,30 +388,22 @@ div.hover .dot3 {
 	right: 50px;
 	top: -90px;
 }
-
-/*  =========================
+/* =========================
 	=                       =
 	=  		Nav Bar         =          
 	=                       =
-	=========================  */
-
+	========================= */
 #menuBar:hover {
 	background-color: white;
 }
-
-
-
 nav a {
-	
 	float: right;
 	text-decoration: none;
 	color: white;
 	font-size: 20px;
 	margin-top: 20px;
 	font-family: 'Noto Sans JP', sans-serif;
-	
 }
-
 nav {
 	opacity: 100%;
 	width: 100%;
@@ -387,14 +415,12 @@ nav {
 	background-color: transparent;
 	transition: all 0.5s ease;
 }
-
 nav a {
 	display: inline;
 	padding: 15px 2.5rem 15px 2.5rem;
 	transition: all 0.5s ease;
 	cursor: none;
 }
-
 nav a:hover {
 	background-color: var(--blueHover);
 	transition: all 0.5s ease;
@@ -403,48 +429,37 @@ nav a:hover {
 	padding: 15px 4rem 15px 4rem;
 	border: 0 solid transparent;
 }
-
 nav h1 {
 	font-size: 20px;
 }
-
 nav span {
 	color: white;
 	opacity: 0%;
 	transition: all 0.9s ease;
 	filter: contrast(1) brightness(1);
 }
-
 .frontPage:hover nav {
 	opacity: 0 !important;
 }
-
-
-/*  =========================
+/* =========================
 	=                       =
 	=  Interactive Part     =                 
 	=                       =
-	=========================  */
-
-
-
+	========================= */
 #about:hover span,
 #interactive:hover span,
-#home:hover span, 
+#home:hover span,
 #scene:hover span {
 	color: black !important;
 	opacity: 100%;
 	transition: all 0.9s ease;
 }
-
-/*  =======================
+/* =======================
 	=	Dark Mode Switch  =
 	=					  =
 	=	Turned Off		  =
-	=======================  */
-
-/*
-.darkSwitch {
+	======================= */
+/* .darkSwitch {
 	width: 100%;
 	float: left;
 	text-align: center;
@@ -463,36 +478,30 @@ nav span {
 	padding: 0px;
 	margin-left: 0.3125rem;
 	background-color: inherit;
-}
-*/
+} */
 /* Styles for the greeting on Home Page */
 .titleOfPage {
 	font-size: 50px;
 	padding-top: 150px;
 	font-family: 'Bangers', cursive;
 }
-
 #testing {
 	font-family: cursive;
 	padding-top: 50px;
 	padding-bottom: 20px;
 }
-
 .frontPage {
 	cursor: var(--chevronCursor);
 	color: rgb(221, 221, 221);
 	z-index: 1;
 }
-
 p {
 	font-size: 1.5em;
 }
-
 #alertBtn {
 	display: inline-block;
 	vertical-align: text-bottom;
 }
-
 #alertInput {
 	position: relative;
 	width: 200px;
@@ -506,19 +515,15 @@ p {
 	color: inherit;
 	resize: none;
 }
-
 /* CSS for the Interactive Part of the Website */
-
 /* Makes the interactive Div buttons, display like a navigation bar */
 #inputDiv {
 	display: inline;
 }
-
 /* Makes the font size changer hidden until the button is pressed */
 #fontChangeDiv {
 	display: none;
 }
-
 #textColorToggle {
 	text-align: center;
 	position: relative;
@@ -527,12 +532,10 @@ p {
 #colorInput {
 	display: none;
 }
-
 #colorInput input {
 	height: 25px;
 	width: 250px;
 }
-
 /* Styles the Text area to make it looks nicer */
 textarea {
 	position: relative;
@@ -548,23 +551,19 @@ textarea {
 	width: 50%;
 	resize: none;
 }
-
 #interactiveDiv input {
 	background-color: inherit;
 	color: inherit;
 	border: 2px solid white;
 	border-radius: 4px;
 }
-
 #interactiveDiv button {
 	height: 25px;
 }
-/*
-#interactiveDiv button:hover {
+/* #interactiveDiv button:hover {
 	background-color: rgba(135, 135, 135, 0.9);
 	cursor: pointer;
-}*/
-
+} */
 /* Button to confirm the text inside the text area above */
 #textButton {
 	display: inline-block;
@@ -579,17 +578,15 @@ textarea {
 	padding-right: 10px;
 	padding-top: 100px;
 }
-
-/*  =============================
+/* =============================
 	=                           =
 	=  Introductions Index.html =                     
 	=                           =
-	=============================  */
+	============================= */
 /* CSS for Introduction in Index.html */
 iframe {
 	width: 50%;
 }
-
 .introductions {
 	margin-top: 150px;
 	text-align: left;
@@ -600,13 +597,10 @@ iframe {
 	background-color: transparent;
 	line-height: 50px;
 }
-
 .interesting p {
 	font-weight: bold;
 }
-
 /* END */
-
 button {
 	color: inherit;
 	background-color: rgba(10, 10, 10, 0.2);
@@ -615,31 +609,25 @@ button {
 	height: 35px;
 	width: inherit;
 }
-
 button:hover {
 	background-color: rgba(200, 200, 200, 0.9);
 	cursor: pointer;
 }
-
 .mistakes strong {
 	font-size: 30px;
 	color: red;
 }
-
 .spotifyDiv {
 	display: inline;
 }
-
 .explanationSpot {
 	text-align: right;
 	position: relative;
 }
-
 #spotifySnippet {
 	width: 50%;
 	height: 10px;
 }
-
 /* About Me Page */
 .aboutPage {
 	margin-top: 100px;
@@ -651,19 +639,18 @@ button:hover {
 	-webkit-backdrop-filter: blur(4px);
 	backdrop-filter: blur(4px);
 }
-
-.aboutPage a, .mistakes a {
+.aboutPage a,
+.mistakes a {
 	color: rgb(61, 50, 206);
 	transition: all 0.4s ease;
 }
-
-.aboutPage a:hover, .mistakes a:hover{
+.aboutPage a:hover,
+.mistakes a:hover {
 	text-decoration: underline;
 	background-color: var(--blueHover);
 	color: var(--darkBgColor);
 	padding: 10px;
 }
-
 .aboutPage p {
 	text-align: left;
 	padding-left: 50px;
@@ -673,19 +660,16 @@ button:hover {
 	padding-bottom: 15px;
 	line-height: 2em;
 }
-
 .aboutPage h1 {
 	font-size: 2.5em;
 	font-family: cursive;
 	padding-bottom: 15px;
 	line-height: 2em;
 }
-
 .aboutMe {
 	min-height: 520px;
 	margin-right: 500px;
 }
-
 .sourceCode a p,
 .socialMedia a p {
 	color: white !important;
@@ -694,13 +678,11 @@ button:hover {
 	margin-bottom: 0px;
 	opacity: 0%;
 }
-
 .sourceCode a:hover p,
 .socialMedia a:hover p {
 	opacity: 100%;
 	text-decoration: none;
 }
-
 .sourceCode a {
 	display: inline-block;
 	text-decoration: none;
@@ -711,12 +693,10 @@ button:hover {
 	margin-right: 50px;
 	margin-left: 50px;
 }
-
 a[class= btn],
 a[class= btn]:hover {
 	cursor: none;
 }
-
 .sourceCode a:hover {
 	padding-left: 50px;
 	padding-right: 50px;
@@ -733,17 +713,17 @@ a[class= btn]:hover {
 	opacity: 100%;
 	transition: all 0.3s ease;
 }
-
-.jQueryUse, .prismSyntaxHighlight, .sourceCode {
+.jQueryUse,
+.prismSyntaxHighlight,
+.sourceCode {
 	border-right: 5px solid black;
 }
-
-.beforeStart, .AOSUse, .editorUsed, .otherStuff {
+.beforeStart,
+.AOSUse,
+.editorUsed,
+.otherStuff {
 	border-left: 5px solid black;
 }
-
-
-
 a#instagram:hover {
 	margin-top: 10px;
 	padding-right: 25px;
@@ -752,7 +732,6 @@ a#instagram:hover {
 	padding-top: 25x;
 	cursor: none;
 }
-
 a#twitter:hover {
 	padding-left: 15px;
 	padding-right: 15px;
@@ -760,18 +739,15 @@ a#twitter:hover {
 	margin-right: 150px;
 	cursor: none;
 }
-
 a#twitter {
 	margin-bottom: 10px;
 }
-
 .sourceCode a,
 .socialMedia a {
 	opacity: 50%;
 	margin-top: 0px;
 	box-sizing: border-box;
 }
-
 .socialMedia a {
 	position: relative;
 	display: inline-block;
@@ -784,18 +760,15 @@ a#twitter {
 	margin-right: 100px;
 	margin-left: 120px;
 }
-
 .socialMedia a:hover {
 	border: 0;
 	opacity: 100%;
 }
-
 @media screen {
 	pre .token.comment {
 		color: grey;
 	}
 }
-
 code {
 	font-size: 20px;
 	margin-right: 100px;
@@ -804,7 +777,6 @@ code {
 	padding-left: 25px;
 	white-space: pre-wrap;
 }
-
 .codeSnippets {
 	margin-right: 100px;
 	margin-left: 100px;
@@ -812,7 +784,6 @@ code {
 	scrollbar-color: #7f7f7f transparent; /* thumb and track color */
 	scrollbar-width: thin;
 }
-
 /* Others */
 #terminalIcon {
 	padding-right: 15px;
@@ -820,40 +791,32 @@ code {
 	vertical-align: bottom;
 	margin-bottom: 2px;
 }
-
-/* Footer  */
-
+/* Footer */
 .githubLogos.Logo {
 	width: 50px;
 	bottom: 1.0px;
 }
-
 .githubLogos.Mark {
 	width: 22px;
 	padding-right: 3px;
 }
-
 .githubLogos {
 	position: relative;
-
 	opacity: 100%;
 	vertical-align: bottom;
 	filter: invert(1);
 	transition: all 0.4s ease;
 }
-
 footer {
 	font-family: 'Montserrat', sans-serif;
 	transition: all 0.4s ease;
 	z-index: 5;
 	color: white;
 }
-
 footer a:hover .githubLogos {
 	filter: invert(0) brightness(200%);
 	transition: all 0.35s ease;
 }
-
 footer a:hover {
 	color: rgb(0, 0, 0);
 	font-weight: bold;
@@ -863,71 +826,57 @@ footer a:hover {
 	padding-right: 25px;
 	border: transparent;
 }
-
 footer a:hover span {
 	color: black;
 	transition: all 0.4s ease;
 }
-
 .defaultFooter {
 	background-color: #523423;
 	padding-left: 50px;
 	padding-right: 50px;
-
 	text-align: left;
 	margin-bottom: 0;
 }
-
 .footerTitle h5 {
 	font-size: 25px;
 	margin-top: 0;
 	padding-top: 0;
 	padding-bottom: 50px;
 }
-
 .footerTitle h1 {
 	font-size: 75px;
 	padding-bottom: 50px;
 }
-
 .footerLinks {
 	margin-top: 50px;
 	padding-bottom: 35px;
 }
-
 .footerLinks a {
 	margin-right: 25px;
 	transition: all 0.4s ease;
 }
-
 .index .grassContainer {
-	/*#508e40	#56c651*/
+	/* #508e40	#56c651 */
 	background-image: linear-gradient(to top, #508e40 0%, #56c651 100%);
 	margin-top: 200px;
 }
-
 .index .dirtContainer {
 	background-image: linear-gradient(to top, #523423 75%, #508e40 100%);
 }
-
 .btn {
 	border: 1px solid currentColor;
 	transition: all 0.4s ease;
 	padding: 10px 20px;
 }
-
 .btn a {
 	text-decoration-color: currentcolor;
 }
-
 .btn:hover {
 	color: #161616;
 	background: var(--blueHover);
 	cursor: pointer;
 }
-
-/*  Interactive Part of the Website */
-
+/* Interactive Part of the Website */
 .confirmParChange {
 	font-size: 20px;
 	font-weight: bold;
@@ -935,12 +884,10 @@ footer a:hover span {
 	margin-right: auto;
 	width: 50%;
 }
-
-#parEditOptions, #editDatPencil {
+#parEditOptions,
+#editDatPencil {
 	display: inline;
 }
-
-
 .addBtn {
 	margin-top: 25px;
 	width: 30px;
@@ -952,7 +899,6 @@ footer a:hover span {
 	border-radius: 170px;
 	transition: all 0.5s ease;
 }
-
 .addBtnH:hover {
 	background-color: var(--blueHover);
 	transform: rotate(360deg);
@@ -964,20 +910,16 @@ footer a:hover span {
 	cursor: none;
 	transition: all 0.5s ease;
 }
-
 /* Bg Color Picker */
 .bgColorPicker {
 	display: inline;
 }
-
 .pickr {
 	display: inline;
 }
-
 .color-picker {
 	display: inline;
 }
-
 select {
 	border: 1px solid rgba(10, 10, 10, 0.2);
 	background-color: rgba(33, 65, 204, 0.61);
@@ -990,17 +932,14 @@ select {
 	outline: none;
 	cursor: pointer;
 }
-
 select:hover {
 	cursor: pointer;
 }
-
 option {
 	color: currentColor;
 	border-bottom: 1px solid black;
 }
-
-/*select option {
+/* select option {
 	border: 1px solid rgba(10, 10, 10, 0.2);
 	background: #222;
 	color: inherit;
@@ -1011,19 +950,18 @@ select option:hover {
 	background: white;
 	transition: all 0.5s ease;
 	cursor: pointer;
-}*/
-
+} */
 .addPanelSpan {
 	font-size: 25px;
 	border: 1px solid currentColor;
 	padding-left: 15px;
+
 	padding-right: 15px;
 	padding-bottom: 12px;
 	padding-top: 12px;
-	/*transition: all 0.5s ease;*/
+	transition: all 0.5s ease;
 	border-radius: 2px;
 }
-
 .addPanelSpan:hover,
 .addPanelSpan:focus {
 	cursor: pointer;
@@ -1031,11 +969,9 @@ select option:hover {
 	border: transparent;
 	transition: all 0.4s ease;
 }
-
 .inputSubmit {
 	transition: all 0.5s ease;
 }
-
 .inputSubmit:hover {
 	cursor: pointer;
 	background-color: var(--blueHover) !important;
@@ -1043,7 +979,6 @@ select option:hover {
 	transition: all 0.5s ease;
 	border: 2px solid transparent !important;
 }
-
 .paragraphConfirmBtn {
 	text-align: center;
 	padding: 20px;
@@ -1053,19 +988,16 @@ select option:hover {
 	border: 2px solid currentColor;
 	border-radius: 10px;
 }
-
 .paragraphConfirmBtn:hover {
 	cursor: pointer;
 	background: red;
 	border: transparent;
 	transition: all 0.4s ease;
 }
-
 .newPanelContainer {
 	padding-left: 50px;
 	padding-right: 50px;
 }
-
 .newPanels {
 	backdrop-filter: blur(2px);
 	margin-top: 150px;
@@ -1079,12 +1011,10 @@ select option:hover {
 	line-height: 50px;
 	word-wrap: break-word;
 }
-
-/*  Delete Panel Cross Image And Text */
+/* Delete Panel Cross Image And Text */
 .deletePanelText {
 	display: none;
 }
-
 .deletePanelCrossImg {
 	float: right;
 	width: 20px;
@@ -1092,7 +1022,6 @@ select option:hover {
 	opacity: 50%;
 	transition: all 0.5s ease;
 }
-
 .deletePanelCrossImg:hover {
 	transform: rotate(360deg);
 	width: 30px;
@@ -1101,20 +1030,20 @@ select option:hover {
 	transition: all 0.5s ease;
 	filter: grayscale(0);
 }
-
 .headingHovered {
 	cursor: none;
 	border: 2px solid currentColor !important;
 	transition: all 0.4s ease;
 	text-align: center;
 }
-
 .panelHeadings {
 	border: 0;
 	transition: all 0.4s ease;
-	width: 95%;
+	width: auto;
 }
-
+.panelHeadings:hover {
+	cursor: pointer;
+}
 /* Edit Panel Elements CSS */
 .editPanelContainer {
 	visibility: hidden;
@@ -1131,35 +1060,29 @@ select option:hover {
 	padding-left: 25px;
 	transition: all 0.4s ease;
 }
-
 .editPanelContainerOn {
 	visibility: visible;
 	opacity: 100% !important;
 	z-index: 5 !important;
 }
-
 .editPanelContainer h1 {
 	font-size: 3em;
 }
-
 .editPanelContainer img {
 	margin-right: 20px;
 	margin-top: 20px;
 	filter: contrast(200%) brightness(200%) saturate(200%) sepia(100%) grayscale(100%);
 	opacity: 100%;
 }
-
 .editPanelContainer p,
 .editPanelContainer input {
 	display: inline;
 	vertical-align: center;
 }
-
 .editPanelContainer input {
 	height: 30px;
 	width: 250px;
 }
-
 .editInputConfirm {
 	font-size: 15px;
 	border: 1px solid currentColor;
@@ -1167,11 +1090,11 @@ select option:hover {
 	padding-right: 10px;
 	padding-bottom: 8px;
 	padding-top: 8px;
-	/*transition: all 0.5s ease;*/
+	/* transition: all 0.5s ease; */
+
 	border-radius: 5px;
 	transition: all 0.4s ease;
 }
-
 .editInputConfirm:hover {
 	color: black;
 	cursor: pointer;
@@ -1179,12 +1102,10 @@ select option:hover {
 	transition: all 0.6s ease;
 	border: transparent;
 }
-
 .saveAndConfirmBtn {
 	text-align: center;
 	margin-top: 155px;
 }
-
 .saveAndConfirmBtn span {
 	padding-left: 55px;
 	padding-right: 55px;
@@ -1196,31 +1117,26 @@ select option:hover {
 	border-radius: 25px;
 	transition: all 0.6s ease;
 }
-
 #saveBtn:hover {
 	background-color: green;
 	cursor: pointer;
 	transition: all 0.6s ease;
 	border: transparent;
 }
-
 #cancelBtn:hover {
 	background-color: red;
 	cursor: pointer;
 	transition: all 0.6s ease;
 	border: transparent;
 }
-
 #dot-menu {
 	width: 7px;
 }
-
 .newPanels p {
 	transition: all 0.3s ease;
 	padding-top: 0;
 	margin-top: 0;
 }
-
 .dot-menu {
 	padding-right: 15px;
 	float: right;
@@ -1228,21 +1144,18 @@ select option:hover {
 	padding-bottom: 0;
 	margin-bottom: 0;
 }
-
 .dotHoverActive {
 	border: 2px solid white;
 	transition: all 0.3 ease;
 	padding-left: 10px;
 	filter: blur(4px);
 }
-
 .parHoverActive {
 	border: 2px solid white;
 	transition: all 0.3 ease;
 	padding-left: 10px;
 	filter: blur(4px);
 }
-
 div#parEditOptions {
 	position: absolute;
 	margin: auto;
@@ -1252,9 +1165,8 @@ div#parEditOptions {
 	top: 50%;
 	margin-top: 20px;
 }
-
 #pencilEdit,
-#parCopy, 
+#parCopy,
 #otherEdit {
 	margin-right: 10px;
 	margin-left: 10px;
@@ -1266,9 +1178,8 @@ div#parEditOptions {
 	z-index: 3;
 	transition: all 0.4s ease;
 }
-
 #pencilEdit:hover,
-#parCopy:hover, 
+#parCopy:hover,
 #otherEdit:hover {
 	margin-right: 10px;
 	margin-left: 10px;
@@ -1279,5 +1190,41 @@ div#parEditOptions {
 	padding-left: 25px;
 	padding-right: 25px;
 	padding-top: 25px;
-	padding-bottom: 25px
+	padding-bottom: 25px;
+}
+#treeBG {
+	position: absolute;
+	width: 1000px;
+}
+.treeImgContainer {
+	position: relative;
+	z-index: -1;
+	bottom: 480px;
+	right: 50%;
+}
+.headingEditOptions {
+	position: relative;
+	display: inline;
+}
+#headingOthers,
+#headingPencil {
+	vertical-align: middle;
+	margin-left: 25px;
+	margin-right: 25px;
+	border-radius: 50%;
+	transition: all 0.4s ease;
+}
+#headingOthers:hover,
+#headingPencil:hover {
+	margin-left: 25px;
+	margin-right: 25px;
+	background-color: rgba(255, 255, 255, 0.062);
+	transition: all 0.4s ease;
+	cursor: none;
+	border: 1px solid white;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	transition: all 0.4s ease;
 }

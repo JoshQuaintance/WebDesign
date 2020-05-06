@@ -150,6 +150,7 @@ function addPanelNow() {
 }
 
 $("img.addBtn").on("click", () => {
+	console.log("buttonClickde");
 	$("img.addBtn").css("animation", "rotation 0.4s linear infinite");
 	$("img.addBtn").removeClass("addBtnH");
 	setTimeout(addPanelNow, 500);
@@ -209,11 +210,12 @@ function addPanel() {
 	paragraphTextSelected();
 	var uniqueDivClass = "newCard" + uniqueNum + " newPanels";
 	var divClassToDel = "newCard" + uniqueNum;
-	var uniqueHeadingClass = "newHeading" + uniqueNum;
+	let uniqueHeadingClass = "newHeading" + uniqueNum;
 	var uniqueParagraphClass = "newParagraph" + uniqueNum;
 	let parDivClass = "div_newParagraph" + uniqueNum;
 	let par = uniqueParagraphClass;
-	var headingType = `<${headingPicked}>`;
+	let headingType = `<${headingPicked}></${headingPicked}>`;
+	let headingDiv = `<div class="${uniqueHeadingClass}Div ${headingPicked}"> </div>`;
 	var deletePanelImg = $("<img>");
 	let dotMenu = $(
 		//prettier-ignore
@@ -225,22 +227,23 @@ function addPanel() {
 
 	//Adds Heading to The Div
 	//prettier-ignore
-	var newHeading = $(headingType).addClass(uniqueHeadingClass);
+	let newHeading = $(headingType).addClass(uniqueHeadingClass);
 
 	//prettier-ignore
-	newHeading = $(newHeading).attr({
+	newHeading = $(headingType).attr({
 		onmouseover : `headingHovered('${uniqueHeadingClass}')`,
 		onmouseout  : `headingNotHovered('${uniqueHeadingClass}')`,
-		onclick : `editPanelHeading('${uniqueHeadingClass}')`,
 		onchange: `headingChanged('${uniqueHeadingClass}')`
-	}).addClass("panelHeadings");
+	}).addClass(`panelHeadings ${uniqueHeadingClass}`);
 
 	$(newHeading).text(headingText);
 
-	$(newCard).append(newHeading);
+	let newHeadingDiv = $(headingDiv).append(newHeading);
+
+	$(newCard).append(newHeadingDiv);
 
 	//Adds 3 dot menu after the heading for paragraph edit
-	$(dotMenu).insertAfter(newHeading);
+	$(dotMenu).insertAfter(newHeadingDiv);
 
 	//Adds Paragraph to The Div
 	let parDiv = $("<div>").addClass(parDivClass);
@@ -281,6 +284,7 @@ function addPanel() {
 	$("img.addBtn").addClass("addBtnH");
 	$(".addBtn").css("display", "inline");
 	$(".addNewPanel").css("display", "none");
+	savePageFormat();
 }
 
 /**********************************
@@ -297,76 +301,86 @@ function headingChanged(headingNum) {
  ************************/
 
 //Heading is hovered
-let headingHovered = (headingNum) => {
+function headingHovered(headingNum) {
 	let headingClass = "." + headingNum;
 
-	var headingText = $(headingClass).text();
-	console.log(headingText);
+	/* prettier-ignore */
+	let x = $(`<div class="headingEditOptions options${headingNum}">`+
 
-	//console.log($(headingClass).css("width"));
-	$(headingClass).text("Edit Heading").addClass("headingHovered");
-	return (headingTextBack = headingText);
-};
+	`<img src="svg/pencil.svg" id="headingPencil" onclick="editCurrentHeading('${headingNum}')">` +
 
-//heading is not hovered
-let headingNotHovered = (headingNum) => {
-	let headingClass = "." + headingNum;
-	$(headingClass).text(headingTextBack).removeClass("headingHovered");
-};
+	`<img src="svg/tools.svg" id="headingOthers"  onclick="headingOtherOptions('${headingNum}')">` +
 
-/*******************************
- * Edit Panel Option Container *
- *******************************/
-//Opens Up the Container When A heading Is Open
-function editPanelHeading(headingNum) {
-	$(".editHeadingPanelContainer").addClass("editPanelContainerOn");
+	`</div>`)
+	console.log(x);
 
-	let headingUniqueNum = headingNum.match(/(\d+)/);
-	let headingX = headingUniqueNum[0];
-	let headingI = Number(headingX);
-	let headingNumSpan = headingI + 1;
-	console.log(headingNumSpan);
-
-	//Changes Number For Editing Panel
-	$("#headingNum").text(headingNumSpan);
-
-	return (currentlyEditHeading = headingNum);
+	if ($(`.options${headingNum}`).length === 0) {
+		$(headingClass).append(x);
+	}
 }
 
-function closeHeadingEditPanel() {
-	let headingX = currentlyEditHeading;
-	let headingY = "." + headingX;
-	let originalH = headingTextBack;
-	console.log(originalH);
-
-	$(headingY).text(originalH).css("animation", "changeHappened .7s");
-	$(".editHeadingPanelContainer").removeClass("editPanelContainerOn");
-
-	$(".newHeadingInput").val("");
-	console.log($(".newHeadingInput").val());
+function headingNotHovered(headingNum) {
+	if ($(`.options${headingNum}`).is(":hover") == true) {
+		console.log("nothing really happened");
+	} else {
+		console.log("it is done");
+		$(`.options${headingNum}`).remove();
+	}
 }
 
-function grabNewHeading() {
-	let newHeading = $(".newHeadingInput").val();
-	let headingX = currentlyEditHeading;
-	let headingY = "." + headingX;
+function editCurrentHeading(headingNum) {
+	let headingClass = `.${headingNum}`;
+	let headingDivClass = `.${headingNum}Div`;
+	let headingText = $(headingClass).text();
+	let headingWidth = $(headingClass).width() + 5;
+	console.log(headingWidth);
+	let headingHeight = $(headingClass).height();
+	let headingFontSize = $(headingClass).css("font-size");
+	let headingFontFamily = $(headingClass).css("font-family");
 
-	$(headingY).text(newHeading).css("animation", "changeHappened .7s");
+	let newHeadingInput = $(
+		`<textarea name="New Heading Input" class="newPanelHeadingInput headingInput${headingNum}" onclick="this.select(); this.onclick=null;">${headingText}</textarea> `
+	).css({
+		width         : headingWidth,
+		height        : headingHeight,
+		"font-family" : headingFontFamily,
+		"font-size"   : headingFontSize
+	});
 
-	setTimeout(() => {
-		$(headingY).text(newHeading).css("animation", "");
-		console.log("run");
-	}, 710);
-	//$().text(newHeading);
+	let headingConfirm = $(
+		`<span class="btn confirmHeadingChange confirm${headingNum}" onclick="currentHeadingChanged('${headingNum}')">Confirm Heading Change</span>`
+	);
+
+	$(headingDivClass).append(newHeadingInput);
+	$(headingConfirm).insertAfter(newHeadingInput);
+	$(headingClass).remove();
 }
 
-function saveHeadingEdit() {
-	let newHeading = $(".newHeadingInput").val();
-	let headingX = currentlyEditHeading;
-	let headingY = "." + headingX;
+function currentHeadingChanged(headingNum) {
+	let headingClass = `.${headingNum}`;
+	let headingInputClass = `.headingInput${headingNum}`;
+	let headingInputConfirm = `.confirm${headingNum}`;
+	let newHeadingText = $(headingInputClass).val();
+	let headingDivClass = `.${headingNum}Div`;
+	let headingType = $(headingDivClass).attr("class");
+	let d = headingType.match(/h[0-9]+/);
+	let newPanelHeading = $(`<${d}></${d}>`);
 
-	$(headingY).text(newHeading).css("animation", "changeHappened .7s");
-	$(".editHeadingPanelContainer").removeClass("editPanelContainerOn");
+	console.log(`${d} ${newPanelHeading}`);
+
+	$(newPanelHeading).addClass(`${headingNum} panelHeadings`).text(newHeadingText);
+
+	$(newPanelHeading).attr({
+		onmouseover : `headingHovered('${headingNum}')`,
+		onmouseout  : `headingNotHovered('${headingNum}')`,
+		onchange    : `headingChanged('${headingNum}')`
+	});
+
+	$(headingInputClass).remove();
+	$(headingInputConfirm).remove();
+
+	$(headingDivClass).append(newPanelHeading);
+	savePageFormat();
 }
 
 /**************************
@@ -374,7 +388,7 @@ function saveHeadingEdit() {
  **************************/
 let drawPencil = (parNum) => {
 	let parClass = "." + parNum;
-	let parDivClass = ".div_" + headingNum;
+	//let parDivClass = ".div_" + parNum;
 	/* prettier-ignore */
 	let x = $(`<div id="parEditOptions">` +
 	`<div id="editDatPencil" onmouseover="pencilHovered('${parNum}')" onmouseout="pencilNotHovered('${parNum}')" >` +
@@ -389,6 +403,7 @@ let drawPencil = (parNum) => {
 
 	x = x.css("z-index", "1000");
 
+	//makes sure to only make 1 div
 	if ($("#pencilEdit").length) {
 	} else {
 		$(x).insertBefore(parClass);
@@ -544,6 +559,7 @@ function currentParagraphChanged(parNum) {
 
 	$(parDivClass).append(newText);
 	$(`.dot${parNum}`).removeClass("hover");
+	savePageFormat();
 }
 
 /***************
@@ -568,14 +584,16 @@ function copyCurrentParagraph(parNum) {
 	let parClass = `.${parNum}`;
 	let simpleRegex = /[0-9]+/;
 	let panelNum = parNum.match(simpleRegex);
-	
+	let x = panelNum + 1;
+
 	let paragraphText = $(parClass).text();
-	let dummyInput = $(`<input id="dummyInput">`).val(paragraphText).appendTo('body').select();
+	let dummyInput = $(`<input id="dummyInput">`).val(paragraphText).appendTo("body").select();
 
 	document.execCommand("copy");
 	$("#dummyInput").remove();
-	
-	alert(`Copied Text Paragraph From Panel ${panelNum}`);parNotHovered();
+
+	alert(`Copied Text Paragraph From Panel ${x}`);
+	parNotHovered();
 }
 
 /*****************************
@@ -592,9 +610,26 @@ let deleteSelectedPanel = (panelNum) => {
 let deletedSelectedPanel = () => {
 	console.log(panelNumDel + "deleting");
 	//panelNum = "." + panelNum;
-	$(panelNumDel).css("display", "none");
+	$(panelNumDel).remove();
 	console.log($(panelNumDel));
+	savePageFormat();
 };
+
+/****************
+ * Test chamber *
+ ****************/
+function savePageFormat() {
+	let x = document.getElementById("interactiveDiv");
+	let newPageFormat = x.outerHTML;
+	let g = localStorage.getItem("pageFormat");
+	localStorage.key("pageFormat");
+	localStorage.setItem("pageFormat", newPageFormat);
+	console.log("added New Page Format");
+}
+
+savePageFormat();
+
+
 
 /*********************************************************
 * Reusable Function For "Enter" Keypress event listener *
