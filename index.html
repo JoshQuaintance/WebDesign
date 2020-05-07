@@ -39,10 +39,8 @@
 				
 			</div>
 
-			<h1 style="font-size: 2.5em; padding-top: 250px; margin-top: 0;" data-aos="fade-left" data-aos-anchor="#startAnimation">Welcome, <span onclick="changeUserName()" id="userName"></span> </h1>
-			<br><br>
-
-			<br>
+			<h1 style="font-size: 2.5em; padding-top: 250px; margin-top: 0;" data-aos="fade-left" data-aos-anchor="#startAnimation" id="userGreet">Welcome, <span onclick="changeUserName()" id="userName"></span> </h1>
+			
 
 			<p data-aos="fade-right" data-aos-anchor="#startAnimation">Scroll Down to Continue</p>
 			<br>
@@ -51,7 +49,6 @@
 	
 		</div>
 		
-		<br><br>
 
 		<i id="whateverThisIs" class=".frontPage"></i>
 
@@ -145,7 +142,7 @@
 						<textarea name="alert" wrap="soft" maxlength="100" placeholder="Type Your Alert Text Here" id="alertInput"></textarea>
 	
 						
-						<button id="alertBtn" onclick="alertMessage()" >Confirm</button>
+						<span class="btn" id="alertBtn" onclick="alertMessage()" >Confirm</span>
 						
 					</div>
 	

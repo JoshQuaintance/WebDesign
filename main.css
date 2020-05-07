@@ -482,6 +482,8 @@ nav span {
 } */
 /* Styles for the greeting on Home Page */
 .titleOfPage {
+	margin-top: 50px;
+	margin-bottom: 150px;
 	font-size: 50px;
 	padding-top: 150px;
 	font-family: 'Bangers', cursive;
@@ -492,6 +494,7 @@ nav span {
 	padding-bottom: 20px;
 }
 .frontPage {
+	margin-bottom: 50px;
 	cursor: var(--chevronCursor);
 	color: rgb(221, 221, 221);
 	z-index: 1;
@@ -500,6 +503,9 @@ p {
 	font-size: 1.5em;
 }
 #alertBtn {
+	height: 50px;
+	padding: 5px 20px !important;
+	margin-top: -5px;
 	display: inline-block;
 	vertical-align: text-bottom;
 }
@@ -1280,4 +1286,8 @@ div#parEditOptions {
 
 .interactiveFooter {
 	margin-top: 200px;
+}
+
+#userGreet {
+	margin-bottom: 100px;
 }
