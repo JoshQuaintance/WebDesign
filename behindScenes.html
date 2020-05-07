@@ -25,10 +25,10 @@
         
         <nav  data-link-hover>
 
-            <a href="behindScenes.html" target="_parent" id="scene"><span>&lt;</span> Behind The Scenes <span>&gt;</span></a></a>
+            <a href="behindScenes.html" target="_parent" id="scene"><span>&lt;</span> Behind The Scenes <span>&gt;</span></a>
 			<a href="about.html" target="_parent" id="about"><span>&lt;</span> About <span>&gt;</span></a>
 			<a href="interactive.html" target="_parent" id="interactive"><span>&lt;</span> Interactive <span>&gt;</span></a>
-			<a href="index.html" target="_parent" id="home"Home><span>&lt;</span> Home <span>&gt;</span></a>
+			<a href="index.html" target="_parent" id="home"><span>&lt;</span> Home <span>&gt;</span></a>
 	
 		</nav>
 
@@ -51,9 +51,9 @@
 				
 				<p>One of the most used JavaScript libraries. I learned a little bit of jQuery to help me make this website a lot easier to code. jQuery was made by John Resig on 2006 and it grew popularity. He created the library because he wants to make his website developing faster and easier. It basically makes pulling in elements from HTML to JavaScript easier and faster. It also uses the CSS selectors, which is very powerful by itself already. Here's and example of how jQuery makes your code shorter and easier to type</p>
 <div class="codeSnippets">
-<pre><p>Without jQuery</p><code class="language-javascript">
+<pre>Without jQuery<code class="language-javascript">
 var paragraph = document.getElementById("firstParagraph");
-for (var i = 0; i < paragraph.length; i++) {
+for (var i = 0; i &lt; paragraph.length; i++) {
 	paragraph[i].innerHTML("Changed The Text");
 };
 </code>
@@ -61,7 +61,7 @@ for (var i = 0; i < paragraph.length; i++) {
 
 <br>
 
-<pre><p>But With jQuery</p><code class="language-javascript">
+<pre>But With jQuery<code class="language-javascript">
 $("#firstParagraph").text("Changed The Text");
 </code>
 </pre>
@@ -79,9 +79,9 @@ $("#firstParagraph").text("Changed The Text");
 				<h1><a href="https://michalsnik.github.io/aos/">AOS (Animate On Scroll)</a></h1>
 				<p>This one is easy enough and the name explains itself. It basically helps me make animation without me coding it myself through css. It's how everything just slides in or fades in when you scroll. It was created by michalsnik here is his github: <a href="https://github.com/michalsnik">https://github.com/michalsnik.</a><br> It is a very cool library that makes coding a lot faster. This one requires 2 CDNs, Here is the CDN I used for AOS: </p>
 
-<div class="codeSnippets"><pre><p>JavaScript</p><code class="language-javascript">&lt;script src=&quot;https://unpkg.com/aos@2.3.1/dist/aos.js&quot;&gt;&lt;/script&gt; </code>
+<div class="codeSnippets"><pre>JavaScript : <code class="language-javascript">&lt;script src=&quot;https://unpkg.com/aos@2.3.1/dist/aos.js&quot;&gt;&lt;/script&gt; </code>
 
-<p>CSS</p><code class="language-javascript">&lt;link href=&quot;https://unpkg.com/aos@2.3.1/dist/aos.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre> 
+CSS : <code class="language-javascript">&lt;link href=&quot;https://unpkg.com/aos@2.3.1/dist/aos.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre> 
 
 </div>
 			</div>
@@ -92,7 +92,7 @@ $("#firstParagraph").text("Changed The Text");
 
 <pre><code>
 var paragraph = document.getElementById("firstParagraph");
-for (var i = 0; i < paragraph.length; i++) {
+for (var i = 0; i &lt; paragraph.length; i++) {
 	paragraph[i].innerHTML("Changed The Text");
 };
 </code></pre>
@@ -102,7 +102,7 @@ for (var i = 0; i < paragraph.length; i++) {
 <div class="codeSnippets">
 <pre><code class="language-javascript">
 var paragraph = document.getElementById("firstParagraph");
-for (var i = 0; i < paragraph.length; i++) {
+for (var i = 0; i &lt; paragraph.length; i++) {
 	paragraph[i].innerHTML("Changed The Text");
 };
 </code></pre>
@@ -110,9 +110,9 @@ for (var i = 0; i < paragraph.length; i++) {
 
 <p>Look at how the second one is highlighted, making it a lot easier to read and understand. This one also requires 2 CDNs: </p>
 
-<div class="codeSnippets"><pre><p>JavaScript</p><code class="language-javascript">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js&quot;&gt;&lt;/script&gt;</code>
+<div class="codeSnippets"><pre>JavaScript : <code class="language-javascript">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js&quot;&gt;&lt;/script&gt;</code>
 
-<p>CSS</p><code class="language-javascript">&lt;link href=&quot;https://unpkg.com/aos@2.3.1/dist/aos.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre> 
+CSS : <code class="language-javascript">&lt;link href=&quot;https://unpkg.com/aos@2.3.1/dist/aos.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre> 
 	
 	</div>
 
@@ -124,11 +124,11 @@ for (var i = 0; i < paragraph.length; i++) {
 			<div class="aboutPage editorUsed" data-aos="fade-up-left">
 
 				<h1><a href="https://code.visualstudio.com">Visual Studio Code</a></h1>
-				<p>Visual Studio Code, often called VS Code is an open source text editor made by Microsoft. It is a very powerful text editor. It can be a normal text editor, or you can make it a full blown IDE with a little bit of tweaking. I used it because I can literally make multiple IDEs for different languages. Just add a little extensions and there you go. Here's what my editor looks like with just a little tweaking:<br> <img src="VSCode_showcase.png" width="100%"><br>I changed the theme and used <a href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme">Material Theme</a> extension. The theme is also not to original one. I changed the text highlighting, etc... As you can also see to the left of the image, the logo with 29 notifications on it, thats git. It has git support, which really helps me commit and push all of these html, css, and javascript files to github without drag and dropping them. Also with a little bit of help from GitLens, pushing my commits became a ton easier. Overall, 10/10. You can press the title for their website or go here to download it here</p>
+				<p>Visual Studio Code, often called VS Code is an open source text editor made by Microsoft. It is a very powerful text editor. It can be a normal text editor, or you can make it a full blown IDE with a little bit of tweaking. I used it because I can literally make multiple IDEs for different languages. Just add a little extensions and there you go. Here's what my editor looks like with just a little tweaking:<br> <img src="VSCode_showcase.png" style="width: 100%;" alt="Visual Studio Code Screenshot"><br>I changed the theme and used <a href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme">Material Theme</a> extension. The theme is also not to original one. I changed the text highlighting, etc... As you can also see to the left of the image, the logo with 29 notifications on it, thats git. It has git support, which really helps me commit and push all of these html, css, and javascript files to github without drag and dropping them. Also with a little bit of help from GitLens, pushing my commits became a ton easier. Overall, 10/10. You can press the title for their website or go here to download it here</p>
 
 
 				<p style="text-align: center;">
-				-> <a style="text-align: center;" href="https://code.visualstudio.com/download"> Visual Studio Code</a> <-</p>
+				-> <a style="text-align: center;" href="https://code.visualstudio.com/download"> Visual Studio Code</a> &lt;-</p>
 
 
 			</div>
@@ -139,21 +139,20 @@ for (var i = 0; i < paragraph.length; i++) {
 			<p>You want to see the code behind this website? Well, it's your lucky day, because I am going to give you the source code for this website. I'm going to link the repository for this website and my github.</p>
 
 			<div class="linkImages">
-			<a href="https://github.com/joshuapelealu" alt="GitHub Mascot Logo" title="My Github">
+			<a href="https://github.com/joshuapelealu"  title="My Github">
 				<p>My Github</p>
-				<img src="github_octocat.png">
+				<img src="github_octocat.png" alt="GitHub Mascot Logo">
 			</a>
 	
-			<a href="https://github.com/joshuapelealu/WebDesign/" alt="Github Code Octicon" title="Github Code Octicon">
+			<a href="https://github.com/joshuapelealu/WebDesign/"  title="Github Code Octicon">
 				<p>Source Code </p>
-				<img src="svg/source_code.svg" width="125px;">
+				<img src="svg/source_code.svg" style="width: 125px;" alt="Github Code Octicon">
 			</a>
 			
 			</div>
 		
 		</div>
-	</div>
-
+	
 	<h1>Other Stuff I Used</h1>
 	
 	<div class="aboutPage otherStuff" data-aos="fade-left">

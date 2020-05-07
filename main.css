@@ -397,6 +397,7 @@ div.hover .dot3 {
 	background-color: white;
 }
 nav a {
+	font-style: italic;
 	float: right;
 	text-decoration: none;
 	color: white;
@@ -863,10 +864,14 @@ footer a:hover span {
 .index .dirtContainer {
 	background-image: linear-gradient(to top, #523423 75%, #508e40 100%);
 }
+.linkbtn {
+	padding: 4px 10px !important;
+}
 .btn {
 	border: 1px solid currentColor;
 	transition: all 0.4s ease;
 	padding: 10px 20px;
+	border-radius: 10px;
 }
 .btn a {
 	text-decoration-color: currentcolor;
@@ -875,6 +880,7 @@ footer a:hover span {
 	color: #161616;
 	background: var(--blueHover);
 	cursor: pointer;
+	border: 0 solid transparent;
 }
 /* Interactive Part of the Website */
 .confirmParChange {

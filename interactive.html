@@ -10,7 +10,7 @@
 		<link rel="icon" href="svg/source_code.svg" type="image/svg+xml">
 
 		<!--CSS Link-->
-		<link async class="WebsiteCSS" rel="stylesheet" href="main.css" />
+		<link class="WebsiteCSS" rel="stylesheet" href="main.css" />
 
 		<!--Prism Css-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-okaidia.css">
@@ -34,10 +34,10 @@
 	<!--Navigation Bar-->
 	<nav  data-link-hover class="interactiveNav">
 
-		<a href="behindScenes.html" target="_parent" id="scene"><span>&lt;</span> Behind The Scenes <span>&gt;</span></a></a>
+		<a href="behindScenes.html" target="_parent" id="scene"><span>&lt;</span> Behind The Scenes <span>&gt;</span></a>
 		<a href="about.html" target="_parent" id="about"><span>&lt;</span> About <span>&gt;</span></a>
 		<a href="interactive.html" target="_parent" id="interactive"><span>&lt;</span> Interactive <span>&gt;</span></a>
-		<a href="index.html" target="_parent" id="home"Home><span>&lt;</span> Home <span>&gt;</span></a>
+		<a href="index.html" target="_parent" id="home"><span>&lt;</span> Home <span>&gt;</span></a>
 
 	</nav>
 
@@ -59,7 +59,7 @@
 			</div>
 
 
-			<img class="addBtn addBtnH" src="svg/plus.svg" type="image/svg+xml">
+			<img class="addBtn addBtnH" src="svg/plus.svg" alt="Add Panel Plus Button">
 			<!--Asks for texts input that will be displayed, as soon as the user confirms the input, the div will be removed.-->
 			
 			<br>
@@ -67,9 +67,9 @@
 			<div class="addNewPanel" style="display: none;">
 				<div class="bgColorPicker">
 
-				<label for="backgroundColor">Choose the background color for the card:</label>
-				<div class="color-picker"></div>
-				<label for=""> - Default value is already applied</label>
+				<label>Choose the background color for the card:</label>
+				<div class="color-picker" id="colorPicker"></div>
+				<label> - Default value is already applied</label>
 				</div>
 
 				<br><br>
@@ -90,7 +90,7 @@
 
 				</div>
 					<div class="headingText" style="display: none;">
-						<label for="">Type in Heading Text:</label>
+						<label for="headingInput">Type in Heading Text:</label>
 						<input type="text" name="headingText" id="headingInput" maxlength="50">
 						<input type="submit" value="Confirm" onclick="headingTextSelected()">
 
@@ -100,7 +100,7 @@
 					<div class="changeTextDiv" style="display: none;" >
 					
 					<p>Type your text for your paragraph</p>
-					<textarea name="TextForPanel" id="panelText" cols="30" rows="10 placeholder="Type Your Text Here" maxlength="1500"></textarea>
+					<textarea name="TextForPanel" id="panelText" cols="30" rows="10" placeholder="Type Your Text Here" maxlength="1500"></textarea>
 
 					<br><br><br>
 
@@ -149,8 +149,6 @@
 
 		<!--JQuery Link-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-
-		<!--<script async src="applyPageFormat.js"></script>
 		
 		<!--JavaScript Link-->
 		<script async type="text/javascript" src="main.js"></script>
