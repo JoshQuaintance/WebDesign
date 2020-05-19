@@ -50,8 +50,7 @@
 		<div id="interactiveDiv" class="interactiveDiv">
 
 		<div class="introContainer" style="margin-top: 50px; margin-left: 50px; margin-right: 50px;">
-							<h1 style="color: red;">Please Do Mind That This Part of the Website is Still In Progress</h1>
-							<p>Now let's make your own webpage with a this template! <br>Don't worry, this page is set to save the panels you added. So everytime you reopen this part of the site, if you edited it even this text, THE PANEL WILL BE SAVED!! Carefull, If you Delete Any of the panels, <strong style="color: rgb(131, 7, 7); ">THERE IS NOT UNDO... for now</strong> So be careful!! Enjoy... <br>You can delete this text but it will show up again </p>
+				<h1 style="color: red;">Let's Do something cool. Try to press the Add button below.</h1>
 						</div>
 
 			<div class="newPanelContainer" id="newPanelContainer">
@@ -65,54 +64,73 @@
 			<br>
 
 			<div class="addNewPanel" style="display: none;">
-				<div class="bgColorPicker">
 
-				<label>Choose the background color for the card:</label>
-				<div class="color-picker" id="colorPicker"></div>
-				<label> - Default value is already applied</label>
-				</div>
+				<div class="newPanelOptions1">
+					<div class="bgColorPicker">
 
-				<br><br>
-				<div id="inputDiv">
-					<label>Pick A Header Type: </label>
-					<select name="headerSelect" id="headerSelect">
-						<option style="display: none;" value="undefined">Heading Type</option>
-						<option style="font-size: 2em;" value="h1">Heading 1</option>
-						<option style="font-size: 1.5em;" value="h2">Heading 2</option>
-						<option style="font-size: 1.17em;" value="h3">Heading 3</option>
-						<option style="font-size: 1em;" value="h4">Heading 4</option>
-						<option style="font-size: .83em;" value="h5">Heading 5</option>
-						<option style="font-size: .67em;" value="h6">Heading 6</option>
-					</select>
+					<label>Choose the background color for the card: &nbsp;</label>
+					<div class="color-picker" id="colorPicker"></div>
+					<label>&nbsp; - Default value is already applied</label>
+					</div>
 
-					<input class="inputSubmit" type="submit" onclick="headingSelected()" value="Confirm">
+					<br><br>
+					<div id="inputDiv">
+						<label>Pick A Header Type: </label>
+						<select name="headerSelect" id="headerSelect">
+							<option style="display: none;" value="undefined">Heading Type</option>
+							<option style="font-size: 2em;" value="h1">Heading 1</option>
+							<option style="font-size: 1.5em;" value="h2">Heading 2</option>
+							<option style="font-size: 1.17em;" value="h3">Heading 3</option>
+							<option style="font-size: 1em;" value="h4">Heading 4</option>
+							<option style="font-size: .83em;" value="h5">Heading 5</option>
+							<option style="font-size: .67em;" value="h6">Heading 6</option>
+						</select>
+
+						<input class="inputSubmit selectConfirm" type="submit" onclick="headingSelected()" value="Confirm" >
 
 
-				</div>
+					</div>
+
 					<div class="headingText" style="display: none;">
 						<label for="headingInput">Type in Heading Text:</label>
 						<input type="text" name="headingText" id="headingInput" maxlength="50">
-						<input type="submit" value="Confirm" onclick="headingTextSelected()">
+						<input type="submit" value="Confirm" onclick="headingTextSelected()" class="selectConfirm">
 
 					</div>
+				
+
+					
 					<br>
 					
 					<div class="changeTextDiv" style="display: none;" >
 					
 					<p>Type your text for your paragraph</p>
+					
 					<textarea name="TextForPanel" id="panelText" cols="30" rows="10" placeholder="Type Your Text Here" maxlength="1500"></textarea>
 
-					<br><br><br>
-
-					<!--<span class="paragraphConfirmBtn" onclick="paragraphTextSelected()">Confirm Text</span>-->
-
 					</div>
-					
 					
 					<br><br>
 					<span class="addPanel addPanelSpan" onclick="addPanel()" style="display: none;">Add New Panel</span>
 					<br>
 
+				</div>
+			</div>
+			
+			<div class="hOtherOptionsContainer">
+
+				<img src="svg/exit_icon_red.svg" id="closeEditHeading">
+
+				<h1>Edit "<span id="currentHeadingOthers"></span>"</h1>
+
+				<div class="fontsContain">
+					<h2>Fonts</h2>
+					
+						<p>Type in a valid font family: &nbsp;<input id="headingFamilyChange" type="text" placeholder="Type in a valid font">&nbsp;<a class="btn" ><span>Confirm</span></a></p>
+					<br>
+					
+					<p>Do you want a custom font? Enter in an @import url here:</p> <input type="text" placeholder="@import url('font-url);">&nbsp;<a class="btn"><span>Confirm</span></a>
+				</div>
 			</div>
 			
 		</div>

@@ -114,7 +114,6 @@ a {
 	z-index: -1;
 }
 /* Animation Keyframes */
-
 [data-aos="fade-out-screen"] {
 	opacity: 1;
 	transition-property: opacity;
@@ -160,7 +159,6 @@ a {
 		transform: translate(0);
 	}
 }
-
 @keyframes dot2 {
 	0% {
 		transform: translate(0);
@@ -171,6 +169,7 @@ a {
 	40% {
 		transform: translate(0, -5px);
 	}
+
 	50% {
 		transform: translate(0, -10px);
 	}
@@ -184,7 +183,6 @@ a {
 		transform: translate(0);
 	}
 }
-
 @keyframes dot3 {
 	0% {
 		transform: translate(0);
@@ -195,6 +193,7 @@ a {
 	50% {
 		transform: translate(0);
 	}
+
 	65% {
 		transform: translate(0, -5px);
 	}
@@ -208,7 +207,6 @@ a {
 		transform: translate(0);
 	}
 }
-
 @keyframes rotation {
 	0% {
 		transform: rotate (0deg);
@@ -227,7 +225,6 @@ a {
 		opacity: 100%;
 	}
 }
-
 @keyframes slideLeft {
 	from {
 		right: 100px;
@@ -238,6 +235,7 @@ a {
 		opacity: 100%;
 	}
 }
+
 @keyframes scroll {
 	0% {
 		transform: translate(0);
@@ -425,7 +423,7 @@ nav a {
 nav a:hover {
 	background-color: var(--blueHover);
 	transition: all 0.5s ease;
-	cursor: none;
+	cursor: pointer;
 	color: black !important;
 	padding: 15px 4rem 15px 4rem;
 	border: 0 solid transparent;
@@ -503,11 +501,20 @@ p {
 	font-size: 1.5em;
 }
 #alertBtn {
-	height: 50px;
-	padding: 5px 20px !important;
-	margin-top: -5px;
-	display: inline-block;
+	border: 1px solid black;
+	color: currentColor;
+	transition: all 0.5s ease;
+	padding: 5px 15px !important;
+	border-radius: 10px;
+	display: inline;
 	vertical-align: text-bottom;
+}
+#alertBtn:hover {
+	border: transparent;
+	font-weight: bold;
+	background-color: var(--blueHover);
+	cursor: none;
+	transition: all 0.5s ease;
 }
 #alertInput {
 	position: relative;
@@ -577,7 +584,6 @@ textarea {
 	vertical-align: text-bottom;
 	background-color: inherit;
 }
-
 .container {
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	text-align: left;
@@ -604,8 +610,16 @@ iframe {
 	background-color: transparent;
 	line-height: 50px;
 }
-.interesting p {
+.introduction {
+	color: rgb(245, 245, 245);
+	margin-right: 350px;
+}
+.interesting {
 	font-weight: bold;
+	margin-left: 350px;
+}
+.funStuff {
+	margin-right: 350px;
 }
 /* END */
 button {
@@ -623,6 +637,9 @@ button:hover {
 .mistakes strong {
 	font-size: 30px;
 	color: red;
+}
+.mistakes {
+	margin-left: 350px;
 }
 .spotifyDiv {
 	display: inline;
@@ -643,6 +660,7 @@ button:hover {
 	padding-top: 5px;
 	padding-bottom: 20px;
 	background-color: transparent;
+
 	-webkit-backdrop-filter: blur(4px);
 	backdrop-filter: blur(4px);
 }
@@ -710,7 +728,6 @@ a[class= btn]:hover {
 	margin-right: 50px;
 	margin-left: 50px;
 }
-
 .sourceCode a:hover,
 .aboutPage a:hover,
 .mistakes a:hover {
@@ -876,14 +893,12 @@ footer a:hover span {
 .btn {
 	border: 1px solid currentColor;
 	transition: all 0.4s ease;
-	padding: 10px 20px;
-	border-radius: 10px;
 }
 .btn a {
 	text-decoration-color: currentcolor;
 }
 .btn:hover {
-	color: #161616;
+	color: #000000;
 	background: var(--blueHover);
 	cursor: pointer;
 	border: 0 solid transparent;
@@ -972,7 +987,7 @@ select option:hover {
 	padding-bottom: 12px;
 	padding-top: 12px;
 	transition: all 0.5s ease;
-	border-radius: 2px;
+	border-radius: 10px;
 }
 .addPanelSpan:hover,
 .addPanelSpan:focus {
@@ -1030,8 +1045,8 @@ select option:hover {
 .deletePanelCrossImg {
 	float: right;
 	width: 20px;
-	filter: brightness(75%);
-	opacity: 50%;
+	filter: brightness(0) grayscale(1);
+	opacity: 100%;
 	transition: all 0.5s ease;
 }
 .deletePanelCrossImg:hover {
@@ -1101,9 +1116,7 @@ select option:hover {
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-bottom: 8px;
-	padding-top: 8px;
-	/* transition: all 0.5s ease; */
-
+	padding-top: 8px; /* transition: all 0.5s ease; */
 	border-radius: 5px;
 	transition: all 0.4s ease;
 }
@@ -1114,6 +1127,7 @@ select option:hover {
 	transition: all 0.6s ease;
 	border: transparent;
 }
+
 .saveAndConfirmBtn {
 	text-align: center;
 	margin-top: 155px;
@@ -1240,17 +1254,14 @@ div#parEditOptions {
 	padding-bottom: 10px;
 	transition: all 0.4s ease;
 }
-
 .panelHeadingDiv {
 	word-wrap: break-word;
 }
-
 .introContainerDelete {
 	filter: blur(4px);
 	border: 2px solid white;
 	border-radius: 25px;
 }
-
 .deleteIntro {
 	width: 48px;
 	position: absolute;
@@ -1258,7 +1269,6 @@ div#parEditOptions {
 	left: 50%;
 	height: 150px;
 }
-
 .introTrashCan {
 	position: absolute;
 	top: 50%;
@@ -1267,7 +1277,6 @@ div#parEditOptions {
 	transition: all 0.4s ease;
 	border-radius: 50%;
 }
-
 .introTrashCan:hover {
 	margin-left: 10px;
 	margin-right: 10px;
@@ -1283,11 +1292,139 @@ div#parEditOptions {
 	border-radius: 50%;
 	z-index: 4;
 }
-
 .interactiveFooter {
 	margin-top: 200px;
 }
-
 #userGreet {
 	margin-bottom: 100px;
+}
+.newPanelOptions1 {
+	margin-top: 50px;
+	color: white;
+	font-size: 20px;
+	font-weight: 400;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	background-color: rgba(34, 34, 34, 0.61);
+	padding-top: 25px;
+	padding-bottom: 25px;
+	border-radius: 20px;
+	margin-left: 10%;
+	width: 80%;
+	text-align: center;
+	box-shadow: 0 5px 25px rgba(0, 0, 0, .5);
+	transition: all 0.4s ease;
+}
+.selectConfirm {
+	padding: 5px 10px;
+	color: white;
+	box-shadow: 0 5px 25px rgba(0, 0, 0, .5);
+	transition: all 0.4s ease;
+}
+#headingInput {
+	height: 25px;
+}
+
+.selectConfirm:hover {
+	cursor: pointer;
+	background-color: var(--blueHover) !important;
+	color: currentColor;
+	transition: all 0.5s ease;
+	border: 2px solid transparent !important;
+}
+#headingInput:focus {
+	background-color: var(--blueHover) !important;
+	color: currentColor;
+	transition: all 0.5s ease;
+	border: 2px solid transparent !important;
+}
+#panelText {
+	margin-top: 25px;
+	width: 100%;
+	transition: all 0.5s ease;
+}
+#panelText:focus {
+	background-color: var(--blueHover) !important;
+	color: currentColor;
+	transition: all 0.5s ease;
+	border: 2px solid transparent !important;
+}
+.changeTextDiv {
+	letter-spacing: 2px;
+}
+
+.hOtherOptionsContainer {
+	background-color: rgba(43, 43, 43, 0.76);
+	position: fixed;
+	width: 1100px;
+	left: 50%;
+	margin-left: -600px;
+	height: 450px;
+	top: 50%;
+	margin-top: -250px;
+	z-index: 9999;
+	padding: 50px;
+	color: white;
+	box-shadow: 0 10px 15px rgba(20, 19, 66, 0.7);
+	transition: all 0.4s ease;
+}
+.hOtherOptionsContainer h1,
+.hOtherOptionsContainer h2 {
+	text-align: left;
+	margin-bottom: 50px;
+}
+.hOtherOptionsContainer input {
+	height: 30px;
+	width: 200px;
+}
+.hOtherOptionsContainer input:focus {
+	background-color: var(--blueHover) !important;
+	color: currentColor;
+	transition: all 0.5s ease;
+	border: 2px solid transparent !important;
+}
+.fontsContain {
+	float: left;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+.fontsContain .btn {
+	padding: 4px 10px;
+	vertical-align: text-bottom;
+	border-radius: 5px;
+}
+#closeEditHeading {
+	float: right;
+	width: 20px;
+	filter: brightness(0) grayscale(1);
+	opacity: 100%;
+	transition: all 0.5s ease;
+}
+#closeEditHeading:hover {
+	transform: rotate(360deg);
+	width: 30px;
+	cursor: pointer;
+	opacity: 100%;
+	transition: all 0.5s ease;
+	filter: grayscale(0);
+}
+#spotifyTgl {
+	border-radius: 5px;
+	font-size: 20px;
+	padding: 5px 8px;
+}
+div.footerLinks a {
+	padding: 10px 20px;
+}
+div.footerLinks a:hover {
+	padding: 10px 20px;
+}
+#interactiveLink,
+.linkbtn {
+	border-radius: 10px;
+	transition: all 0.5s ease;
 }

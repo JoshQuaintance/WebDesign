@@ -73,9 +73,9 @@ function darkModeOff() {
 }
 */
 
-/*********
- * Pickr *
- *********/
+/************************
+ * Pickr (Color Picker) *
+ ************************/
 
 // Simple example, see optional options for more configuration.
 const pickr = Pickr.create({
@@ -180,7 +180,6 @@ function addPanelNow() {
 }
 
 $("img.addBtn").on("click", () => {
-	console.log("buttonClickde");
 	$("img.addBtn").css("animation", "rotation 0.4s linear infinite");
 	$("img.addBtn").removeClass("addBtnH");
 	setTimeout(addPanelNow, 500);
@@ -205,7 +204,6 @@ var deletePanelText = "<h2>Delete Panel</h2>";
 //Select Heading - 1
 function headingSelected() {
 	if ($("#headerSelect").val() !== "undefined") {
-		console.log($("select").val());
 		$("#inputDiv").css("display", "none");
 		$(".headingText").css("display", "inline");
 		return (headingPicked = $("select").val());
@@ -303,9 +301,9 @@ function addPanel() {
 	console.log(newCard);
 	//prettier-ignore
 	//adds delete panel cross image
-	deletePanelImg = $(deletePanelImg).addClass("deletePanelCrossImg " + "deletePanelNum" + uniqueNum).attr({
+	deletePanelImg = $(deletePanelImg).addClass(`deletePanelCrossImg deletePanelNum${uniqueNum}`).attr({
 			onclick: `deleteSelectedPanel('newCard${uniqueNum}')`,
-			src: "svg/exit_icon.svg"
+			src: "svg/exit_icon_red.svg"
 
 		});
 
@@ -360,9 +358,8 @@ function headingHovered(headingNum) {
 
 function headingNotHovered(headingNum) {
 	if ($(`.options${headingNum}`).is(":hover") == true) {
-		console.log("nothing really happened");
+		
 	} else {
-		console.log("it is done");
 		$(`.options${headingNum}`).remove();
 	}
 }
@@ -422,6 +419,18 @@ function currentHeadingChanged(headingNum) {
 	$(headingNum).addClass("somethingChanged");
 
 	savePageFormat();
+}
+
+function headingOtherOptions(headingNum) {
+	let headingClass = `.${headingNum}`;
+	console.log(headingClass)
+	let headingText = $(headingClass).text();
+	console.log(headingText)
+	let r = headingNum.match(/[0-9]+/);
+	let currentCard = `.newCard${r}`;
+	
+	 
+	
 }
 
 /**************************
@@ -503,9 +512,8 @@ let notHoverPar = (parNum) => {
 	let parClass = "." + parNum;
 	let dotClass = ".dot" + parNum;
 
-	if ($(dotClass).is(":hover")) {
-		dotHovered();
-	}
+	if ($(dotClass).is(":hover")) dotHovered();
+	
 
 	if ($("#parEditOptions").length) {
 		if ($("#parEditOptions").is(":hover") === true) {
@@ -632,8 +640,7 @@ function copyCurrentParagraph(parNum) {
 	document.execCommand("copy");
 	$("#dummyInput").remove();
 
-	alert(`Copied Text Paragraph From Panel ${x}`);
-	parNotHovered();
+	alert(`Text Copied`);
 }
 
 /*****************************

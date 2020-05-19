@@ -70,7 +70,7 @@
 			
 			<div class="introductions introduction  "  id="introduction" data-aos="fade-up-right" data-aos-anchor="#whateverThisIs"
 			data-aos-anchor-placement="top-center">
-				<h1 style="padding-bottom: 0;">Coding is a lot of fun!</h1>
+				<h1 style="margin-bottom: 15px; border-bottom: 2px solid white; width: 40%;">Coding is a lot of fun!</h1>
 				
 				<p>Coding may seem really hard at first glance, maybe even every single time you see it. It actually is not that hard, with a lot of practice and learning, you can code and start to realise that its actually pretty easy to do!</p>
 
@@ -142,7 +142,7 @@
 						<textarea name="alert" wrap="soft" maxlength="100" placeholder="Type Your Alert Text Here" id="alertInput"></textarea>
 	
 						
-						<span class="btn" id="alertBtn" onclick="alertMessage()" >Confirm</span>
+						<span id="alertBtn" onclick="alertMessage()">Confirm</span>
 						
 					</div>
 	
@@ -150,7 +150,7 @@
 
 				<br><br>
 
-				<p>Here's one more cool thing, I can put my spotify playlist here, again just click this -> <button onclick="spotifyPlaylist()">Button</button> &lt;- Click it again to remove it</p>
+				<p>Here's one more cool thing, I can put my spotify playlist here, again just click this -> <a class="btn" onclick="spotifyPlaylist()" id="spotifyTgl"><span>Button</span></a> &lt;- Click it again to remove it</p>
 
 				<br>
 
@@ -220,7 +220,7 @@ function spotifyPlaylist() {
 				
 				<br>
 
-				<p>You've seen some cool features website can do, well you can make your own tab in the Interactive Tab. Press Here -> <a href="interactive.html" class="dontInclude" target="_parent"><span class="btn linkbtn">Interactive Page</span></a></p>
+				<p>You've seen some cool features website can do, well you can make your own tab in the Interactive Tab. Press Here -> <a href="interactive.html" class="dontInclude" id="interactiveLink" target="_parent"><span class="btn linkbtn">Interactive Page</span></a></p>
 			</div>
 
 			<div class="x4">

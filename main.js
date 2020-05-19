@@ -9,6 +9,7 @@
  ********************/
 
 //AOS Plugin
+
 AOS.init({
 	duration : 1200
 });
@@ -132,7 +133,7 @@ if (
  ****************************/
 
 var body = document.body;
-randomMargin();
+//randomMargin();
 
 /*************************
  * Random Code Additions *
@@ -172,6 +173,7 @@ function starGeneration() {
 /******************************
  * Random Numbers for Margins *
  *****************************/
+/*
 function randomMargin() {
 	//picks margin-left or margin-right
 	let marginText = [
@@ -233,65 +235,47 @@ function randomMargin() {
 		$(elementClasses[i]).css("margin-" + marginText[i], randomNum[i]);
 		$(elementClasses[i]).css("margin-" + marginText2[i], randomNum2[i]);
 	}
-}
-/*********************************
- * Local Storage To Set Some CSS *
- *********************************/
-
-localStorage.key("backgroundImgSet");
-
-if (localStorage.getItem("backgroundImgSet") === "On") {
-	$("#bgImg").css("visibility", "visible");
-	localStorage.setItem("backgroundImgSet", "On");
-} else if (localStorage.getItem("backgroundImgSet") === "Off") {
-	$("#bgImg").css("visibility", "hidden");
-	$("#bgVideoToggle").text("Turn On");
-	localStorage.setItem("backgroundImgSet", "Off");
-} else {
-	localStorage.setItem("backgroundImgSet", "On");
-}
+}*/
 
 /***********************************
  * Checks What Page the User is In *
  ***********************************/
+//function run
 userCurrentPage();
 
 function userCurrentPage() {
+	//grabs current URL the user is in
 	const CURRENT_URL = $(location).attr("href");
+	//convert it into an encoded string version
 	const CURRENT_PAGE = encodeURIComponent(CURRENT_URL);
+	//regex to figure out which page
 	const PAGE_REGEX = /index|about|interactive|scene/gi;
-	const HOME = CURRENT_PAGE.match(PAGE_REGEX);
-	const navColor = "#000";
+	//takes the encoded URL and try to match it with any of the regex
+	const PAGE_NAME = CURRENT_PAGE.match(PAGE_REGEX);
+	//color so when I want to change it, I don't need to re-do 4 more
+	const NAV_COLOR = "#000";
 
-	console.log(CURRENT_PAGE + " " + HOME);
-	if (HOME == null) {
+	// if there is no page name, that means its index.html
+	if (PAGE_NAME[0] == "index" || PAGE_NAME[0] == null) {// if it is index.html
 		backgroundImg();
-		starGeneration();
-		$("#home span").css("opacity", "1").css("color", navColor);
-		$("#home").css("color", navColor);
-	} else if (HOME[0] == "index") {
-		backgroundImg();
-		console.log("index");
-		starGeneration();
-		$("#home span").css("opacity", "1").css("color", navColor);
-		$("#home").css("color", navColor);
-	} else if (HOME[0] == "about") {
-		console.log("Im in about");
-		$("#about span").css("opacity", "1").css("color", navColor);
-		$("#about").css("color", navColor);
-	} else if (HOME[0] == "interactive") {
-		console.log("im in interactive");
-		$("#interactive span").css("opacity", "1").css("color", navColor);
-		$("#interactive").css("color", navColor);
-	} else if (HOME[0] == "Scene") {
-		$("#scene span").css("opacity", "1").css("color", navColor);
-		$("#scene").css("color", navColor);
+		starGeneration();//generates star in the home page
+		$("#home span").css("opacity", "1").css("color", NAV_COLOR);
+		$("#home").css("color", NAV_COLOR);
+	} else if (PAGE_NAME[0] == "about") {//if it is about.html
+		$("#about span").css("opacity", "1").css("color", NAV_COLOR);
+		$("#about").css("color", NAV_COLOR);
+	} else if (PAGE_NAME[0] == "interactive") {//if it is interactive
+		$("#interactive span").css("opacity", "1").css("color", NAV_COLOR);
+		$("#interactive").css("color", NAV_COLOR);
+	} else if (PAGE_NAME[0] == "Scene") {//if the page is behindScenes.html
+		$("#scene span").css("opacity", "1").css("color", NAV_COLOR);
+		$("#scene").css("color", NAV_COLOR);
 	}
 }
 
-/*****************
- * Nav Bar Hover *
- *****************/
+/*************************
+ * Nav Bar Hover Opacity *
+ *************************/
 for (let cont of document.querySelectorAll("[data-link-hover]")) {
 	let hoverTimeout = null;
 	for (let elem of cont.children) {
@@ -328,6 +312,7 @@ for (let cont of document.querySelectorAll("[data-link-hover]")) {
 localStorage.key("rememberUserName");
 localStorage.key("userName");
 var userNameStore = localStorage.getItem("userName");
+
 var rememberNameStore = localStorage.getItem("rememberUserName");
 
 //Checks if there is a local storage named "rememberUserName" with a value of "yes"
@@ -363,13 +348,15 @@ if (rememberNameStore === "Yes" && userNameStore !== "" && userNameStore !== nul
 	}
 }
 
+//if the name is hovered then the function is run
 //prettier-ignore
 $("#userName").hover(function () {
+	//sets the username 
 	//prettier-ignore
 	localStorage.setItem("userNameChange", userNameStore);
 	var userNameChange = localStorage.getItem("userNameChange")
 	$(this).text("Change Name").addClass("hoverToChange");
-}, function() {
+}, function() {//if its not hovered anymore, put the name back
 	var userNameStore = localStorage.getItem("userName")
 	console.log(userNameStore);
 	$(this).text(userNameStore).removeClass("hoverToChange");
@@ -377,27 +364,35 @@ $("#userName").hover(function () {
 	
 })
 
+// when the user changed the name
 function changeUserName() {
+	//prompt for their name
 	var userName = window.prompt("What is your name?");
+	//stores it in the local storage
 	userNameStore = localStorage.setItem("userName", userName);
 
-	if (userName === "" || userName === null || userName === undefined) {
+	//if username is empty or undefined or the user pressed cancel
+	if (userName === "" || userName == null ) {
+		//the text will become Anonymous User!
 		$("#userName").text("Anonymous User!");
 		localStorage.setItem("userName", "Anonymous User!");
-	} else {
+	} else {//if the user puts an actual name
 		$("#userName").text(userName);
 
+		//asks if user wants the name being stored in the local storage
 		if (confirm("Do you want the browser to save your name for your next visit?")) {
 			localStorage.setItem("rememberUserName", "Yes");
 			console.log(userName);
 			localStorage.setItem("userName", userName);
-		} else {
+		} else {//if no, the next visit, the page will ask for name again
 			console.log(userName);
 			localStorage.setItem("rememberUserName", "No");
 			localStorage.setItem("userName", userName);
 		}
 	}
 }
+
+//random var declarations
 
 var switchText = document.getElementById("innerSwitch");
 var navBar = document.getElementsByTagName("nav");
@@ -465,6 +460,7 @@ function ifEnterIsPressed(elementPicked, funcCallback) {
 	});
 }*/
 
+//if enter is pressed on element picked, the function will run
 function ifEnterIsPressed(elementSelector, funcCallback) {
 	$(elementSelector).on("keyup", (event) => {
 		if (event.keyCode === 13) {
@@ -475,71 +471,6 @@ function ifEnterIsPressed(elementSelector, funcCallback) {
 	});
 }
 
-/*******************************************
- * Background Image on Introduction Toggle *
- *******************************************/
-
-function bgVideo() {
-	let bgVisible = $("#bgImg").css("visibility");
-
-	if (bgVisible === "hidden") {
-		$("#bgImg").css("visibility", "visible");
-		$("#bgVideoToggle").text("Turn Off");
-		localStorage.setItem("backgroundImgSet", "On");
-	} else {
-		$("#bgImg").css("visibility", "hidden");
-		$("#bgVideoToggle").text("Turn On");
-		localStorage.setItem("backgroundImgSet", "Off");
-	}
-}
-
-/***************************
- * Background Image Change *
- ***************************/
-function backgroundImg() {
-	var urlInput = document.getElementById("bgImgInput");
-	var urlInputValue = $(urlInput).val();
-	var urlConfirm = document.getElementById("urlInputConfirm");
-	var validationMsg = $("#validationMsg");
-
-	function bgImgChange() {
-		var urlValue = $("#bgImgInput").val();
-		var urlCheck = is_url(urlValue);
-
-		if (urlCheck === true) {
-			$("#bgImg").attr("src", urlValue);
-			$("#validationMsg").css("display", "none");
-			bgImgInputRmv();
-		} else {
-			$("#validationMsg").css("display", "inline");
-		}
-	}
-
-	
-	ifEnterIsPressed(urlInput, bgImgChange);
-
-	function bgImgInput() {
-		$("#bgImgInput").css("display", "inline");
-		$("#urlInputConfirm").css("display", "inline");
-	}
-
-	function bgImgInputRmv() {
-		$("bgImg").attr("src", urlInputValue);
-		$("#bgImgInput").css("display", "none");
-		$("#urlInputConfirm").css("display", "none");
-	}
-
-	//checks url validity
-	function is_url(str) {
-		var regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-
-		if (regexp.test(str)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-}
 /********************
  * Spotify Playlist *
  ********************/
