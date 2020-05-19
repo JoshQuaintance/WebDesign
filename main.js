@@ -276,7 +276,7 @@ function userCurrentPage() {
 		$("#scene").css("color", NAV_COLOR);
 	}
 }
-
+// Nav Bar Hover Effect
 /*************************
  * Nav Bar Hover Opacity *
  *************************/
