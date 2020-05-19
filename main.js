@@ -256,18 +256,22 @@ function userCurrentPage() {
 	const NAV_COLOR = "#000";
 
 	// if there is no page name, that means its index.html
-	if (PAGE_NAME[0] == "index" || PAGE_NAME[0] == null) {// if it is index.html
-		
-		starGeneration();//generates star in the home page
+	if (PAGE_NAME == null || PAGE_NAME[0] == "index") {
+		// if it is index.html
+
+		starGeneration(); //generates star in the home page
 		$("#home span").css("opacity", "1").css("color", NAV_COLOR);
 		$("#home").css("color", NAV_COLOR);
-	} else if (PAGE_NAME[0] == "about") {//if it is about.html
+	} else if (PAGE_NAME[0] == "about") {
+		//if it is about.html
 		$("#about span").css("opacity", "1").css("color", NAV_COLOR);
 		$("#about").css("color", NAV_COLOR);
-	} else if (PAGE_NAME[0] == "interactive") {//if it is interactive
+	} else if (PAGE_NAME[0] == "interactive") {
+		//if it is interactive
 		$("#interactive span").css("opacity", "1").css("color", NAV_COLOR);
 		$("#interactive").css("color", NAV_COLOR);
-	} else if (PAGE_NAME[0] == "Scene") {//if the page is behindScenes.html
+	} else if (PAGE_NAME[0] == "Scene") {
+		//if the page is behindScenes.html
 		$("#scene span").css("opacity", "1").css("color", NAV_COLOR);
 		$("#scene").css("color", NAV_COLOR);
 	}
@@ -372,11 +376,12 @@ function changeUserName() {
 	userNameStore = localStorage.setItem("userName", userName);
 
 	//if username is empty or undefined or the user pressed cancel
-	if (userName === "" || userName == null ) {
+	if (userName === "" || userName == null) {
 		//the text will become Anonymous User!
 		$("#userName").text("Anonymous User!");
 		localStorage.setItem("userName", "Anonymous User!");
-	} else {//if the user puts an actual name
+	} else {
+		//if the user puts an actual name
 		$("#userName").text(userName);
 
 		//asks if user wants the name being stored in the local storage
@@ -384,7 +389,8 @@ function changeUserName() {
 			localStorage.setItem("rememberUserName", "Yes");
 			console.log(userName);
 			localStorage.setItem("userName", userName);
-		} else {//if no, the next visit, the page will ask for name again
+		} else {
+			//if no, the next visit, the page will ask for name again
 			console.log(userName);
 			localStorage.setItem("rememberUserName", "No");
 			localStorage.setItem("userName", userName);
