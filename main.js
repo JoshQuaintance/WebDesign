@@ -257,7 +257,7 @@ function userCurrentPage() {
 
 	// if there is no page name, that means its index.html
 	if (PAGE_NAME[0] == "index" || PAGE_NAME[0] == null) {// if it is index.html
-		backgroundImg();
+		
 		starGeneration();//generates star in the home page
 		$("#home span").css("opacity", "1").css("color", NAV_COLOR);
 		$("#home").css("color", NAV_COLOR);
